@@ -1,0 +1,45 @@
+/* Exam: setup, running paper with timer and palette, results and history. */
+.field { display: grid; gap: 8px; margin-top: 18px; }
+.field .lbl { font: 600 11.5px var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.lead { max-width: 62ch; margin: 6px 0 0; color: var(--muted); }
+
+.exambar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
+.exambar + .palette { margin-top: 12px; }
+.timer { font: 600 18px var(--font-mono); font-variant-numeric: tabular-nums; }
+.timer.low { color: var(--bad); }
+
+.palette { display: flex; flex-wrap: wrap; gap: 4px; }
+.pcell { position: relative; display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--muted); font: 500 11px var(--font-mono); }
+.pcell.done { border-color: var(--ink); background: var(--ink); color: var(--surface); }
+.pcell.cur { outline: 2px solid var(--chip); outline-offset: 1px; }
+.pcell.flag::after { content: ""; position: absolute; top: -3px; right: -3px; width: 8px; height: 8px; border: 1.5px solid var(--surface); border-radius: 50%; background: var(--chip); }
+.pcell.r-ok { border-color: var(--ok); background: var(--ok); color: var(--surface); }
+.pcell.r-no { border-color: var(--bad); background: var(--bad); color: var(--surface); }
+
+.bigscore { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin: 8px 0 4px; }
+.bigscore b { font: 750 56px/1 var(--font-display); font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
+.bigscore b small { font-size: 26px; font-weight: 600; color: var(--muted); }
+.stats3 { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 10px 0 18px; font-size: 13.5px; color: var(--muted); }
+.stats3 .mono { font-weight: 600; color: var(--ink); }
+
+.hist { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.hist li { display: grid; grid-template-columns: minmax(0, 1fr) 90px 52px; gap: 12px; align-items: center; font-size: 13px; }
+.hist .hb { height: 6px; overflow: hidden; border-radius: 3px; background: var(--sunk); }
+.hist .hb i { display: block; height: 100%; background: var(--ok); }
+.hist .hb i.lowv { background: var(--bad); }
+.hist .pc { font: 600 13px var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; }
+
+details.rev { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+details.rev > summary { display: grid; grid-template-columns: 22px 36px minmax(0, 1fr); gap: 10px; align-items: start; padding: 12px 14px; list-style: none; cursor: pointer; }
+details.rev > summary::-webkit-details-marker { display: none; }
+details.rev .rk { font: 700 15px var(--font-mono); }
+details.rev.ok .rk { color: var(--ok); }
+details.rev.no .rk { color: var(--bad); }
+details.rev .rn { padding-top: 2px; font: 500 12.5px var(--font-mono); color: var(--muted); }
+details.rev .rq { min-width: 0; font-weight: 500; }
+details.rev .rbody { padding: 0 14px 14px 82px; }
+
+@media (max-width: 640px) {
+  .hist li { grid-template-columns: minmax(0, 1fr) 60px 46px; }
+  details.rev .rbody { padding-left: 14px; }
+}

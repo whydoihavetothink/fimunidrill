@@ -1,0 +1,44 @@
+/* Page frame: a study desk. Question card on the left, progress rail on the right;
+   one column on narrow screens. */
+.app { max-width: 1200px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 18px 40px; }
+
+.top { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; margin-right: auto; }
+.brand svg { flex: none; }
+.brand .pad { fill: var(--chip); }
+.brand .lines { fill: none; stroke: var(--paper); stroke-width: 1.4; }
+.brand h1 { margin: 0; font: 750 23px/1 var(--font-display); letter-spacing: -0.015em; }
+.brand p { margin: 4px 0 0; font-size: 12.5px; color: var(--muted); }
+
+.sets { display: flex; flex-wrap: wrap; gap: 6px; }
+.setbtn { display: grid; gap: 1px; min-width: 128px; padding: 8px 12px 9px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-align: left; }
+.setbtn:hover:not(:disabled) { border-color: var(--line-strong); }
+.setbtn:disabled { opacity: 0.45; cursor: not-allowed; }
+.setbtn[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.setbtn .nm { font-weight: 600; font-size: 13.5px; }
+.setbtn .sub { font: 11.5px var(--font-mono); font-variant-numeric: tabular-nums; color: var(--muted); }
+.meter { display: flex; height: 3px; margin-top: 6px; overflow: hidden; border-radius: 2px; background: var(--sunk); }
+.meter i { display: block; height: 100%; }
+
+.views { display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--sunk); }
+.views button { padding: 7px 15px; border-radius: 8px; font-weight: 500; font-size: 14px; color: var(--muted); }
+.views button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px; align-items: start; }
+.layout.single { grid-template-columns: minmax(0, 1fr); max-width: 860px; margin-inline: auto; }
+.main, .stack { display: grid; gap: 14px; min-width: 0; }
+.side { display: grid; gap: 14px; min-width: 0; }
+@media (max-width: 940px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+}
+
+.foot { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+
+@media (max-width: 640px) {
+  .top { gap: 12px; }
+  .sets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
+  .setbtn { min-width: 0; padding: 7px 9px 8px; }
+  .setbtn .nm { overflow: hidden; font-size: 12.5px; white-space: nowrap; text-overflow: ellipsis; }
+  .views { width: 100%; }
+  .views button { flex: 1 1 0; }
+}

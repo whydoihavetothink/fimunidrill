@@ -1,0 +1,23 @@
+/* Browse list and the read-only answer list it shares with exam results. */
+.btools { display: grid; gap: 12px; }
+.search { width: 100%; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); font: inherit; font-size: 15px; }
+.search::placeholder { color: var(--muted); }
+.btoolrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.bcount { margin: 0; font-size: 13px; color: var(--muted); }
+
+.blist { display: grid; gap: 10px; }
+.bitem { min-width: 0; padding: 14px 18px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.bhead { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.bq { margin: 8px 0 10px; font-weight: 600; font-size: 15.5px; }
+
+.ans { display: grid; gap: 5px; margin: 0; padding: 0; list-style: none; font-size: 14px; }
+.ans li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 8px; color: var(--muted); }
+.ans li .ic { font: 700 13px var(--font-mono); text-align: center; }
+.ans li.r { font-weight: 500; color: var(--ink); }
+.ans li.r .ic { color: var(--ok); }
+.ans li.pick .ic { color: var(--bad); }
+.ans li.pick.r .ic { color: var(--ok); }
+.ans .dnote, .ans .you { margin-left: 6px; font: 600 10px var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
+.ans .dnote { padding: 1px 5px; border-radius: 4px; background: var(--chip-soft); color: var(--chip-ink); }
+.ans .you { color: var(--muted); }
+mark { border-radius: 2px; background: var(--chip-soft); color: inherit; }
