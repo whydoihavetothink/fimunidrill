@@ -12,6 +12,19 @@ Other scripts:
 - `npm run build`: production build into `dist/`. `npm run preview` serves it.
 - `npm run questions`: re-downloads the three datasets and regenerates `src/data/questions.json`. Pass a directory to read local copies instead: `npm run questions -- ./downloads`.
 
+## Deploying to GitHub Pages
+
+The build is plain static files, and asset paths are relative, so it works at any URL path. `.github/workflows/deploy.yml` builds the app and publishes it on every push to `main`.
+
+1. Create a GitHub repo and push this folder to its `main` branch.
+2. In the repo, go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
+3. Push again, or run the workflow from the **Actions** tab.
+
+The repo name decides the URL:
+
+- A repo named `pv157-drill` is served at `https://whydoihavetothink.github.io/pv157-drill/`.
+- A repo named `whydoihavetothink.github.io` is served at the root, `https://whydoihavetothink.github.io/`.
+
 Progress is stored in the browser (localStorage). Use **Export progress** and **Import…** in the sidebar to back it up or move it to another browser.
 
 ## Layout
