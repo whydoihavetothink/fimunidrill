@@ -1,5 +1,6 @@
 import { useDeferredValue } from "react";
-import { DISPUTED, SEARCH_TEXT, SET_LISTS, fold } from "../../lib/bank.js";
+import { DISPUTED, SEARCH_TEXT, SET_LISTS, fold, inLecture } from "../../lib/bank.js";
+import LecturePicker from "../../components/LecturePicker.jsx";
 import { isFlagged, statusOf } from "../../lib/progress.js";
 import BrowseItem from "./BrowseItem.jsx";
 
@@ -28,7 +29,9 @@ export default function BrowseView({ P, setKey, browse, onChange, onOpen }) {
   const query = useDeferredValue(browse.q);
   const term = fold(query.trim());
   const list = SET_LISTS[setKey];
-  const items = list.filter((qi) => (!term || SEARCH_TEXT[qi].includes(term)) && matches(P, qi, browse.f));
+  const items = list.filter(
+    (qi) => inLecture(qi, browse.lec) && (!term || SEARCH_TEXT[qi].includes(term)) && matches(P, qi, browse.f),
+  );
 
   return (
     <>
@@ -50,6 +53,7 @@ export default function BrowseView({ P, setKey, browse, onChange, onOpen }) {
               </button>
             ))}
           </div>
+          <LecturePicker id="browse-lec" value={browse.lec || "all"} onChange={(lec) => onChange({ lec })} />
           <label className="toggle" htmlFor="browse-answers">
             <input id="browse-answers" type="checkbox" checked={browse.answers} onChange={(e) => onChange({ answers: e.target.checked })} />
             Show answers

@@ -3,7 +3,7 @@
 //
 // entry: { v: visited, n: attempts, c: right, w: wrong, b: right-in-a-row,
 //          l: last answer right (1/0), t: last change, f: flagged, o: chosen key }
-import { DISPUTED, QUESTIONS, SET_LISTS } from "./bank.js";
+import { DEFAULT_SET, DISPUTED, LECTURE_BY_ID, QUESTIONS, SET_LISTS, keySetFor } from "./bank.js";
 import { MODES } from "./modes.js";
 
 export const MASTER = 3;
@@ -23,7 +23,7 @@ export function blankProgress() {
     v: 1,
     q: {},
     exams: [],
-    prefs: { set: "A", mode: "smart", count: false, cur: {}, exam: { n: 20, from: "all", timed: false } },
+    prefs: { set: DEFAULT_SET, mode: "smart", lec: "all", count: false, cur: {}, exam: { n: 8, from: "all", timed: true, lec: "all" } },
   };
 }
 
@@ -39,6 +39,7 @@ export function normalizeProgress(raw) {
   const p = raw.prefs && typeof raw.prefs === "object" ? raw.prefs : {};
   if (SET_LISTS[p.set]) out.prefs.set = p.set;
   if (MODES[p.mode]) out.prefs.mode = p.mode;
+  if (LECTURE_BY_ID[p.lec]) out.prefs.lec = p.lec;
   out.prefs.count = !!p.count;
   if (p.cur && typeof p.cur === "object") out.prefs.cur = { ...p.cur };
   if (p.exam && typeof p.exam === "object") out.prefs.exam = { ...out.prefs.exam, ...p.exam };
@@ -75,7 +76,8 @@ export const isFlagged = (P, qi) => !!P.q[QUESTIONS[qi].i]?.f;
 // The set's own key for a question (falls back to any set that has it).
 export function ownKey(qi, setKey) {
   const k = QUESTIONS[qi].k;
-  return k[setKey] != null ? k[setKey] : Object.values(k)[0];
+  const own = keySetFor(setKey);
+  return k[own] != null ? k[own] : k.S != null ? k.S : Object.values(k)[0];
 }
 
 // The key used for grading: the user's chosen key for disputed questions, else the set's.

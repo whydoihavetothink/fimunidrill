@@ -1,0 +1,5594 @@
+{
+ "28e601b540": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     5,
+     7,
+     39
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Přednáška dělí řízení přístupu podle správy na centralizované/decentralizované, podle politiky na volitelné (DAC)/povinné (MAC) a podle uložení matice na seznamy oprávnění (C-list, capabilities)/ACL. Dělení „pravidly/náhodné“, „synchronní/asynchronní“ ani „symetrické/asymetrické“ se pro modely řízení přístupu nepoužívá.",
+  "opts": [
+   "Správně – takové dělení modelů řízení přístupu v přednášce neexistuje (náhodné řízení přístupu nedává smysl).",
+   "Špatně – toto dělení se používá: matici lze ukládat po subjektech (capabilities, C-list) nebo po objektech (ACL), slajd 7.",
+   "Správně – synchronní/asynchronní je pojem z komunikace, ne dělení modelů řízení přístupu.",
+   "Správně – symetrické/asymetrické je dělení kryptografie, ne modelů řízení přístupu.",
+   "Špatně – volitelný (discretionary) vs. povinný (mandatory) přístup je základní dělení politik (slajd 39).",
+   "Špatně – centralizovaná vs. decentralizovaná správa řízení přístupu je na slajdu 5."
+  ],
+  "note": ""
+ },
+ "3a781f70a1": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     11,
+     12
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "SDA „potvrzuje pravost statických dat uložených v čipové kartě“ a je „prováděna terminálem (čip pouze zasílá potřebná data)“. Karta nic nepočítá, proto SDA nedokáže odhalit kopii karty – padělání/duplikace zůstává nevyřešena.",
+  "opts": [
+   "Správně – SDA ověřuje jen podpis statických aplikačních dat uložených v čipu.",
+   "Správně – ověření provádí terminál, čip jen posílá podepsaná data a certifikát vydavatele.",
+   "Špatně – slajd výslovně uvádí „padělání/duplikace čipových karet nevyřešena“; statická data lze zkopírovat.",
+   "Špatně – dynamická data od terminálu ověřuje až DDA, ne SDA.",
+   "Špatně – je to naopak, SDA provádí terminál, ne karta.",
+   "Špatně – SDA nepracuje s žádnými dynamickými daty, ta podepisuje karta až u DDA/CDA."
+  ],
+  "note": ""
+ },
+ "2b14df129a": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     15
+    ]
+   },
+   {
+    "l": "L03",
+    "s": [
+     12
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "reasoned",
+  "why": "Slajdy zmiňují jen to, že pasy provádějí pasivní a aktivní autentizaci podobně jako SDA/DDA; detail EAC v nich není. Autentizace čipu (Chip Authentication) v rámci EAC je založena na dohodě klíčů Diffie-Hellman (statický DH klíč čipu + efemérní klíč terminálu), z níž se odvodí relační klíče; čip tím prokáže znalost soukromého klíče.",
+  "opts": [
+   "Špatně – SHA-1 a 3DES se používají u BAC (odvození klíčů z MRZ a zabezpečený kanál), ne jako princip autentizace čipu v EAC.",
+   "Správně – Chip Authentication je statická dohoda klíčů Diffie-Hellman (klasický nebo ECDH).",
+   "Špatně – podpis typu DSA/RSA odpovídá spíše aktivní autentizaci (AA), ne Chip Authentication v EAC.",
+   "Špatně – protokol Fiat-Shamir (zero knowledge) se u e-pasů nepoužívá.",
+   "Špatně – PGP je nástroj pro šifrování a podepisování e-mailů, s e-pasy nesouvisí.",
+   "Špatně – SHA-2 a AES mohou sloužit pro zabezpečený kanál, samy ale autentizaci čipu neprovádějí."
+  ],
+  "note": ""
+ },
+ "7041949bf8": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     15
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Data v pasu jsou podepsána klíčem Document Signer vydávající země a DS certifikát je uložen přímo v pasu (v SOD). Tento certifikát je podepsán CSCA vydávající země (Japonska) a CSCA certifikát musí ověřující stát získat předem důvěryhodnou cestou (diplomaticky/PKD), nikdy ne z pasu nebo od držitele. Slajdy uvádějí jen analogii pasivní autentizace s SDA (PKI, CA).",
+  "opts": [
+   "Špatně – potřebujeme kořen důvěry země, která pas vydala (Japonsko), ne CSCA ČR.",
+   "Špatně – certifikát od držitele (CD/USB) by mohl být podvržený, kořen důvěry nelze přijmout od ověřovaného.",
+   "Správně – CSCA Japonska je kořenová autorita a musí být získána předem důvěryhodným (diplomatickým) kanálem.",
+   "Správně – DS certifikát je uložen v čipu pasu a ověří se proti CSCA certifikátu.",
+   "Špatně – CSCA certifikát z pasu by nebyl důvěryhodný (útočník by si mohl vytvořit vlastní CSCA).",
+   "Špatně – DS certifikát je v pasu, držitel nic nenosí."
+  ],
+  "note": ""
+ },
+ "227d77433b": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     9
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   4,
+   5
+  ],
+  "conf": "slides",
+  "why": "Slajd „Další omezení – Prevence“ uvádí dostupnost vybavení, modifikaci běžně dostupného vybavení (kopírky nekopírují určité barvy a vkládají identifikátor), kontrolu a licence živností a utajení určitých informací ke konstrukci tokenu.",
+  "opts": [
+   "Správně – kopírky „nekopírují přesně určité barvy“ a „vnášejí svůj identifikátor do obrazu“.",
+   "Špatně – slajd mluví o utajení „určitých“ informací; utajit všechny prakticky nelze.",
+   "Správně – „utajení určitých informací (k používání nebo vlastní konstrukci tokenu)“.",
+   "Špatně – čestné prohlášení uživatelů není technické ani organizační opatření proti padělání.",
+   "Správně – „kontrola a licence živností“ je uvedena mezi preventivními opatřeními.",
+   "Správně – omezení „dostupnosti vybavení“ je první bod prevence."
+  ],
+  "note": ""
+ },
+ "cf42d901a6": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     13
+    ]
+   }
+  ],
+  "key": [
+   4,
+   5
+  ],
+  "conf": "slides",
+  "why": "Slajd „Časově proměnné parametry“ uvádí tři typy: náhodná čísla (r), sekvenční čísla – monotonně rostoucí posloupnost (n) a časová razítka (t). Z nabídnutých možností správně odpovídají jen náhodná čísla a časová razítka.",
+  "opts": [
+   "Špatně – slajd mluví o „monotonně“ rostoucí sekvenci; „monoliticky“ rostoucí je terminologický chyták.",
+   "Špatně – komplexní čísla se jako časově proměnné parametry nepoužívají.",
+   "Špatně – sekvence jsou monotonně rostoucí, ne náhodné.",
+   "Špatně – časová razítka nejsou náhodná, obě strany musí mít synchronizované hodiny.",
+   "Správně – náhodná (pseudonáhodná) čísla zajišťují jedinečnost a čerstvost.",
+   "Správně – časová razítka zajišťují jedinečnost a časovou přesnost."
+  ],
+  "note": ""
+ },
+ "665e4e2e4b": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     4
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3
+  ],
+  "conf": "slides",
+  "why": "Při jednofaktorové autentizaci heslem slajd uvádí tyto mechanismy proti jednodušším útokům: testy délky a kvality hesla, virtuální klávesnici a „SSL certifikáty & personalizovaný login“ proti podvržené přihlašovací stránce. Anonymizovaný login ani SSH certifikáty mezi ně nepatří.",
+  "opts": [
+   "Správně – nepatří tam; slajd uvádí naopak personalizovaný login.",
+   "Špatně – patří tam, „testy délky a kvality hesla“.",
+   "Špatně – patří tam, virtuální klávesnice brání elementárním keyloggerům.",
+   "Správně – nepatří tam; SSH se v e-bankovnictví přes prohlížeč nepoužívá, slajd uvádí SSL certifikáty.",
+   "Špatně – patří tam, personalizovaný login pomáhá odhalit falešnou stránku.",
+   "Špatně – patří tam, SSL certifikáty umožňují detekovat falešnou adresu."
+  ],
+  "note": ""
+ },
+ "e85cb46d08": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     21,
+     22,
+     23
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slajd „Dopady a protiopatření“: „Úspěšné odposlechnutí dat z terminálu vede k získání PINu a přesné kopie mag. proužku“. Modifikace nepodepsaných CVM je uvedena zvlášť pod „Aktivní ovlivňování terminálu“, nejde tedy o důsledek samotného odposlechu.",
+  "opts": [
+   "Špatně – slajdy neuvádějí získání bankovních klíčů ze sběrnice; odposlouchává se komunikace s kartou (PIN, data proužku).",
+   "Špatně – úprava nepodepsaného seznamu CVM vyžaduje aktivní zásah do komunikace (slajd ji řadí pod „aktivní ovlivňování“), ne pouhý odposlech.",
+   "Správně – u SDA karet je v čipu uložena přesná kopie mag. proužku, kterou lze odposlechnout.",
+   "Správně – u SDA terminál PIN nešifruje, takže je na sběrnici v čitelné podobě.",
+   "Špatně – o narušení anonymity slajdy nemluví, cílem útoku je PIN a data karty.",
+   "Špatně – podepsaný seznam CVM odposlechem modifikovat nelze; útok na podepsané CVM vyžaduje plný M-i-t-M."
+  ],
+  "note": "Sada A má navíc možnost 1 (modifikace nepodepsaného CVM). Podle slajdu 23 jde ale o „aktivní ovlivňování terminálu“, ne o důsledek odposlechu. Otázka je sporná: pokud ji zadavatel myslel šířeji (napojení na sběrnici), mohla by být uznána i možnost 1."
+ },
+ "89403db607": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     12
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3,
+   4
+  ],
+  "conf": "reasoned",
+  "why": "RFID není ve slajdech podrobně rozebráno (L03 jen uvádí, že u bezkontaktních karet mohou probíhat operace bez vědomí uživatele). Za základní bezpečnostní problémy RFID se v literatuře (např. Juels) považují soukromí (sledování a čtení tagu bez vědomí majitele) a autentizace (klonování, podvržení tagu). Kvůli rádiovému přenosu k nim patří i interference (rušení, kolize).",
+  "opts": [
+   "Správně – rádiová komunikace je náchylná na rušení a kolize (jamming, interference).",
+   "Špatně – idempotence je vlastnost operací, ne bezpečnostní problém RFID.",
+   "Špatně – „nepolapitelnost“ není bezpečnostní problém RFID.",
+   "Správně – levné tagy se obtížně autentizují, lze je klonovat a podvrhnout.",
+   "Správně – tag lze přečíst bez vědomí majitele a sledovat ho, proto je soukromí hlavní problém.",
+   "Špatně – nepopiratelnost se u RFID tagů jako základní problém neuvádí."
+  ],
+  "note": ""
+ },
+ "44336ade61": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     4,
+     21,
+     23,
+     28,
+     33
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "conf": "slides",
+  "why": "Slajdy uvádějí jako problémy nedostatečnou odolnost platebních terminálů, zasílání karet a PINů poštou (PIN lze vyčíst, údaje embosované karty zkopírovat), nutnost aplikovat autorizační mechanismy na citlivé operace a přesun útočníků k sociálnímu inženýrství (vishing).",
+  "opts": [
+   "Špatně – banky používají hlavně symetrickou kryptografii (3DES, HSM); popsaná kombinace není uváděna jako problém.",
+   "Správně – „autorizační mechanizmy nutno aplikovat na citlivé operace“; dodatečná autorizace jen u některých operací je slabina.",
+   "Správně – „Odolnost terminálů proti průnikům nedostatečná“.",
+   "Špatně – autentizační kalkulátory jsou ochranné opatření (OTP, 2FA), ne problém.",
+   "Správně – PSD3 reaguje na útoky na lidský faktor (sociální inženýrství, vishing).",
+   "Správně – „Zasílání PINů/karet poštou je problematické“, údaje embosované karty lze zkopírovat."
+  ],
+  "note": ""
+ },
+ "c262f82f6a": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     13
+    ]
+   }
+  ],
+  "key": [
+   1,
+   4,
+   5
+  ],
+  "conf": "slides",
+  "why": "L07 slajd 13: „Použitím náhodných čísel zajišťujeme jedinečnost a aktuálnost/čerstvost“. Ostatní vlastnosti nesouvisejí s účelem nonce v protokolech.",
+  "opts": [
+   "Špatně – uváznutí a stárnutí jsou pojmy z plánování procesů, ne z protokolů.",
+   "Správně – aktuálnost je výslovně uvedena.",
+   "Špatně – nezvratnost (nepopiratelnost) zajišťuje digitální podpis, ne náhodné číslo.",
+   "Špatně – stálost a stabilita nejsou vlastnosti zajišťované náhodnými čísly.",
+   "Správně – čerstvost (freshness) je výslovně uvedena.",
+   "Správně – jedinečnost je výslovně uvedena."
+  ],
+  "note": ""
+ },
+ "9392aa31d5": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     73
+    ]
+   }
+  ],
+  "key": [
+   0,
+   4
+  ],
+  "conf": "slides",
+  "why": "RBAC „není ani volitelné ani povinné řízení přístupu, ale samostatná kategorie“; uživatelům se přiřazují role (i více rolí) a role nesou jemně specifikovaná práva. Role jsou ale specifické pro každý IS a jasný systém rolí a rozdělení uživatelů se vytváří obtížně.",
+  "opts": [
+   "Správně – „Uživatelům jsou přiřazeny role (uživatel může mít více rolí)“.",
+   "Špatně – BAC u e-pasů je Basic Access Control, s RBAC nesouvisí.",
+   "Špatně – RBAC je aktuální model řízení přístupu (např. Oracle), ne koncept ochrany soukromí.",
+   "Špatně – stránkování je správa paměti a role nenahrazuje.",
+   "Správně – RBAC je samostatná kategorie, ani DAC, ani MAC.",
+   "Špatně – slajd naopak říká, že není snadné vytvořit systém rolí a rozdělit do nich uživatele; standardní metodika neexistuje."
+  ],
+  "note": ""
+ },
+ "89cc16519a": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     13,
+     14
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   5
+  ],
+  "conf": "slides",
+  "why": "U DDA jsou „kryptografické operace prováděny terminálem i kartou“. Karta má vlastní pár RSA klíčů a podepisuje náhodnou výzvu terminálu, čímž DDA „detekuje padělané/duplikované karty“. Potvrzuje pravost statických dat i dat obdržených z terminálu.",
+  "opts": [
+   "Správně – soukromý klíč karty nelze zkopírovat, takže DDA odhalí padělky a duplikáty.",
+   "Špatně – to platí pro SDA; DDA ověřuje i dynamická data.",
+   "Správně – operace provádí terminál i karta (protokol výzva-odpověď).",
+   "Špatně – klíčová jsou dynamická data (výzva) od terminálu, která karta podepíše. Slajd sice zmiňuje i data „generovaná v čipové kartě“, zamýšlené rozlišení je ale terminál vs. čip.",
+   "Špatně – DDA neprovádí jen karta, ověřuje terminál.",
+   "Správně – „potvrzuje pravost … dat obdržených z terminálu“ (náhodná výzva)."
+  ],
+  "note": ""
+ },
+ "91392c463a": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     31,
+     71
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3,
+   4
+  ],
+  "conf": "slides",
+  "why": "Podle slajdu 31 zaručený elektronický podpis (a) je jednoznačně spojen s podepisující osobou, (b) umožňuje její identifikaci, (c) je vytvořen daty pod výhradní kontrolou podepisujícího a (d) je k datům připojen tak, že lze zjistit jakoukoli následnou změnu. „Zaručený“ neznamená finanční záruku.",
+  "opts": [
+   "Špatně – podpis identifikuje, neautorizuje osobu; autorizace je jiný pojem.",
+   "Správně – bod b) „umožňuje identifikaci podepisující osoby“.",
+   "Špatně – „zaručený“ neznamená žádnou finanční záruku.",
+   "Správně – bod d) umožňuje zjistit jakoukoli následnou změnu dat.",
+   "Správně – bod a) „je jednoznačně spojen s podepisující osobou“.",
+   "Špatně – „jednoznačně ověřitelný“ mezi zákonnými podmínkami zaručeného podpisu na slajdu 31 není."
+  ],
+  "note": "Všechny sady (A, M, B) mají i možnost 5 „jednoznačně ověřitelný“. Tato podmínka ale ve výčtu na L05 slajdu 31 (ani ve starém zákoně 227/2000 Sb.) není, varuje před tím i kviz. Ověřitelnost je spíš obecná vlastnost podpisu, takže zadavatel ji mohl uznat."
+ },
+ "62c8acb751": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     36
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3,
+   5
+  ],
+  "conf": "slides",
+  "why": "Slajd 36 uvádí jako kryptografické hašovací funkce MD4, MD5, SHA-1, SHA-2 a SHA-3. RSA je asymetrický algoritmus pro šifrování a podpis, AES blokovou šifru a RC4 proudovou šifru.",
+  "opts": [
+   "Správně – RSA je asymetrický kryptosystém (podpis/šifrování), ne hašovací funkce.",
+   "Špatně – MD5 je hašovací funkce (128 bitů).",
+   "Špatně – SHA-1 je hašovací funkce (160 bitů).",
+   "Správně – AES je bloková symetrická šifra.",
+   "Špatně – MD4 je (zastaralá) hašovací funkce.",
+   "Správně – RC4 je proudová šifra."
+  ],
+  "note": ""
+ },
+ "fbff126659": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     13
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Smyslem parametrů v protokolech je odlišit nový běh od starého, proto se používají časově proměnné parametry (náhodná čísla, sekvence, časová razítka). Časově konstantní parametry jako zvláštní kategorie neexistují a ostatní možnosti jsou smyšlené pojmy.",
+  "opts": [
+   "Správně – žádná z uvedených možností není časově konstantní parametr používaný v protokolech.",
+   "Špatně – monotonně rostoucí sekvence jsou časově proměnné; „borcení časové osy“ je nesmysl.",
+   "Špatně – „keksík“ s XOR -1 je smyšlený pojem.",
+   "Špatně – komplexní čísla se v protokolech jako parametry nepoužívají.",
+   "Špatně – sekvenční číslo je časově proměnný parametr (mění se s každou zprávou).",
+   "Špatně – časová razítka jsou časově proměnná a nejsou náhodná."
+  ],
+  "note": ""
+ },
+ "26a1293c79": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     12
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   5
+  ],
+  "conf": "reasoned",
+  "why": "Slajdy techniky ochrany soukromí RFID nepopisují. Standardní techniky (Juels) jsou: zničení/deaktivace tagu (kill), stínění/rušení, selektivní blokování (blocker tag) a přepisování nebo změna identifikátoru (re-naming, pseudonymy), protože levné tagy na náročnou kryptografii nestačí.",
+  "opts": [
+   "Správně – selektivní blokování (blocker tag) brání čtení vybraných tagů.",
+   "Správně – deaktivace (kill příkaz) nebo rušení/stínění tagu je základní technika.",
+   "Špatně – asymetrická kryptografie je pro levné pasivní tagy příliš náročná a jako základní technika se neuvádí.",
+   "Špatně – anonymní protokoly mezi stranami nejsou základní technikou ochrany soukromí tagů.",
+   "Špatně – existenci tagu nelze utajit, čtečka ho detekuje; nejde o techniku ochrany.",
+   "Správně – změna jedinečného identifikátoru brání sledování tagu."
+  ],
+  "note": ""
+ },
+ "bee5f82029": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     60,
+     61
+    ]
+   }
+  ],
+  "key": [
+   2,
+   4,
+   5
+  ],
+  "conf": "slides",
+  "why": "Problémy MLS podle slajdů: jak klasifikovat data (sklon k příliš striktní klasifikaci), náročná administrace, drahý vývoj, omezování uživatele, snižování klasifikace a propojování MLS různých typů (např. USA vs. UK).",
+  "opts": [
+   "Špatně – nestabilita aplikací mezi problémy MLS uvedena není.",
+   "Špatně – „nevhodné chování procesů“ slajdy neuvádějí.",
+   "Správně – „Administrace je náročná“.",
+   "Špatně – nástroje existují (Trusted Solaris, SE Linux…); problémem je náročnost, ne absence nástrojů.",
+   "Správně – „Jak propojit MLS jednoho typu s MLS jiného typu?“",
+   "Správně – „Jak klasifikovat data?“, „Tendence k příliš striktní klasifikaci“."
+  ],
+  "note": ""
+ },
+ "984c0e94ba": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     10
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3,
+   4
+  ],
+  "conf": "slides",
+  "why": "Slajd „Druhy hesel“ uvádí hesla skupinová, unikátní pro danou osobu, neunikátní (používaná s userid) a jednorázová.",
+  "opts": [
+   "Správně – jednorázová hesla jsou 4. druh.",
+   "Špatně – veřejné heslo nedává smysl, heslo je tajná informace.",
+   "Špatně – „původně neveřejná“ hesla jako druh neexistují.",
+   "Správně – skupinová hesla (uživatelská role) s mizivou bezpečností.",
+   "Správně – unikátní pro danou osobu (heslo = userid).",
+   "Špatně – jednocestná je hašovací funkce, ne druh hesla."
+  ],
+  "note": ""
+ },
+ "0c76d2277c": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     13,
+     14
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3,
+   5
+  ],
+  "conf": "slides",
+  "why": "Oproti SDA vyžaduje DDA „čip s koprocesorem pro akceleraci RSA“, v čipu je navíc uložen „nový unikátní pár RSA klíčů“ a „veřejný klíč je podepsán a uložen společně se stat. apl. daty“.",
+  "opts": [
+   "Špatně – DDA naopak koprocesor vyžaduje.",
+   "Správně – v čipu je navíc nový unikátní pár RSA klíčů.",
+   "Špatně – AES je symetrická šifra a nemá pár klíčů; DDA používá RSA.",
+   "Správně – veřejný klíč karty je podepsán a uložen se statickými aplikačními daty.",
+   "Špatně – karta u DDA terminál neověřuje, ověřuje terminál kartu.",
+   "Správně – je potřeba čip s koprocesorem pro RSA."
+  ],
+  "note": ""
+ },
+ "4cc34ac51a": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     23,
+     24,
+     28
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   4
+  ],
+  "conf": "slides",
+  "why": "Úspěšnost útoku hrubou silou ≈ (čas platnosti × počet odhadů za jednotku času) / (velikost abecedy ^ délka hesla). Roste tedy s dobou platnosti a rychlostí útočníka, klesá s velikostí abecedy a délkou hesla.",
+  "opts": [
+   "Správně – velikost abecedy je ve jmenovateli.",
+   "Špatně – hrubá síla zkouší všechny kombinace, zapamatovatelnost a struktura ovlivňují slovníkové útoky.",
+   "Správně – doba platnosti je v čitateli, útočník má více času.",
+   "Špatně – empirickou studii hesel ve slajdech představuje Yan a kol.; vzorec hrubé síly žádný výzkum „neovlivnil“.",
+   "Správně – délka hesla je v exponentu jmenovatele.",
+   "Špatně – s rychlejším počítačem úspěšnost roste, ne klesá."
+  ],
+  "note": ""
+ },
+ "5045972db8": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     17,
+     18,
+     20
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   2
+  ],
+  "conf": "slides",
+  "why": "Offline verifikace PINu probíhá v kartě a PINpad/terminál musí být dobře zabezpečen. O offline přijetí transakce rozhoduje automatická správa rizik (limity, počet po sobě jdoucích offline transakcí), což šetří náklady na online autorizaci. Bankomaty používají odlišnou „online“ verifikaci PINu.",
+  "opts": [
+   "Správně – správa rizik rozhoduje, zda transakci přijmout offline nebo autorizovat online; offline šetří náklady na spojení.",
+   "Správně – útok na offline PIN „nefunguje pro výběry z bankomatu (odlišná online verifikační metoda)“.",
+   "Správně – „Autentizace založená na offline verifikaci“; PINpad musí být fyzicky i logicky zabezpečen.",
+   "Špatně – u platby se nepřikládá pas, DDA se týká platební karty.",
+   "Špatně – EMV je mezinárodní standard, neomezuje se na eurozónu.",
+   "Špatně – offline verifikace pracuje s PINem, ne s biometrikou."
+  ],
+  "note": ""
+ },
+ "6fe41f4aa4": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     32,
+     33,
+     73
+    ]
+   },
+   {
+    "l": "L02",
+    "s": [
+     13,
+     16
+    ]
+   }
+  ],
+  "key": [
+   2,
+   4,
+   5
+  ],
+  "conf": "reasoned",
+  "why": "Otázka testuje správnou terminologii. Hašovací funkce slouží k integritě a mají být snadno spočitatelné a jednosměrné. „Zaručený el. podpis založený na kvalifikovaném certifikátu“ je skutečný pojem českého práva. Vodotisk hesla, „kryptace“, „ufoporn“ a „zakryptovaný“ soubor jsou nesmyslné nebo slangové výrazy (správně šifrování/zašifrovaný).",
+  "opts": [
+   "Špatně – je to správný pojem, „Hašovací funkce často používáme při zajišťování integrity dat“.",
+   "Špatně – je to správný pojem: kryptografická haš má být snadno spočitatelná a jednosměrná (pomalé hašování je speciální požadavek u hesel).",
+   "Správně – /etc/shadow obsahuje haše hesel, „vodotisk hesla“ je nesmysl.",
+   "Špatně – je to legitimní pojem (slajd 73, uznávaný podpis).",
+   "Správně – „kryptace“ není správný termín (šifrování) a „ufoporn“ nic neznamená.",
+   "Správně – „zakryptovaný“ je nesprávný termín, správně „zašifrovaný“; kryptoanalýza zašifrovaného souboru by byla v pořádku."
+  ],
+  "note": ""
+ },
+ "ea26b9f856": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     20,
+     23,
+     50
+    ]
+   }
+  ],
+  "key": [
+   3,
+   4,
+   5
+  ],
+  "conf": "slides",
+  "why": "Podle vzorce na slajdu 23 úspěšnost roste s dobou platnosti a počtem odhadů za jednotku času a klesá s velikostí abecedy a délkou hesla. U online útoků lze počet pokusů omezit procedurálně (zpomalování, blokace po 3 chybných PINech).",
+  "opts": [
+   "Špatně – s delší dobou platnosti úspěšnost roste.",
+   "Špatně – s větší abecedou úspěšnost klesá.",
+   "Špatně – Needham a Schroeder jsou autoři autentizačního protokolu (1978), ne studie o hrubé síle.",
+   "Správně – online ověřovač může omezit počet pokusů za čas nebo absolutně (3 pokusy na PIN).",
+   "Správně – délka hesla zvětšuje prostor možností.",
+   "Správně – rychlejší počítač = více odhadů za jednotku času."
+  ],
+  "note": ""
+ },
+ "439a17ff01": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     55,
+     56,
+     57,
+     58
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3,
+   4
+  ],
+  "conf": "slides",
+  "why": "Slajd 55: *-vlastnost (NWD) znamená, že „procesy nesmějí zapisovat data do nižší úrovně“. Slajd 58 ji pro nedůvěryhodné subjekty formuluje i pro čtení vzhledem k aktuální úrovni: „číst lze jen méně tajná data“. Model chrání důvěrnost a *-vlastnost doplňuje nedostatečnou ss-vlastnost (útok Trojským koněm).",
+  "opts": [
+   "Špatně – *-vlastnost je jedním ze tří axiomů bezpečného stavu, je naopak nutná.",
+   "Špatně – integritu řeší model Biba, Bell-LaPadula chrání důvěrnost.",
+   "Správně – účelem je zabránit úniku citlivých dat na nižší úroveň (důvěrnost).",
+   "Správně – „Procesy nesmějí zapisovat data do nižší úrovně (tzv. *-vlastnost, NWD)“.",
+   "Správně – podle slajdu 58 nedůvěryhodný subjekt čte jen data dominovaná jeho aktuální úrovní; splnění *-vlastnosti implikuje i ss-vlastnost (no read up).",
+   "Špatně – *-vlastnost ss-vlastnost doplňuje, protože ta sama nestačí (slajd 57)."
+  ],
+  "note": "Sada A má jen [2,4], duplicitní záznam [2,3,4]. Možnost 3 je přímá definice *-vlastnosti ze slajdu 55, klíč A je proto neúplný. Možnost 4 je jinak definice ss-vlastnosti (NRU), ale slajd 58 zahrnuje omezení čtení i do *-vlastnosti, proto je ponechána."
+ },
+ "6bf3e954a1": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     7,
+     9,
+     13
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "ACL ukládá matici po objektech (sloupcích): ke každému objektu seznam subjektů s jejich právy, prázdné prvky se vynechávají. Možnost 0 přesně přepisuje sloupce matice. Zápis po subjektech je C-list (capabilities), ne ACL.",
+  "opts": [
+   "Správně – po objektech, s přesnými právy a bez prázdných prvků (D:\\se.txt má jen Administrator {R}).",
+   "Špatně – práva jsou zaměněna za nesmyslné {W,X}, neodpovídají matici.",
+   "Špatně – práva neodpovídají matici (R zaměněno za W apod.).",
+   "Špatně – práva jsou správná, ale uložená po subjektech, to je seznam oprávnění (C-list), ne ACL.",
+   "Špatně – je to C-list a práva navíc neodpovídají matici.",
+   "Špatně – je to C-list a práva neodpovídají matici."
+  ],
+  "note": ""
+ },
+ "e078ee9fd7": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     16
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "slides",
+  "why": "Slajd „shadow“ vyjmenovává položky: login, hašované heslo, datum poslední změny hesla, minimální a maximální stáří hesla, varování před expirací, dny do zablokování účtu po expiraci, datum zablokování účtu a rezervované pole.",
+  "opts": [
+   "Špatně – délka hesla se neukládá (z haše ji nelze ani zjistit).",
+   "Špatně – ukládá se datum poslední změny hesla, ne posledního přihlášení.",
+   "Špatně – počet neúspěšných pokusů v /etc/shadow není.",
+   "Správně – „Hashed password“.",
+   "Špatně – je to naopak: /etc/passwd obsahuje odkaz (x), že haš je v /etc/shadow."
+  ],
+  "note": ""
+ },
+ "e57b03d168": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     20,
+     22,
+     23
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3
+  ],
+  "conf": "slides",
+  "why": "„Pro ověření podpisu je nutné mít veřejný klíč podepsaného subjektu.“ Integritu veřejného klíče zajišťuje certifikát veřejného klíče, který váže klíč k subjektu a je podepsán CA. Podpis tedy ověřujeme veřejným klíčem, typicky z certifikátu.",
+  "opts": [
+   "Správně – ověření se provádí veřejným klíčem podepisujícího.",
+   "Špatně – soukromým klíčem se podpis vytváří a ověřovatel ho nemá.",
+   "Špatně – privátní = soukromý klíč, slouží k podpisu, ne k ověření.",
+   "Správně – certifikát obsahuje veřejný klíč a zaručuje jeho příslušnost k osobě.",
+   "Špatně – sdílený klíč se používá u MAC (symetrická kryptografie), ne u digitálního podpisu."
+  ],
+  "note": ""
+ },
+ "2bc1120eb0": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     2,
+     21
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3
+  ],
+  "conf": "slides",
+  "why": "Biometrické technologie jsou založené na fyziologických (statických – otisk prstu, geometrie ruky) nebo behaviorálních (dynamických – podpis, hlas) charakteristikách.",
+  "opts": [
+   "Správně – fyziologické charakteristiky, např. otisk prstu.",
+   "Špatně – morální charakteristiky nejsou měřitelné biometriky.",
+   "Špatně – environmentální charakteristiky nejsou vlastností člověka.",
+   "Správně – behaviorální charakteristiky, např. podpis nebo hlas.",
+   "Špatně – „chemoterapický“ je nesmysl (léčebná metoda)."
+  ],
+  "note": ""
+ },
+ "1a93e3ad81": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     5
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Při decentralizované správě „objekt spravuje jeho vlastník – správce“, je mnoho vlastníků-správců i uživatelů. Výhodou je vysoká odpovědnost, nevýhodou obtížná konzistence komunikace mezi správci a chybějící celkový přehled.",
+  "opts": [
+   "Špatně – sdílený klíč více lidí se správou řízení přístupu nesouvisí.",
+   "Správně – přístupová práva nastavuje vlastník (správce) daného objektu.",
+   "Špatně – slajd mluví o obtížné komunikaci mezi správci, ne mezi držiteli částí hesla.",
+   "Špatně – to popisuje sdílení tajemství, ne decentralizovanou správu.",
+   "Špatně – decentralizace se týká správců, ne více souběžných autorizačních systémů."
+  ],
+  "note": ""
+ },
+ "b8a9759bff": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     16
+    ]
+   },
+   {
+    "l": "L08",
+    "s": [
+     23
+    ]
+   }
+  ],
+  "key": [
+   2,
+   4
+  ],
+  "conf": "reasoned",
+  "why": "Ve starších Unixech byl haš hesla přímo v /etc/passwd (čitelném pro všechny). Dnes jsou haše v chráněném /etc/shadow a /etc/passwd obsahuje na jejich místě zástupný znak (x), tedy informaci, že haš je v /etc/shadow. Slajdy uvádějí obsah shadow a to, že program passwd zapisuje do /etc/passwd resp. /etc/shadow.",
+  "opts": [
+   "Špatně – údaj o posledním přihlášení /etc/passwd neobsahuje (je v lastlog).",
+   "Špatně – počty pokusů se v /etc/passwd neukládají.",
+   "Správně – ve starších systémech byl haš hesla přímo v /etc/passwd.",
+   "Špatně – délka hesla se neukládá nikde.",
+   "Správně – znak x místo haše znamená, že haš je v /etc/shadow."
+  ],
+  "note": ""
+ },
+ "b74bd0ecd3": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     7,
+     8,
+     22,
+     23
+    ]
+   }
+  ],
+  "key": [
+   2,
+   4
+  ],
+  "conf": "slides",
+  "why": "Matice přístupových práv udává práva subjektů k objektům (alespoň 2 rozměry). Může být i trojrozměrná, ale „3. rozměrem je program“ (trojice subjekt, program, objekt). Unixová trojice rwx je jen zjednodušená implementace ACL a matice nezaznamenává časy a trvání přístupů.",
+  "opts": [
+   "Špatně – rwx-rwx-rwx je zjednodušená implementace ACL v Unixu, ne obecná matice.",
+   "Špatně – matice obsahuje přístupová práva, ne záznamy o čase a trvání přístupů (to je audit/log).",
+   "Správně – základní matice je dvourozměrná: subjekty × objekty.",
+   "Špatně – třetím rozměrem je program, ne uživatel (uživatel je subjekt).",
+   "Správně – „Matice udávající přístupová práva subjektů k objektům“."
+  ],
+  "note": ""
+ },
+ "374de5f670": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     38,
+     39
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "MAC (autentizační kód, digitální pečeť) se počítá ze zprávy pomocí tajného klíče sdíleného původcem a příjemcem. Podle slidu „slouží k zajištění integrity dat (ne důvěrnosti dat)“. Příjemce přepočítá MAC z přijaté zprávy, takže odhalí jakoukoli změnu – úmyslnou i chybu při přenosu.",
+  "opts": [
+   "Špatně – slide výslovně uvádí, že MAC nezajišťuje důvěrnost; zpráva se posílá v otevřené podobě.",
+   "Správně – zajištění integrity dat je hlavní účel MAC.",
+   "Špatně – s „ověřením zprávy síťové karty“ nemá MAC nic společného (záměna s MAC adresou).",
+   "Správně – nesouhlas přepočítaného MAC odhalí i neúmyslnou změnu dat při přenosu (MAC je silnější než CRC, které chrání jen před neúmyslnými chybami).",
+   "Špatně – MAC lze z hašovací funkce vytvořit (HMAC), ale jeho účelem není transformace hašovací funkce."
+  ],
+  "note": "Sada M označuje navíc možnost 0 (důvěrnost) – to je chyba, slide 39 říká „ne důvěrnosti dat“."
+ },
+ "ae6e480bb2": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     21
+    ]
+   }
+  ],
+  "key": [
+   4
+  ],
+  "conf": "slides",
+  "why": "Slide uvádí: „Při kombinaci šifrování veřejným klíčem a podpisu je nutné dokument nejprve podepsat a pak teprve zašifrovat.“ Analogie dopisu: nejprve podpis, pak obálka. Podpis tak váže původní obsah dokumentu.",
+  "opts": [
+   "Špatně – dvojí podpis není doporučený postup; stačí podepsat a zašifrovat.",
+   "Špatně – opakované šifrování nic neřeší a pořadí je obrácené.",
+   "Špatně – podepisovat šifrovaný text je opačné pořadí, než slide předepisuje.",
+   "Špatně – na pořadí záleží, slide říká „nutné nejprve podepsat“.",
+   "Správně – nejprve podpis, potom šifrování (dopis, pak obálka)."
+  ],
+  "note": ""
+ },
+ "d7c6f94340": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     3,
+     22,
+     25,
+     31,
+     32
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   3,
+   4
+  ],
+  "conf": "slides",
+  "why": "Slide 3 rozlišuje autentizační protokoly, protokoly pro ustavení klíče a autentizované protokoly pro ustavení klíče. Existují tedy i neautentizované varianty ustavení klíče (např. Diffie-Hellman nebo Shamirův protokol bez klíčů – ustaví tajemství bez ověření identity). Zero-knowledge protokoly slouží k prokázání znalosti tajemství (autentizaci), nikoli k ustavení klíče.",
+  "opts": [
+   "Správně – autentizační protokol jen ověří identitu jiné strany a nemusí ustavit klíč (slide 3).",
+   "Špatně – zero-knowledge protokoly (např. Fiat-Shamir) demonstrují znalost tajemství, tj. slouží k autentizaci, ne k ustavení klíče (slide 32).",
+   "Správně – „autentizovaný protokol pro ustavení klíče“ je výslovně uveden na slidu 3.",
+   "Správně – „protokol pro ustavení klíče (key establishment protocol)“ je výslovně uveden na slidu 3.",
+   "Správně – ustavení klíče bez autentizace stran, např. základní Diffie-Hellman (slide 31) nebo Shamirův protokol bez klíčů (slide 25)."
+  ],
+  "note": ""
+ },
+ "7991f514a4": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     47,
+     48,
+     34,
+     35
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2,
+   4
+  ],
+  "conf": "slides",
+  "why": "Slide „Nejslibnější technologie (osobní pohled)“ uvádí otisk prstu a duhovku. Ověření mluvčího tam bylo „dříve“, ale kvůli deepfakes už neplatí. Tvar ruky není jedinečný a DNA se jako běžná biometrika zatím nehodí (pomalá, drahá).",
+  "opts": [
+   "Špatně – otisk prstu je mezi nejslibnějšími technologiemi (hodně produktů, přijatelná cena).",
+   "Správně – tvar ruky mezi nejslibnější nepatří: je málo přesný a není jedinečný (slidy 34–35).",
+   "Správně – ověření mluvčího bylo slibné „dříve“, ale podle slidu 47 už kvůli deepfakes neplatí.",
+   "Špatně – duhovka je mezi nejslibnějšími technologiemi (vynikající přesnost i pro identifikaci).",
+   "Správně – DNA mezi nejslibnější nepatří (analýza trvá desítky minut, je drahá, slide 48)."
+  ],
+  "note": "Sada A označuje jen [1, 4]; podle aktuálního slidu 47 do nejslibnějších už nepatří ani ověření mluvčího (deepfakes), proto patří do klíče i možnost 2. Starší klíč odpovídá dřívější verzi slidu."
+ },
+ "9d45a9c4f8": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     37
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Podle slidu je separace oprávnění stav, kdy „pro vykonání určité akce je potřebný souhlas několika osob“. Příkladem je velká bankovní transakce, kterou musí podepsat dva úředníci. Řízení přístupu na úrovni OS to nepodporuje, je nutná podpora v aplikaci.",
+  "opts": [
+   "Špatně – nejde o oddělení autentizace a autorizace, ale o souhlas více osob.",
+   "Špatně – nic takového princip neříká; uživatelé mohou mít stejná oprávnění.",
+   "Správně – přesně odpovídá definici na slidu 37 (souhlas několika osob).",
+   "Špatně – termín existuje a je definován na slidu 37.",
+   "Špatně – o nepřekrývání úrovní oprávnění separace oprávnění nehovoří."
+  ],
+  "note": ""
+ },
+ "e1386b5577": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     37
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Princip nejmenších privilegií: uživatel má přístup jen k objektům, které z titulu pracovního zařazení potřebuje. Slide doslova: „Žádný uživatel nemá přístup k objektům, ke kterým přístup nepotřebuje.“ Počáteční množina oprávnění je malá a postupně roste.",
+  "opts": [
+   "Správně – doslovná formulace ze slidu 37.",
+   "Správně – jde o tutéž myšlenku z pohledu objektu: kdo objekt nepotřebuje, nemá k němu přístup.",
+   "Špatně – naopak, „počátečně je množina oprávnění malá a postupně se rozrůstá“.",
+   "Špatně – to je definice separace oprávnění, ne nejmenších privilegií.",
+   "Špatně – princip neporovnává privilegia s administrátorem, ale s pracovní potřebou."
+  ],
+  "note": ""
+ },
+ "8525b3498b": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     18,
+     31,
+     39,
+     40
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slide „Metody autentizace dat a zpráv“ uvádí kryptografické metody: sdílený tajný klíč, haš s tajným klíčem / MAC a digitální podpis. Zaručený elektronický podpis je navíc k datům připojen tak, že lze zjistit jakoukoli jejich změnu. Ruční podpis digitální data neautentizuje a „parciálně zaručený“ podpis neexistuje.",
+  "opts": [
+   "Špatně – ruční podpis nelze kryptograficky svázat s digitálními daty.",
+   "Správně – zaručený elektronický podpis identifikuje podepisujícího a odhalí změnu dat (slide 31).",
+   "Správně – MAC je mezi metodami autentizace dat výslovně uveden (slide 18).",
+   "Správně – klíčovaná hašovací funkce (haš s tajným klíčem, HMAC) je totéž co MAC (slidy 18, 40).",
+   "Špatně – kategorie „parciálně zaručený elektronický podpis“ neexistuje."
+  ],
+  "note": "Sady B ([1]) a M ([1, 3]) jsou neúplné – slide 18 uvádí jako metodu autentizace dat výslovně „Haš s tajným klíčem / MAC“, takže platí 1, 2 i 3."
+ },
+ "692a1bea51": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     23
+    ]
+   }
+  ],
+  "key": [
+   2,
+   4
+  ],
+  "conf": "slides",
+  "why": "SUID bit nastavuje vlastník programu, aby program po spuštění běžel s právy (identitou) vlastníka souboru. Typicky passwd běží jako SUID root, aby mohl zapisovat do /etc/shadow. Tím lze konkrétním procesům dát administrátorská práva.",
+  "opts": [
+   "Špatně – SUID je bit souboru (programu), nepřiděluje se uživatelům při zakládání účtu.",
+   "Špatně – nesmyslné tvrzení; SUID programy naopak musí být psány bezpečně.",
+   "Správně – např. passwd jako SUID root běží s právy roota (slide 23).",
+   "Špatně – propůjčení skupiny vlastníka zajišťuje SGID, ne SUID.",
+   "Správně – program běží s právy uživatele, který je vlastníkem souboru."
+  ],
+  "note": ""
+ },
+ "6e90cfe116": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     34,
+     35
+    ]
+   }
+  ],
+  "key": [
+   2,
+   4
+  ],
+  "conf": "slides",
+  "why": "Slide 34: snímá se tvar ruky, snímače snímají 2D nebo 3D, a tvar ruky „není jedinečný (např. ve srovnání s otisky prstů)“. Slide 35 dodává, že metoda je málo přesná (FAR i FRR 3–5 %) a nevhodná pro identifikaci.",
+  "opts": [
+   "Špatně – slide nic takového neuvádí; snímač pořizuje jednoduchý 2D/3D obraz, ne 4–6 snímků ze všech stran.",
+   "Špatně – fixační kolíky slouží k umístění ruky, nejsou v nich mikrokamery.",
+   "Správně – snímače pořizují 2D nebo zjednodušený 3D obraz ruky (slide 34).",
+   "Špatně – tvar ruky podle slidu jedinečný není.",
+   "Správně – tvar ruky není jedinečný, proto je metoda nevhodná pro identifikaci ve větších skupinách (slidy 34–35)."
+  ],
+  "note": ""
+ },
+ "7effce9ef6": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     22,
+     23
+    ]
+   }
+  ],
+  "key": [
+   4
+  ],
+  "conf": "slides",
+  "why": "Slide 23: „Jak zajistit integritu veřejného klíče? Pomocí certifikátu veřejného klíče!“ Certifikát váže veřejný klíč k identifikátoru subjektu a tuto vazbu podepisuje důvěryhodná certifikační autorita.",
+  "opts": [
+   "Špatně – veřejný klíč nemá „soukromou část“; utajení soukromého klíče chrání tvorbu podpisu, ne integritu veřejného klíče.",
+   "Špatně – klíčovaná haš (MAC) vyžaduje sdílený tajný klíč, integritu veřejného klíče se tak běžně neřeší.",
+   "Špatně – veřejný klíč se neutajuje, ani částečně.",
+   "Špatně – vlastním privátním klíčem integritu svého veřejného klíče druhé straně neprokážeme; potřebujeme důvěryhodnou třetí stranu.",
+   "Správně – certifikát veřejného klíče podepsaný CA (slide 23)."
+  ],
+  "note": ""
+ },
+ "ea11e7dbc0": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     32,
+     33,
+     34
+    ]
+   }
+  ],
+  "key": [
+   2,
+   4
+  ],
+  "conf": "slides",
+  "why": "Slidy „Podpora řízení přístupu v HW“ uvádějí fence address (do nižších adres má přístup jen OS), deskriptory, segmentové adresování, dva režimy procesoru a „Rings of protection“. Ostatní možnosti jsou vymyšlené nebo jde o softwarová opatření.",
+  "opts": [
+   "Špatně – „zero address“ mezi HW prvky řízení přístupu na slidech není.",
+   "Špatně – „poštovní adresování“ s PSČ je vymyšlený pojem.",
+   "Správně – fence address: do nižších adres má přístup jen operační systém (slide 32).",
+   "Špatně – randomizace adres haldy je softwarové opatření (OS), ne HW podpora řízení přístupu, a na slidech není.",
+   "Správně – rings of protection, ring lze měnit jen v ringu 0 (slide 34)."
+  ],
+  "note": ""
+ },
+ "2edddab0bf": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     5,
+     25,
+     27
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3,
+   4
+  ],
+  "conf": "slides",
+  "why": "Digitální podpis vytvářejí algoritmy asymetrické kryptografie. Slide 5 uvádí schémata s přílohou (DSA, ElGamal, Schnorr) a s obnovou zprávy (RSA, Rabin). AES je symetrická šifra a CBC je režim blokové šifry.",
+  "opts": [
+   "Špatně – CBC je režim činnosti blokové šifry (lze z něj získat MAC), ne podpisový algoritmus.",
+   "Špatně – AES je symetrická bloková šifra, podpis s ní vytvořit nelze.",
+   "Správně – DSA je podpisové schéma s přílohou (slide 5).",
+   "Správně – RSA je nejznámější podpisový algoritmus (slidy 5, 25).",
+   "Správně – ElGamal je podpisové schéma s přílohou (slide 5)."
+  ],
+  "note": ""
+ },
+ "c0b127cdc7": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     62
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "Skrytý kanál je mechanismus, který není určen ke komunikaci, ale lze ho zneužít ke komunikaci mezi úrovněmi, typicky přes sdílený prostředek. Slide uvádí zaplnění disku, pozici hlavičky disku, zamykání souborů, čas posledního přístupu a aktuální zátěž procesoru.",
+  "opts": [
+   "Špatně – „čítač vadných sektorů (BBC)“ není na slidu a jde o vymyšlený pojem.",
+   "Správně – zaplnění disku je na slidu 62 uvedeno jako příklad.",
+   "Špatně – „sběrnice MAC“ s částečně autorizovaným přenosem je vymyšlený pojem.",
+   "Správně – aktuální zátěž procesoru je na slidu 62 uvedena jako příklad.",
+   "Špatně – „Current Network Node (CNN)“ je vymyšlený pojem."
+  ],
+  "note": ""
+ },
+ "1a994c7db1": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     20,
+     21
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   3,
+   4
+  ],
+  "conf": "slides",
+  "why": "Slide 21 uvádí hádání hesel slovníkovým útokem, permutacemi, podle údajů souvisejících s uživatelem a hrubou silou. Slide 20 zmiňuje krádež hesla odpozorováním, mimo jiné sociálním inženýrstvím. „Matrixová metoda“ neexistuje.",
+  "opts": [
+   "Správně – slovníkový útok (databáze často používaných řetězců), slide 21.",
+   "Správně – sociální inženýrství je uvedeno u krádeže hesla (slide 20).",
+   "Špatně – „matrixová metoda“ útoku na hesla neexistuje.",
+   "Správně – útok hrubou silou (všechny kombinace), slide 21.",
+   "Správně – „slova, data, číslice související s uživatelem“ (slide 21)."
+  ],
+  "note": ""
+ },
+ "85e23e2eac": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     5,
+     6
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3,
+   4
+  ],
+  "conf": "slides",
+  "why": "Tajná informace musí být opravdu tajná a vybraná z velkého prostoru hodnot; podle slidu 5 nemá jít o údaje typu jméno psa nebo data narození rodičů. Slide 6 uvádí jako klasické tajné informace PIN, hesla a passphrase.",
+  "opts": [
+   "Špatně – rodné příjmení matky znají i jiní lidé a lze ho dohledat; slide 5 takové údaje vylučuje.",
+   "Špatně – telefonní číslo není opravdu tajné (znají ho jiní) a nemá se ani měnit po kompromitaci.",
+   "Správně – heslo je klasická tajná informace (slide 6).",
+   "Správně – PIN je klasická tajná informace (slide 6).",
+   "Správně – passphrase (fráze) je uvedena na slidu 6."
+  ],
+  "note": ""
+ },
+ "e555be6668": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     22,
+     43,
+     45
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2
+  ],
+  "conf": "slides",
+  "why": "Přehled biometrik (slide 45) uvádí mimo jiné otisk prstu, geometrii ruky, duhovku, sítnici a tvář. Srovnání obličeje je součástí rozpoznávání obličeje (slide 43). Dynamika pohybu hlavy, geometrie nohy ani „vzor oční panenky“ mezi používanými biometrikami nejsou.",
+  "opts": [
+   "Špatně – dynamika pohybu hlavy v přehledu chybí (je tam jen dynamika podpisu, chůze, psaní a pohyby tváře).",
+   "Správně – otisk prstu je jedna z nejstarších a nejrozšířenějších metod (slidy 22, 45).",
+   "Správně – „srovnání obličeje“ je krok rozpoznání obličeje (slide 43).",
+   "Špatně – slide uvádí geometrii ruky, ne nohy.",
+   "Špatně – používá se duhovka (iris), nikoli panenka (pupil), která žádný stabilní vzor nemá."
+  ],
+  "note": ""
+ },
+ "51f76bf708": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     25
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Shamirův protokol bez klíčů přenáší tajemství X „bez předchozího sdíleného tajemství“; každá strana má jen svůj klíč a ve třech zprávách se aplikuje a sejme vlastní šifra. Vyžaduje proto komutativní šifru E. Strany se v něm nijak neautentizují.",
+  "opts": [
+   "Správně – nepotřebuje předem ustavené sdílené klíče (slide 25).",
+   "Správně – slide výslovně uvádí „Komutativní šifra E“.",
+   "Špatně – s One-Time Pad (XOR) je protokol naopak nebezpečný: XOR všech tří zpráv odhalí X.",
+   "Špatně – s problémem P vs. NP protokol nesouvisí.",
+   "Špatně – protokol žádnou autentizaci stran neposkytuje (je zranitelný útokem man-in-the-middle)."
+  ],
+  "note": ""
+ },
+ "19ed1b3226": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     39,
+     73
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2
+  ],
+  "conf": "slides",
+  "why": "Slide „Politiky řízení přístupu“ uvádí volitelný přístup (discretionary, rozhoduje vlastník objektu) a povinný přístup (mandatory, rozhoduje systémová politika). RBAC je podle slidu 73 samostatná kategorie. Ostatní možnosti jsou vymyšlené.",
+  "opts": [
+   "Špatně – „asystematické řízení přístupu“ neexistuje.",
+   "Správně – volitelné (discretionary) řízení přístupu, slide 39.",
+   "Správně – povinné (mandatory) řízení přístupu, slide 39.",
+   "Špatně – „biometrické řízení provozu“ není politika řízení přístupu.",
+   "Špatně – „skryté řízení přístupu“ neexistuje (nezaměňovat se skrytým kanálem)."
+  ],
+  "note": ""
+ },
+ "663295b269": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     11,
+     12,
+     13
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slide „Ukládání hesel“ uvádí tři varianty: v otevřeném tvaru (lze, ale „raději NE“), šifrovaně a hašovaně. Otázka se ptá, jak ukládání realizovat lze, ne jak je to vhodné.",
+  "opts": [
+   "Správně – hašovaná hesla, ideálně se solí (slide 13).",
+   "Špatně – „impulzní“ ukládání hesel neexistuje.",
+   "Správně – v otevřeném tvaru to jde (s ochranou řízením přístupu), i když se to nedoporučuje (slide 11).",
+   "Správně – šifrovaná hesla; problémem se stává ochrana klíče (slide 12).",
+   "Špatně – „hlasované“ ukládání hesel neexistuje."
+  ],
+  "note": ""
+ },
+ "ef2aba12d2": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     32,
+     36
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Kryptografická hašovací funkce má vstup libovolné délky a výstup pevné délky (typicky 256 bitů). Slide výslovně říká: „Funkce není prostá (vznikají kolize)“ – vstupů je víc než výstupů.",
+  "opts": [
+   "Špatně – délka výstupu není omezena jen na tyto hodnoty (např. SHA-1 má 160 bitů, SHA-224 224 bitů).",
+   "Správně – libovolný vstup, výstup pevné délky, funkce není prostá (slide 32).",
+   "Špatně – funkce z nekonečné množiny vstupů do konečné množiny výstupů nemůže být prostá.",
+   "Špatně – je to obráceně: vstup libovolné délky, výstup pevné délky.",
+   "Špatně – hašovací funkce není šifrovací funkce a „deprese dat“ je nesmysl."
+  ],
+  "note": ""
+ },
+ "4159c7b060": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     21,
+     27
+    ]
+   },
+   {
+    "l": "L03",
+    "s": [
+     21
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Asymetrické podpisové algoritmy jsou pomalé (L05 s. 27), proto se nepodepisuje celý dokument, ale jen jeho haš (L05 s. 21). Čipové karty kvůli náročnosti asymetrické kryptografie „vyžadují specifické koprocesory“ (L03 s. 21).",
+  "opts": [
+   "Správně – asymetrické algoritmy na kartě vyžadují kryptografické koprocesory (L03 s. 21).",
+   "Správně – podepisuje se haš pevné délky místo celého dokumentu (L05 s. 21).",
+   "Špatně – „prokazatelná odpovědnost metodou Monte Carlo“ je nesmysl.",
+   "Špatně – podchlazování komponent karet se ke zrychlení nepoužívá (chlazení se spíše objevuje u útoků).",
+   "Špatně – privátní klíč má jen podepisující; ověřuje se veřejným klíčem."
+  ],
+  "note": ""
+ },
+ "62e85b5ce9": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     3
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2
+  ],
+  "conf": "slides",
+  "why": "Slide uvádí pro GSM dvoufaktorovou autentizaci: token (SIM) a znalost (PIN). PIN lze v telefonu vypnout, takže podle nastavení PINu jde o jedno- nebo dvoufaktorovou autentizaci. Vlastní autentizace probíhá výzvou RAND a funkcí A3 se sdíleným symetrickým klíčem Ki.",
+  "opts": [
+   "Špatně – používá se sdílený symetrický klíč Ki a funkce A3; RAND je náhodná výzva, ne „protokol“ asymetrické kryptografie.",
+   "Správně – SIM (něco, co mám) a PIN (něco, co vím), PIN lze vypnout (slide 3).",
+   "Správně – při vypnutém PINu zůstává jen faktor SIM, při zapnutém jsou faktory dva.",
+   "Špatně – Shamirův bezklíčový protokol se v GSM nepoužívá; Ki je předem sdílený.",
+   "Špatně – zero-knowledge protokol se v GSM nepoužívá a „Fiat-Feige se čtyřmi faktory“ je smyšlenka."
+  ],
+  "note": ""
+ },
+ "fc3890bedd": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     4
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Podle slidu se při dodatečné autorizaci citlivých operací používají tokeny (další autorizační krok) a „mnohdy … separátní kanál (SMS zaslaná přes GSM síť; Push notifikace)“.",
+  "opts": [
+   "Špatně – klíčem kořenového certifikátu se jednotlivé operace klientů neautorizují.",
+   "Špatně – reputační systém bankovního dozorce s autorizací transakce nesouvisí.",
+   "Správně – separátní kanál (SMS, push notifikace), slide 4.",
+   "Správně – další autorizační krok s použitím tokenu (OTP, potvrzení v aplikaci).",
+   "Špatně – EV certifikát pomáhá ověřit server banky, neautorizuje konkrétní operaci."
+  ],
+  "note": ""
+ },
+ "51a640b8e0": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     3
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "V GSM se autentizuje jen účastník: operátor pošle RAND, SIM spočítá SRES = A3(RAND, Ki) a síť ho porovná. Klíč Ki je uložen na SIM, tedy čipové kartě. Síť se vůči telefonu v GSM neautentizuje (to přidalo až UMTS/LTE).",
+  "opts": [
+   "Špatně – „nestranná autentizace“ neexistuje; jde o jednostrannou autentizaci výzvou-odpovědí.",
+   "Špatně – GSM síť se vůči účastníkovi neautentizuje; ověřuje se jen SIM.",
+   "Správně – SIM je čipová karta personalizovaná operátorem (slide 3).",
+   "Správně – síť ověřuje účastníka pomocí RAND a SRES (slide 3).",
+   "Špatně – „autentizace prodejce kuponu“ s GSM autentizací nesouvisí."
+  ],
+  "note": ""
+ },
+ "4787b3b992": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     17,
+     24
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "AKEP2 je aktualizace klíče se vzájemnou autentizací. Strany sdílí klíč K a zprávy chrání hK, kde „hK je MAC algoritmus“. Nový klíč se odvozuje jiným MAC algoritmem: W = h´K´(rB).",
+  "opts": [
+   "Špatně – nejde o možnost odpovědi, ale o useknutý konec zadání („Protocol 2) je založena na:“).",
+   "Špatně – generátory passcode se v AKEP2 nepoužívají.",
+   "Správně – hK i h´ jsou podle slidu 24 MAC algoritmy.",
+   "Špatně – AKEP2 je symetrická technika, digitální podpisy nepoužívá.",
+   "Špatně – hašovací funkce v AKEP2 jsou klíčované (MAC s klíčem K, K´), nikoli bezklíčové."
+  ],
+  "note": ""
+ },
+ "9fb23930ca": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     14,
+     18
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2
+  ],
+  "conf": "slides",
+  "why": "Generátory passcode jsou podle slidu 18 zařízení „pro bezpečné uložení dlouhodobých klíčů doplněné zadáním PINu uživatele“. Uživatel zadá výzvu rB a PIN a generátor spočítá odpověď f(rB, sA, pA); slide 14 je řadí mezi protokoly výzva-odpověď.",
+  "opts": [
+   "Špatně – nejde o urychlení generování sekvenčních čísel.",
+   "Správně – bezpečné uložení dlouhodobých klíčů (slide 18).",
+   "Správně – realizují challenge-response (slidy 14, 18).",
+   "Špatně – s personalizací e-pasů nesouvisí."
+  ],
+  "note": ""
+ },
+ "4b9da019b6": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     14,
+     15,
+     22
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Čipová karta obsahuje RAM, ROM a EEPROM (slidy 14, 15, 22). Slidy obecně uvádějí RAM; v čipových kartách se jako pracovní paměť používá statická SRAM (nepotřebuje obnovování), DRAM ne. EEPROM slouží jako přepisovatelná nevolatilní paměť dat.",
+  "opts": [
+   "Špatně – DRAM vyžaduje periodické obnovování a v čipových kartách se nepoužívá.",
+   "Správně – pracovní paměť RAM karty je typicky SRAM (slidy uvádějí jen „RAM“, technologie je doplněna z obecné znalosti).",
+   "Špatně – „GRAM“ není typ paměti čipových karet.",
+   "Správně – EEPROM je výslovně uvedena (např. 72 kB u Infineon SLE 88, slide 22)."
+  ],
+  "note": ""
+ },
+ "744e346f23": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     50,
+     51
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Slide „Komerční/IT versus forenzní“ uvádí u komerčních systémů nízkou přesnost a plnou automatizaci. Nekvalitní registrační vzorky lze získat znovu a ukládají se pouze zpracované charakteristiky. Forenzní systémy mají vyšší přesnost a uchovávají i původní vzorky.",
+  "opts": [
+   "Správně – komerční systémy jsou „plně automatizované, počítačové“.",
+   "Správně – „nedostatečně kvalitní registrační vzorky můžeme získat znovu“.",
+   "Špatně – vyšší přesnost mají forenzní systémy; komerční mají nízkou.",
+   "Špatně – původní vzorky uchovávají forenzní systémy; komerční ukládají jen zpracované charakteristiky."
+  ],
+  "note": ""
+ },
+ "93151bb67f": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     33
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Slabá bezkoliznost: „pro dané x nejsme schopni v rozumném čase najít x’ (x ≠ x’) takové, že h(x) = h(x’)“. Jeden vstup je tedy pevně dán. Silná bezkoliznost se týká libovolné dvojice vstupů.",
+  "opts": [
+   "Správně – přesně odpovídá definici slabé bezkoliznosti (slide 33).",
+   "Špatně – h(x) = y srovnává haš se vstupem, to není kolize.",
+   "Špatně – x = h(y) se týká spíše jednosměrnosti (hledání vzoru), ne bezkoliznosti.",
+   "Špatně – podmínky jsou obrácené (x = y a h(x) ≠ h(y) je nesmysl, deterministická funkce dá pro stejný vstup stejný haš)."
+  ],
+  "note": ""
+ },
+ "4f640e29d1": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     14
+    ]
+   },
+   {
+    "l": "L05",
+    "s": [
+     40,
+     41
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "slides",
+  "why": "Hašovací funkce se obvykle konstruují z blokových symetrických šifer. Příkladem na slidech je unixová funkce crypt, „hašovací funkce vytvořená z upraveného šifrovacího algoritmu DES“, kde se blok opakovaně šifruje. Podobně se z blokové šifry v režimu CBC (např. AES) tvoří MAC.",
+  "opts": [
+   "Špatně – asymetrické šifry jsou pomalé a ke konstrukci hašovacích funkcí se běžně nepoužívají.",
+   "Špatně – hašovací funkci ze šifry vytvořit lze (crypt z DES).",
+   "Špatně – z proudových šifer se hašovací funkce obvykle netvoří.",
+   "Správně – bloková symetrická šifra, např. DES ve funkci crypt (L02 s. 14)."
+  ],
+  "note": ""
+ },
+ "aee06eeaaf": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     2
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Definice ze slidu 2: biometriky jsou „automatizované metody identifikace nebo ověření identity na základě měřitelných fyziologických nebo behaviorálních vlastností člověka“. Měření musí být opakovatelné, jinak by nešlo porovnat se registračním vzorkem.",
+  "opts": [
+   "Správně – doslovná část definice ze slidu 2.",
+   "Správně – opakovatelně měřitelné fyziologické nebo behaviorální vlastnosti.",
+   "Špatně – neopakovatelné měření by neumožnilo srovnání s registračním vzorkem.",
+   "Špatně – karta se vzorkem je token (něco, co mám); biometrika je měření samotného člověka (něco, co jsem)."
+  ],
+  "note": ""
+ },
+ "4f0d7b5364": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     27,
+     28
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Ve zjednodušeném Kerberu je ticketB = EKBT(k, „A“, L): obsahuje relační klíč k, identifikátor A a dobu platnosti L. Doba platnosti je v reálném Kerberu zapsána časovými razítky (začátek a konec platnosti). Náhodná výzva nA se posílá A mimo tiket.",
+  "opts": [
+   "Správně – tiket obsahuje identifikátor „A“ (slide 28).",
+   "Špatně – Kerberos je symetrický; tiket nese sdílený relační klíč k, ne soukromý klíč.",
+   "Špatně – náhodné číslo nA je v části EKAT(k, nA, L, „B“) určené pro A, ne v tiketu.",
+   "Správně – doba platnosti L je v tiketu dána časovými údaji (časovými razítky); časové razítko TA je i v autentizátoru."
+  ],
+  "note": ""
+ },
+ "354b3211bd": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     39
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Slajd o politikách řízení přístupu definuje volitelný přístup (discretionary, DAC): „subjekt (vlastník objektu) rozhoduje o tom, kdo má k objektu přístup“. Opakem je povinné řízení přístupu, kde rozhoduje systémová politika nezávislá na vůli subjektů.",
+  "opts": [
+   "Špatně – princip maximálních privilegií není typ řízení přístupu (správný princip je naopak minimum privilegií).",
+   "Špatně – „flexibilní řízení přístupu“ není zavedený pojem; správný název je volitelné (discretionary).",
+   "Správně – volitelné řízení přístupu (DAC): o přístupu k objektu rozhoduje jeho vlastník.",
+   "Špatně – u povinného řízení (MAC) rozhoduje systémová politika nezávislá na vůli vlastníka."
+  ],
+  "note": ""
+ },
+ "6edf710e4a": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     29,
+     30,
+     31,
+     32
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Časová analýza sleduje, jak dlouho karta provádí operaci: čas „závisí na známém vstupu a na datech uložených na kartě“ a na implementaci (optimalizace, větvení). Ze změřených časů lze odvodit kryptografická data. Sledování odběru proudu je jiný útok – výkonová analýza.",
+  "opts": [
+   "Správně – délka výpočtu závisí na tom, která větev kódu se vykoná (proto se doporučuje minimalizovat závislost délky výpočtu na vstupu).",
+   "Správně – čas rutiny závisí na zpracovávaných datech (vstupu a tajných datech na kartě).",
+   "Špatně – závislost odběru proudu na instrukci využívá výkonová analýza (SPA), ne časová.",
+   "Špatně – závislost odběru proudu na datech (např. zápis 0 či 1) využívá výkonová analýza (DPA), ne časová."
+  ],
+  "note": ""
+ },
+ "6e53c0be3f": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     22,
+     23,
+     24
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slajd o otiscích prstů vyjmenovává snímače: optické, silikonové (kapacitní, elektrooptické), ultrazvukové, tepelné a tlakové. Inkoust se zmiňuje jen jako způsob získání otisku (otisk s inkoustem/bez inkoustu), nikoli jako typ snímače.",
+  "opts": [
+   "Špatně – inkoust slouží ke klasickému získání otisku na papír; „inkoustový (tryskový)“ snímač neexistuje.",
+   "Správně – kapacitní (silikonové) snímače jsou uvedeny v přehledu a mají vlastní slajd s principem.",
+   "Špatně – „polyadické“ snímače mezi technologiemi nejsou, jde o vymyšlený pojem.",
+   "Správně – optický snímač (sklo, zdroj světla, CCD kamera) je první uvedený typ."
+  ],
+  "note": ""
+ },
+ "78604ed825": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     13,
+     14,
+     15
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "slides",
+  "why": "Autentizace podle adresy je slabá: MAC adresy nejsou tajné a lze je jednoduše změnit, IP adresu lze změnit i podvrhnout (IP spoofing). Ani jedna z adres tedy není výrazně bezpečnější než druhá a IP lze použít i samostatně (paketové filtry, řízení přístupu k webu).",
+  "opts": [
+   "Špatně – IP adresa se používá i samostatně, např. v paketových filtrech a řízení přístupu ke službám.",
+   "Špatně – obě metody jsou slabé; IP lze změnit i podvrhnout, takže není výrazně bezpečnější.",
+   "Špatně – ani MAC adresa není bezpečná (není tajná, lze ji snadno změnit), takže IP není „výrazně méně bezpečná“.",
+   "Správně – slajd výslovně uvádí „IP adresu lze změnit“ a možnost IP spoofingu."
+  ],
+  "note": ""
+ },
+ "1bd83e0496": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     26,
+     27,
+     28
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Kerberos s důvěryhodným serverem T má za cíl „autentizace subjektu A vůči B“ a ustavení klíče k. Jde tedy o autentizační protokol (s distribucí klíčů); ostatní možnosti jsou nesmyslné pojmy.",
+  "opts": [
+   "Správně – hlavní cíl Kerbera je autentizace subjektu A vůči B (a ustavení klíče).",
+   "Špatně – „aprobace“ není funkce Kerbera.",
+   "Špatně – autokracie je forma vlády, s protokolem nesouvisí.",
+   "Špatně – akumulace se Kerbera netýká."
+  ],
+  "note": ""
+ },
+ "bbbcb0ca6f": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     3
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Autentizace do GSM sítě využívá sdílené tajemství: „v SIM kartě je bezpečně uložen tajný symetrický klíč Ki“, který zná i autentizační centrum operátora (AuC). Ze vstupu RAND a Ki funkce A3 spočítá SRES (výzva-odpověď).",
+  "opts": [
+   "Špatně – statická aplikační data a certifikáty patří k autentizaci EMV platebních karet (SDA), ne k SIM.",
+   "Špatně – GSM autentizace nepoužívá asymetrickou kryptografii, ale sdílený symetrický klíč.",
+   "Správně – na SIM je uložen tajný symetrický klíč Ki, sdílený s AuC operátora.",
+   "Špatně – podepsaná statická aplikační data jsou princip EMV (SDA/DDA), ne SIM karty."
+  ],
+  "note": ""
+ },
+ "c58f3061cf": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     4
+    ]
+   },
+   {
+    "l": "L03",
+    "s": [
+     36,
+     38
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "reasoned",
+  "why": "Slajdy uvádějí jako dvoufaktorové metody čipovou kartu s klientským certifikátem + PIN i autentizační kalkulátor + PIN; pořadí bezpečnosti výslovně nestanovují. Autentizační kalkulátor je samostatné zařízení s vlastní klávesnicí a displejem, do kterého se zadávají údaje transakce (L03 s. 38), takže autorizační kód je vázán na konkrétní transakci a není ovlivnitelný malwarem v počítači – proto bývá považován za nejbezpečnější z nabízených možností.",
+  "opts": [
+   "Správně – samostatný token s PINem počítá odpověď (výzva-odpověď) mimo potenciálně zavirovaný počítač a váže ji na data transakce.",
+   "Špatně – heslo je jen jeden faktor (znalost); virtuální klávesnice brání jen elementárním keyloggerům.",
+   "Špatně – šifrovaná SMS přes SIM Toolkit je sice silná metoda (řeší SIM swap, SS7), ale slouží hlavně jako dodatečná autorizace a je vázána na telefon, který může být napaden; z nabídky není považována za nejbezpečnější.",
+   "Špatně – čipová karta s certifikátem je dvoufaktorová, ale je připojena k počítači klienta, takže malware může kartu (po zadání PINu) zneužít k podpisu jiné transakce."
+  ],
+  "note": "Slajdy pořadí bezpečnosti nestanovují; klíč A ponechán, ale otázka je sporná (obhajitelná je i možnost se SIM Toolkitem či certifikátem na kartě)."
+ },
+ "14d1437256": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     34,
+     35,
+     39
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slajd Principy TLS/SSL uvádí, že „TLS/SSL neprovádí elektronické podepisování přenášených dat“. Handshake protokol umožňuje vzájemnou autentizaci, přičemž „implicitně je autentizace serveru povinná a autentizace klienta volitelná“.",
+  "opts": [
+   "Špatně – autentizace serveru je implicitně povinná, není vypnuta.",
+   "Správně – TLS/SSL nevidí do aplikačních dat a neprovádí jejich elektronické podepisování.",
+   "Špatně – autentizace klienta je implicitně jen volitelná.",
+   "Správně – přesně podle slajdu: serveru povinná, klienta volitelná."
+  ],
+  "note": ""
+ },
+ "bd9a6609e0": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     18
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3
+  ],
+  "conf": "slides",
+  "why": "Při PIN managementu je „požadavek [na změnu] provázen starým a novým PINem“. Po překročení limitu neúspěšných pokusů je PIN blokován a pro odblokování je třeba zadat odblokovací PIN (u SIM PUK) a nový PIN.",
+  "opts": [
+   "Správně – změna PINu vyžaduje starý i nový PIN.",
+   "Špatně – zadání jen nového PINu by umožnilo změnu komukoli bez znalosti starého PINu.",
+   "Špatně – zablokovaný PIN nelze ověřit starým PINem; slouží k tomu odblokovací PIN.",
+   "Správně – blokovaný PIN se odblokuje odblokovacím PINem (PUK) a nastaví se nový uživatelský PIN."
+  ],
+  "note": ""
+ },
+ "94ced6ecaf": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     54,
+     56
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Mezi praktické problémy biometrik slajdy řadí živost vzorku, vysoké FAR (nízká bezpečnost), vysoké FRR (nespokojení uživatelé), uživatele s poškozenými/chybějícími orgány (FTE, FTA) a dále správu charakteristik a legislativu. Problémem jsou tedy vysoké, nikoli nízké chybovosti.",
+  "opts": [
+   "Správně – uživatelé s poškozenými či chybějícími orgány (FTE/FTA) jsou uvedeni v Praktických problémech I.",
+   "Správně – „Správa charakteristik“ a „Legislativa a omezení“ jsou v Praktických problémech II.",
+   "Špatně – nespokojení uživatelé jsou důsledkem vysokého FRR, nízké FRR je žádoucí.",
+   "Špatně – nízká bezpečnost plyne z vysokého FAR, nízké FAR je žádoucí."
+  ],
+  "note": ""
+ },
+ "7974006baa": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     17,
+     18
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2
+  ],
+  "conf": "slides",
+  "why": "Slajd Základní pojmy definuje integritu dat (data nebyla neautorizovaně změněna od doby vytvoření) a autentizaci původu dat (data pocházejí od určitého subjektu). Autentizace dat zahrnuje obojí; integrita sama (např. CRC) ještě není autentizací.",
+  "opts": [
+   "Špatně – integrita je jen část; metody bez kryptografie (CRC) zajistí „pouze integritu“, ne autentizaci původu.",
+   "Správně – potvrzení, že data nebyla neautorizovaně změněna, je součástí autentizace dat.",
+   "Správně – autentizace původu dat potvrzuje, že data pocházejí od určitého subjektu.",
+   "Špatně – to je spíše nepopiratelnost původu; autentizace dat (např. MAC se sdíleným klíčem) to nezaručuje."
+  ],
+  "note": ""
+ },
+ "b861f7f92e": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     24
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Slajd Bezpečnost čipových karet – pojmy rozlišuje tři úrovně: zjistitelnost narušení (stopy), detekce narušení („automatické zjištění pokusu o narušení fyzické bezpečnosti“) a odpověď na narušení (automatická akce chráněné části).",
+  "opts": [
+   "Špatně – to je zjistitelnost narušení (tamper evidence), kdy modifikace zanechává zjistitelné stopy.",
+   "Špatně – nejde o odolnost; detekce je schopnost útok zjistit.",
+   "Správně – detekce narušení = schopnost automaticky zjistit pokus o fyzický útok.",
+   "Špatně – automatická obranná akce je odpověď na narušení (tamper response)."
+  ],
+  "note": ""
+ },
+ "dd1f40b6d6": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     24
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Odpověď na narušení (tamper response) je podle slajdu „automatická akce provedená chráněnou částí při zjištění pokusu o narušení“ – např. smazání klíčů. Nejde o zásah administrátora ani o odstranění stop.",
+  "opts": [
+   "Správně – doslova definice odpovědi na narušení ze slajdu.",
+   "Špatně – odstraňování stop útoku není ochranný mechanismus karty; naopak zjistitelnost narušení stopy zachovává.",
+   "Špatně – to je detekce narušení (tamper detection).",
+   "Špatně – odpověď je automatická akce chráněné části, ne ruční zásah administrátora."
+  ],
+  "note": ""
+ },
+ "0270ee9587": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     46,
+     47
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "IPsec má dva režimy: transportní (end-to-end) a tunelovací (firewall-to-firewall). Otázka se ptá, které režimy IPsec NEpodporuje – to jsou vymyšlené „dynamický virtuální“ a „překladový“ režim.",
+  "opts": [
+   "Špatně – transportní režim IPsec podporuje (end-to-end).",
+   "Správně – „dynamický virtuální režim“ v IPsec neexistuje.",
+   "Špatně – tunelovací režim IPsec podporuje (firewall-to-firewall, nová IP hlavička).",
+   "Správně – „překladový režim“ v IPsec neexistuje."
+  ],
+  "note": "Sady B a M (a duplicitní záznam v A) uvádějí [0, 2], tj. podporované režimy – přehlédnuto „nepodporuje“ v zadání. Správně jsou neexistující režimy [1, 3]."
+ },
+ "5d12778a54": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     40
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slajd Dynamika psaní na klávesnici uvádí všechna tvrzení: měří se čas stlačení a čas mezi stisky, nevyžaduje speciální HW, algoritmy jsou pattern matching nebo neuronové sítě a je možná kontinuální autentizace.",
+  "opts": [
+   "Správně – „měří se čas stlačení klávesy a čas mezi stisky kláves“.",
+   "Správně – slajd zdůrazňuje „Možnost kontinuální autentizace uživatele!“.",
+   "Správně – metoda „nevyžaduje speciální HW“, stačí běžná klávesnice.",
+   "Správně – algoritmy pracují na principu srovnávání vzorů nebo neuronových sítí."
+  ],
+  "note": ""
+ },
+ "26a3a5a0b5": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     28,
+     30
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "„Bezpečnost RSA je založena na nesnadnosti faktorizace čísel“ – násobení prvočísel je snadné, rozklad n = p·q velkého čísla v rozumném čase neumíme. Pokrok ve faktorizaci by umožnil odvodit soukromý klíč z veřejného.",
+  "opts": [
+   "Špatně – problém obchodního cestujícího s RSA nesouvisí.",
+   "Špatně – eliptické křivky jsou základem ECC (např. ECDSA), ne RSA.",
+   "Správně – bezpečnost RSA stojí na obtížnosti faktorizace velkých čísel.",
+   "Špatně – diskrétní logaritmus je základem Diffie-Hellmana, DSA či ElGamala, ne RSA."
+  ],
+  "note": ""
+ },
+ "25610ac115": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     33
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Jednosměrnost: pro libovolné x je snadné spočítat h(x), ale „v rozumném čase nejsme schopni pro pevně dané y najít takové x, že h(x) = y“. Hledání dvojic se stejným hašem je bezkoliznost, ne jednosměrnost.",
+  "opts": [
+   "Špatně – to je silná bezkoliznost (libovolná x, x′ s h(x)=h(x′)).",
+   "Správně – přesná definice jednosměrnosti ze slajdu.",
+   "Špatně – formulace (k danému y najít jiné x se stejným hašem) míří na slabou bezkoliznost; jednosměrnost se definuje pro danou hodnotu haše y, ne pro vzor y.",
+   "Špatně – je to negace jednosměrnosti; pokud lze vzor najít, funkce jednosměrná není."
+  ],
+  "note": ""
+ },
+ "2f496a468c": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     12
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   2
+  ],
+  "conf": "slides",
+  "why": "Slajd Čipové karty v části „Jak s nimi komunikovat?“ uvádí kontaktní, bezkontaktní, hybridní (2 vzájemně nepropojené čipy) a duální/kombinované (1 čip, 2 rozhraní) karty. Hybridní karty tedy do dělení podle komunikace patří.",
+  "opts": [
+   "Správně – hybridní karty (dva nepropojené čipy) jsou v dělení podle komunikace výslovně uvedeny.",
+   "Správně – bezkontaktní karty (operace mohou probíhat bez vědomí uživatele, omezený zdroj energie).",
+   "Správně – kontaktní karty (nutný kontakt se čtečkou, která je i zdrojem energie).",
+   "Špatně – „polymorfní karty“ na slajdu nejsou, jde o vymyšlený pojem."
+  ],
+  "note": "Sady M a B uvádějí jen [1, 2]; slajd L03 s. 12 však v dělení podle komunikace uvádí i hybridní karty, proto platí klíč A [0, 1, 2]."
+ },
+ "2f79a0ca38": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     21
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slajd Biometrické technologie dělí charakteristiky na genotypické (geneticky založené, např. DNA) a fenotypické (ovlivněné prostředím a vývojem, např. otisk prstu).",
+  "opts": [
+   "Špatně – „geotypické“ není pojem ze slajdů (záměna s genotypickými).",
+   "Správně – genotypické = geneticky založené (DNA).",
+   "Špatně – „biomatické“ charakteristiky neexistují.",
+   "Správně – fenotypické = ovlivněné prostředím a vývojem (otisk prstu)."
+  ],
+  "note": ""
+ },
+ "3da3c6b17b": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     24
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "AKEP2 je aktualizace klíče se vzájemnou autentizací založená na symetrických technikách: strany sdílí klíč K a posílají zprávy chráněné hK(…), kde „hK je MAC algoritmus“; nový klíč W = h′K′(rB), h′ je opět MAC.",
+  "opts": [
+   "Špatně – generátory passcode (autentizační kalkulátory) v AKEP2 nefigurují.",
+   "Správně – AKEP2 používá MAC algoritmy hK a h′K′ se sdíleným klíčem.",
+   "Špatně – AKEP2 je symetrická technika, digitální podpisy nepoužívá.",
+   "Špatně – použité funkce jsou MAC, tedy hašování s klíčem, ne bezklíčové hašovací funkce."
+  ],
+  "note": ""
+ },
+ "88bbc77e41": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     2
+    ]
+   },
+   {
+    "l": "L03",
+    "s": [
+     12
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Elektronický pas je výkonná bezkontaktní čipová karta sloužící k identifikaci osob. Identita předkladatele se automatizovaně ověřuje porovnáním jeho biometrik (fotografie obličeje, příp. otisky prstů) s daty uloženými v čipu. MRZ a výzva-odpověď slouží k ochraně přístupu k čipu a ověření pravosti čipu, ne k ověření držitele.",
+  "opts": [
+   "Špatně – z MRZ se odvozuje přístupový klíč k čipu (BAC), nejde o PIN a neověřuje držitele.",
+   "Špatně – výzva-odpověď (aktivní autentizace) ověřuje pravost čipu, ne osobu předkladatele.",
+   "Špatně – žádný takový 128bitový identifikátor platný 10 let neověřuje identitu osoby.",
+   "Správně – primární automatizovanou metodou je porovnání biometrik (obličej, otisky prstů, příp. duhovka) s daty v čipu."
+  ],
+  "note": ""
+ },
+ "6cafd44e19": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     3,
+     27,
+     32
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Protokol pro ustavení klíče „ustaví sdílené tajemství (typicky klíč)“. Kerberos má za cíl mj. ustavení klíče k a „distribuci tajemství sdíleného A a B“. Zero-knowledge protokoly jen prokazují znalost tajemství bez jeho odhalení a sdílené tajemství nevytvářejí.",
+  "opts": [
+   "Správně – definice: protokol pro ustavení klíče ustaví sdílené tajemství.",
+   "Správně – Kerberos ustaví klíč k (zvolí server T) sdílený mezi A a B.",
+   "Špatně – zero-knowledge protokoly slouží k prokázání znalosti tajemství bez prozrazení, sdílené tajemství neustavují.",
+   "Špatně – silné autentizační protokoly (výzva-odpověď) zajišťují autentizaci, samy o sobě sdílené tajemství nevytvářejí."
+  ],
+  "note": ""
+ },
+ "3023f1b338": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     34
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3
+  ],
+  "conf": "slides",
+  "why": "Narozeninový paradox: v sále s 23 lidmi je pravděpodobnost, že dva mají narozeniny ve stejný den, vyšší než 50 %. Využívá se při hledání libovolných kolizí hašovací funkce, které je výrazně snazší než hledání kolize se specifickou hodnotou.",
+  "opts": [
+   "Správně – přesně ilustrace ze slajdu (23 lidí, > 50 %).",
+   "Špatně – s poměrem narozených mužů a žen paradox nesouvisí.",
+   "Špatně – pro shodu s pevně zvoleným datem je pravděpodobnost u 23 lidí mnohem nižší; paradox se týká libovolné dvojice.",
+   "Správně – paradox vysvětluje vysokou úspěšnost hledání libovolné kolize haše."
+  ],
+  "note": ""
+ },
+ "b912ef0621": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     10,
+     12
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slajd Čipové karty v části „Co umí?“ rozlišuje paměťové karty, paměťové se speciální logikou (ochrana PINem, čítače) a procesorové (smartcard). Karta s magnetickým proužkem je samostatný typ tokenu, nikoli čipová karta.",
+  "opts": [
+   "Správně – paměťové karty se speciální logikou (ochrana PINem, čítače).",
+   "Špatně – karty s magnetickým proužkem jsou samostatná kategorie karet, nejsou čipové.",
+   "Správně – paměťové karty (chipcard).",
+   "Správně – procesorové karty (smartcard)."
+  ],
+  "note": ""
+ },
+ "7f07315d64": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     41,
+     42
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Podle slajdu Oční duhovka se duhovka snímá „černobílou kamerou ve vzdálenosti x.10 cm“ a vzor se kóduje do Iriscode (256 B). Infračervený zdroj světla se zmiňuje u sítnice, laser ani UV se nepoužívají.",
+  "opts": [
+   "Špatně – ultrafialové záření se ke snímání duhovky nepoužívá.",
+   "Správně – duhovka se snímá černobílou kamerou.",
+   "Špatně – barevná kamera není potřeba, snímá se textura vzoru černobíle.",
+   "Špatně – laser se nepoužívá; u sítnice je zmíněn infračervený zdroj světla."
+  ],
+  "note": ""
+ },
+ "1240605fec": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     9,
+     11,
+     14
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Základními chybami biometrických systémů jsou nesprávné přijetí (FAR, též FMR) a nesprávné odmítnutí (FRR, též FNMR); dále se uvádějí FTE, FTA, FPIR a FNIR. Zkratky ARR a EDR mezi nimi nejsou.",
+  "opts": [
+   "Špatně – „ARR (Acceptance Rejection Rate)“ není chyba biometrických systémů.",
+   "Špatně – „EDR (Error Disqualification Rate)“ je vymyšlený pojem.",
+   "Správně – FAR (false acceptance) je nesprávné přijetí.",
+   "Správně – FRR (false rejection) je nesprávné odmítnutí."
+  ],
+  "note": ""
+ },
+ "ed7feb0178": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     17
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Soubor .rhosts si unixový uživatel nastavuje v domovském adresáři; uvádí stroje (případně s loginem), kterým důvěřuje, a „nahrazuje autentizaci heslem“ pro rlogin, rsh, rexec. Uvedeným strojům se věří, že správně uvedou uživatelské jméno.",
+  "opts": [
+   "Správně – .rhosts určuje počítače (a loginy), ze kterých je přihlášení povoleno bez další autentizace heslem.",
+   "Špatně – nejde o záznam již připojených počítačů, ale o konfiguraci důvěry.",
+   "Špatně – .rhosts neurčuje práva čtení souborů.",
+   "Špatně – veřejné klíče serverů se ukládají do known_hosts, nikoli do .rhosts."
+  ],
+  "note": ""
+ },
+ "1d7ff51e59": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     20
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Každý subjekt má privátní klíč pro vytváření podpisu a veřejný klíč pro ověření. „Správný digitální podpis může vytvořit jen ten, kdo má k dispozici soukromý klíč.“",
+  "opts": [
+   "Špatně – sdílený (symetrický) klíč slouží k MAC, ne k digitálnímu podpisu.",
+   "Správně – podpis vytváří jen držitel soukromého klíče.",
+   "Špatně – veřejný klíč slouží k ověření podpisu a zná ho kdokoli.",
+   "Špatně – certifikovaný je veřejný klíč; certifikát podpis nevytváří a zná ho každý."
+  ],
+  "note": ""
+ },
+ "8edca61d72": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     21
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Slajd Biometrické technologie: behaviorální charakteristiky (podpis, hlas) vyžadují akci uživatele a jsou „též nazývané dynamické“; fyziologické (otisk prstu, geometrie ruky) jsou „též nazývané statické“.",
+  "opts": [
+   "Špatně – fyziologické charakteristiky se nazývají statické.",
+   "Špatně – genotypické je dělení podle původu (genetika), ne statické/dynamické.",
+   "Správně – behaviorální charakteristiky jsou též nazývané dynamické.",
+   "Špatně – fenotypické je dělení podle vlivu prostředí, ne dynamické."
+  ],
+  "note": "Duplicitní záznam v sadě A uvádí [0] (fyziologické) – zřejmě patří k otázce na statické charakteristiky; pro „dynamické“ platí jen behaviorální."
+ },
+ "ac058d8893": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     26,
+     27,
+     29
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "Útoky na čipové karty se dělí na logické (monitorování – časová a výkonová/odběrová analýza, indukce chyb, útoky přes API) a fyzické (invazivní – preparace čipu, mikrosondy; semi-invazivní – záření, laser, elektromagnetická pole). Mezi fyzické tedy nepatří časová a odběrová analýza.",
+  "opts": [
+   "Špatně – preparace čipu je invazivní fyzický útok.",
+   "Správně – odběrová (výkonová) analýza je logický útok monitorováním činnosti karty.",
+   "Špatně – ozařování čipu je semi-invazivní fyzický útok (záření, laser).",
+   "Správně – časová analýza je logický útok monitorováním činnosti karty."
+  ],
+  "note": ""
+ },
+ "0db8a69995": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     19,
+     20
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2
+  ],
+  "conf": "reasoned",
+  "why": "Slajd ssh uvádí na serveru „RSA server key“ a „Veřejný RSA host key (dlouhodobý)“, který se distribuuje klientům. Server key (u SSH1) je krátkodobý, pravidelně generovaný klíč, kterým (spolu s host key) klient šifruje klíč relace; server tím, že relaci rozšifruje, prokazuje svou identitu. Host key je tedy dlouhodobý, server key krátkodobý.",
+  "opts": [
+   "Špatně – host key se z server key neodvozuje; jde o dva nezávislé páry klíčů.",
+   "Správně – slajd výslovně označuje host key jako dlouhodobý.",
+   "Správně – server key je krátkodobý a podílí se na autentizaci serveru v relaci (klient jím šifruje klíč relace, který musí server rozšifrovat).",
+   "Špatně – host key je dlouhodobý, ne krátkodobý."
+  ],
+  "note": ""
+ },
+ "4033e05388": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     14
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slajd Čipová karta s procesorem uvádí typy záznamů v EEPROM: lineární záznamy (pevná nebo variabilní délka), cyklické záznamy a transparentní (nestrukturovaná) data.",
+  "opts": [
+   "Správně – transparentní (nestrukturovaná) data.",
+   "Špatně – „exponenciální záznamy“ na kartě neexistují.",
+   "Správně – lineární záznamy s pevnou i variabilní délkou.",
+   "Správně – cyklické záznamy."
+  ],
+  "note": ""
+ },
+ "551482de28": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     31,
+     70,
+     71
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3
+  ],
+  "conf": "slides",
+  "why": "Zaručený elektronický podpis je podle slidu 31 jednoznačně spojen s podepisující osobou, umožňuje její identifikaci a je k datům připojen tak, že lze zjistit jejich následnou změnu. Vytváří se pomocí dat pro vytváření podpisu (soukromého klíče) a je založen na certifikátu (slide 71), tedy kryptograficky.",
+  "opts": [
+   "Správně – zaručený podpis je jednoznačně spojen s podepisující osobou a umožňuje ji identifikovat, takže je jednoznačně ověřitelný (slide 31).",
+   "Špatně – definice je kruhová a nic neříká; zaručený podpis je vyšší úroveň elektronického podpisu se specifickými požadavky (slide 31, 70).",
+   "Špatně – „zaručený“ neznamená, že se za podpis někdo zaručuje, ale že splňuje požadavky a)–d) ze slidu 31.",
+   "Správně – vytváří se pomocí dat pro vytváření podpisů pod výhradní kontrolou podepisujícího a je založen na certifikátu, tj. kryptograficky (slide 31, 71)."
+  ],
+  "note": ""
+ },
+ "af2d408e2c": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     18,
+     31,
+     75,
+     76
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Elektronická značka je pojem starého českého zákona o el. podpisu (dnes ji nahrazuje elektronická pečeť podle eIDAS, slidy 75–76). Šlo o obdobu zaručeného podpisu pro právnické osoby/systémy: jednoznačně spojená s označující osobou, identifikace přes kvalifikovaný systémový certifikát a detekce následných změn zprávy.",
+  "opts": [
+   "Správně – značka byla jednoznačně spojena s označující osobou a umožňovala její identifikaci pomocí kvalifikovaného systémového certifikátu (analogie požadavků a), b) zaručeného podpisu, slide 31).",
+   "Správně – technologicky jde o stejný mechanismus (digitální podpis) jako u zaručeného el. podpisu; liší se jen právní vazbou na osobu, podobně jako pečeť „speciální typ el. podpisu“ (slide 75).",
+   "Špatně – ověření probíhá stejně jako u el. podpisu (ověření podpisu veřejným klíčem z certifikátu), není obtížnější.",
+   "Správně – stejně jako u zaručeného podpisu i pečeti má být zaručena integrita, tj. detekovatelnost následné změny dat (slide 31, 75)."
+  ],
+  "note": ""
+ },
+ "e5ace342c0": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     48
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3
+  ],
+  "conf": "slides",
+  "why": "Chaffing and winnowing („oddělení zrn od plev“) používá MAC pro zajištění důvěrnosti: zpráva se rozdělí na bity a pro každý bit se pošlou 2 zprávy (s 0 a 1), jen jedna se správným MAC. Příjemce znající sdílený klíč si ponechá tu se správným MAC.",
+  "opts": [
+   "Správně – přesně postup ze slidu 48: pro každý bit dvě zprávy, jedna se správným a jedna s nesprávným MAC, příjemce ponechá tu se správným.",
+   "Špatně – bity se nešifrují; důvěrnost plyne z toho, že nikdo bez klíče neodliší správný a nesprávný MAC (slide 48).",
+   "Špatně – nejde o redundanci proti chybám kanálu; MAC zde je kód pro autentizaci zpráv, ne vlastnost kanálu.",
+   "Správně – slide 48 výslovně uvádí překlad „oddělení zrn od plev“."
+  ],
+  "note": ""
+ },
+ "08dc7d4783": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     43,
+     44
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slide 44 uvádí jako obecné nevýhody tokenů: ke kontrole je často potřeba speciální čtečka nebo vycvičená osoba, bez tokenu není autorizovaný uživatel rozeznán, token musí být dost složitý a může se polámat.",
+  "opts": [
+   "Špatně – vysoká cena jako nevýhoda na slidu 44 není; tokeny (karty) se komerčně masově používají.",
+   "Správně – „Bez tokenu není autorizovaný uživatel rozeznán“ (slide 44).",
+   "Špatně – ztráta tokenu se rychle zjistí (výhoda, slide 43) a token lze zablokovat; navíc bývá chráněn PINem, ztráta tedy nekompromituje celý systém.",
+   "Správně – ke kontrole je často potřeba speciální čtečka, zařízení nebo vycvičená osoba (slide 44)."
+  ],
+  "note": ""
+ },
+ "6261af3246": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     4,
+     5,
+     6
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Proces použití biometrik má dvě fáze: 1. registrace (prvotní nasnímání a vytvoření registračního vzorku) a 2. verifikace/identifikace (nové snímání a srovnání s registračním vzorkem).",
+  "opts": [
+   "Správně – první fází je registrace (slide 4, 5).",
+   "Správně – druhou fází je verifikace/identifikace (slide 4, 6).",
+   "Špatně – degustace s biometrickou autentizací nesouvisí.",
+   "Špatně – demonstrace není fází procesu (slide 4)."
+  ],
+  "note": ""
+ },
+ "a74a460a5e": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     26,
+     27,
+     29,
+     30,
+     34
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Slidy dělí útoky na logické (časová a výkonová analýza, indukce chyb, útoky přes API) a fyzické (invazivní, semi-invazivní). Časová analýza je logický útok, „semi-invazivní časová analýza“ tedy jako pojem neexistuje.",
+  "opts": [
+   "Špatně – ovlivnění hodinového signálu patří k indukci chyb (logický útok, slide 34); semi-invazivní útoky využívají záření, laser, EM pole (slide 27).",
+   "Špatně – takový útok slidy neuvádí; časová analýza je logický útok na čipové karty (slide 29, 30).",
+   "Správně – žádná z možností neodpovídá, časová analýza je logický, ne semi-invazivní útok (slide 26, 29).",
+   "Špatně – nejde o metriku; časová analýza je typ útoku (slide 30)."
+  ],
+  "note": ""
+ },
+ "a8a0c3dcaa": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     29,
+     34
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Indukce chyb se snaží náhlými změnami operačních podmínek (napětí, hodiny, reset, el. pole, teplota) vyvolat změnu hodnot v paměti či registrech, obejít instrukci a tím např. obejít autentizaci nebo získat tajná data. Jde o logický útok, nevyžaduje fyzické poškození.",
+  "opts": [
+   "Správně – chybný běh algoritmu po náhlé změně podmínek lze zneužít k obejití kontrol a získání tajných dat (slide 34).",
+   "Správně – útočník indukcí chyb sleduje, jak se změní chování algoritmu (např. počet cyklů), a z toho těží (slide 34).",
+   "Špatně – indukce chyb je logický útok (slide 29), fyzické poškození čipu není prvním krokem.",
+   "Špatně – opravné kódy jsou spíš obranou, útok naopak chce, aby se chyba projevila."
+  ],
+  "note": ""
+ },
+ "460db7961d": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     53,
+     56,
+     62
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Slide 53 uvádí výhody biometrik: nemůžeme je ztratit, zapomenout nebo lehce předat jiné osobě a dávají rychlé a (relativně) přesné výsledky. Biometriky však nejsou tajné a správa charakteristik je praktický problém.",
+  "opts": [
+   "Správně – „Rychlé a (relativně) přesné výsledky“ (slide 53).",
+   "Správně – nemůžeme je ztratit, zapomenout ani (lehce) předat jiné osobě (slide 53).",
+   "Špatně – „Biometriky nejsou tajné“ (slide 62).",
+   "Špatně – správa charakteristik je naopak uvedena mezi praktickými problémy (slide 56)."
+  ],
+  "note": ""
+ },
+ "cbfaa103fb": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     43,
+     44
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Autentizační hlavička (AH) IPsec zajišťuje původ dat, integritu a ochranu proti přehrání; podle slidu 43 je použit MAC kombinovaný se sekvenčním číslem (tajný klíč + hašovací funkce, slide 44).",
+  "opts": [
+   "Správně – „Je použit MAC kombinovaný se sekvenčním číslem“ (slide 43).",
+   "Špatně – AH používá tajný klíč a hašovací funkci (slide 44), nikoli autentizaci bez klíčů.",
+   "Špatně – ochranu proti přehrání zajišťuje sekvenční číslo, ne náhodné číslo (slide 43).",
+   "Špatně – AH nepoužívá digitální podpis, ale symetrický MAC (slide 43, 44)."
+  ],
+  "note": ""
+ },
+ "0a1abe7246": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     20
+    ]
+   },
+   {
+    "l": "L10",
+    "s": [
+     17,
+     19,
+     27
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "PIN lze odpozorovat u bankomatu či terminálu (v experimentu v Brně 60 % a 42 % správných číslic). Zavedením PINu se odpovědnost přesouvá na zákazníka a Chip&PIN přináší „problémové odmítnutí falešné transakce“ – nelegitimní platbu s PINem se těžko prokazuje. Čip naopak chrání proti kopírování a zvládá kryptografii.",
+  "opts": [
+   "Správně – PIN lze odpozorovat při zadávání u bankomatu či terminálu (L03 slide 20, L10 slide 27).",
+   "Správně – autorizací PINem je zodpovědnost převedena na zákazníka a odmítnutí falešné transakce je problematické (L10 slide 19, 27).",
+   "Špatně – obtížné kopírování je výhoda, ne problém; čip chrání proti skimmingu (L10 slide 17).",
+   "Špatně – čipové karty mají dostatečný výkon na kryptografii, symetrické algoritmy bez problémů, asymetrické s koprocesorem (L03 slide 21)."
+  ],
+  "note": "Sady M a B mají jen [0]; slidy L10 19 a 27 (přesun odpovědnosti na zákazníka, „problémové odmítnutí falešné transakce“) podporují i možnost 1, proto ponechán klíč sady A."
+ },
+ "6643771d3c": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     35
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "TLS/SSL leží mezi aplikační vrstvou a protokolem TCP (transportní vrstva), tj. nad TCP/IP a pod aplikačními protokoly. Formulace „mezi aplikační a datovou vrstvou“ tomuto umístění odpovídá nejlépe.",
+  "opts": [
+   "Správně – TLS/SSL je „mezi aplikační vrstvou a protokolem TCP“ (slide 35).",
+   "Špatně – linková vrstva je pod IP, TLS je výš (slide 35).",
+   "Špatně – síťová vrstva (IP) je pod TCP; na ní pracuje IPsec, ne TLS.",
+   "Špatně – TLS nepracuje přímo na jedné nižší vrstvě, je vložen nad TCP (slide 35)."
+  ],
+  "note": ""
+ },
+ "3138d5d07c": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     2,
+     15
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "reasoned",
+  "why": "Slidy e-pasy zmiňují jen okrajově (pasivní/aktivní autentizace, L10 slide 15). Podle standardu ICAO se u BAC přístupový klíč odvozuje z údajů strojově čitelné zóny (MRZ: číslo dokladu, datum narození, platnost), které čtečka opticky přečte, a pomocí něj se ustaví sdílené symetrické klíče relace pro zabezpečenou komunikaci.",
+  "opts": [
+   "Správně – klíč BAC se odvozuje z dat v MRZ vytištěných v pasu.",
+   "Správně – BAC slouží k ustavení sdílených symetrických klíčů relace (secure messaging).",
+   "Špatně – klíč je naopak odvozen z vytištěné MRZ, ne pouze z dat čipu (ta jsou bez klíče nečitelná).",
+   "Špatně – explicitní autorizaci přístupu k citlivým datům (otisky prstů) řeší rozšířené řízení přístupu (EAC), ne BAC."
+  ],
+  "note": ""
+ },
+ "848d74d2a3": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     4
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Slide 4 uvádí, že e-bankovnictví používá „mnohdy pouze jednofaktorovou autentizaci“ (heslo), ale také dvoufaktorovou (token + PIN). Autentizace tedy není výhradně žádného jednoho typu.",
+  "opts": [
+   "Špatně – třífaktorová autentizace se v e-bankovnictví standardně nepoužívá (slide 4).",
+   "Správně – existují jednofaktorová i dvoufaktorová řešení, nic není „výhradní“ (slide 4).",
+   "Špatně – vedle dvoufaktorové je „mnohdy pouze jednofaktorová“ autentizace (slide 4).",
+   "Špatně – vedle jednofaktorové se používá i dvoufaktorová autentizace (slide 4)."
+  ],
+  "note": ""
+ },
+ "9d07c357db": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     50,
+     51
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Forenzní systémy podle slidu 51: získání výsledků může trvat i dny, pro používání je nutná odborná znalost systému, velikost zařízení je nedůležitá a cena je vysoká, ale není nejdůležitějším faktorem.",
+  "opts": [
+   "Špatně – výsledek v sekundách platí pro komerční/IT systémy; u forenzních může trvat i dny (slide 51).",
+   "Špatně – miniaturizace je cíl komerčních systémů; u forenzních je velikost zařízení nedůležitá (slide 51).",
+   "Správně – „Pro používání je nutná odborná znalost systému a principu“ (slide 51).",
+   "Správně – „Vysoká cena; není to však nejdůležitější faktor“ (slide 51)."
+  ],
+  "note": ""
+ },
+ "b59bdf421d": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     47,
+     48
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "slides",
+  "why": "Při autentizaci obrazovou informací uživatel vybírá jeden smluvený obrázek z několika nabízených, případně identifikuje obrázky ze své skupiny (Déjà Vu) nebo vybírá konkrétní obrázek v mřížce.",
+  "opts": [
+   "Špatně – uživatel nic nevybarvuje, vybírá z nabízených obrázků (slide 47).",
+   "Špatně – obrázky nabízí systém, uživatel nic nenahrává (slide 47, 48).",
+   "Špatně – slovní popis obrázku slidy neuvádí; autentizace spočívá ve výběru (slide 47).",
+   "Správně – „Vybírá se jeden obrázek z několika možných“, příp. obrázky/část v mřížce (slide 47, 48)."
+  ],
+  "note": ""
+ },
+ "f5d6b85fb3": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     16
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Při dohodě autentizační metody je v každé kartě uložen prioritně uspořádaný seznam podporovaných metod (CVM) a terminál zvolí první metodu ze seznamu, kterou podporuje.",
+  "opts": [
+   "Špatně – terminál volí jen z prioritního seznamu uloženého v kartě, rozhodnutí mu tedy nepřísluší plně (slide 16).",
+   "Správně – rozhoduje „prioritně uspořádaný seznam podporovaných metod (CVM)“ v kartě (slide 16).",
+   "Špatně – online/offline je vlastnost konkrétní metody PINu v seznamu, ne kritérium dohody (slide 16).",
+   "Špatně – SDA/DDA/CDA je offline autentizace dat, která dohodě metody předchází, ale neurčuje ji (slide 16)."
+  ],
+  "note": ""
+ },
+ "9e3491b2c5": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     22,
+     23
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2
+  ],
+  "conf": "slides",
+  "why": "Pro bezpečnou funkčnost digitálního podpisu je nutné udržovat privátní klíč v tajnosti a zajistit integritu veřejného klíče (pomocí certifikátu).",
+  "opts": [
+   "Špatně – u privátního klíče je klíčová jeho důvěrnost, ne integrita (slide 22).",
+   "Správně – ověření nesprávným veřejným klíčem vede k nesprávným závěrům (slide 22, 23).",
+   "Správně – kdo má přístup k privátnímu klíči, může vytvářet platné podpisy (slide 22).",
+   "Špatně – veřejný klíč je veřejný, slouží k ověření podpisu kýmkoli (slide 20, 22)."
+  ],
+  "note": ""
+ },
+ "9a95ce1216": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     15
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Slidy e-pasy podrobně nepopisují (jen zmínka o pasivní a aktivní autentizaci, slide 15). Podle ICAO 9303 obsahuje čip datové skupiny (DG1 MRZ, DG2 fotografie JPEG/JPEG2000, DG3 otisky prstů ve WSQ – české pasy je mají) a dokument SOD s digitálně podepsanými haši všech DG (pasivní autentizace).",
+  "opts": [
+   "Špatně – pas neobsahuje kvalifikovaný certifikát držitele; pas podepisuje vydávající stát (Document Signer).",
+   "Špatně – soukromý klíč čipu (pro aktivní autentizaci) se nikdy nevydává ani jeho haš; v DG15 je jen veřejný klíč.",
+   "Správně – SOD obsahuje digitálně podepsané haše DG souborů, což je podstata pasivní autentizace (slide 15).",
+   "Správně – fotografie (DG2, JPEG/JPEG2000) a otisky prstů (DG3, komprese WSQ) jsou v českých pasech povinně uloženy."
+  ],
+  "note": ""
+ },
+ "db0007f99e": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     17,
+     18
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slide 17: autentizace založená na offline verifikaci se šifrováním PINu vyžaduje nový RSA pár klíčů pro šifrování PINů, originální PIN bezpečně uložený v čipu a fyzicky/logicky dobře zabezpečený PINpad/terminál. Správa rizik přichází až po autentizaci.",
+  "opts": [
+   "Správně – „originální PIN (nutný pro verifikaci) bezpečně uložen v čipu“ (slide 17).",
+   "Správně – „PINpad/terminál musí být fyzicky/logicky dobře zabezpečen“ (slide 17).",
+   "Špatně – automatická správa rizik „přichází na řadu po úspěšné autentizaci uživatele“, není její podmínkou (slide 18).",
+   "Správně – „vyžaduje nový RSA pár klíčů pro šifrování PINů“ (slide 17)."
+  ],
+  "note": ""
+ },
+ "09b0e121ba": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     43
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slide 43 uvádí obecné výhody tokenů: rychle se zjistí jejich ztráta, nejsou jednoduše kopírovatelné a samy mohou zpracovávat nebo přenášet další informace.",
+  "opts": [
+   "Správně – „Rychle se zjistí jejich ztráta“ (slide 43).",
+   "Správně – tokeny mohou samy zpracovávat nebo přenášet další informace (slide 43).",
+   "Špatně – nalezený token zneužít lze (proto se kombinuje s PINem); „nikdy“ neplatí.",
+   "Správně – „Nejsou jednoduše kopírovatelné“ (slide 43)."
+  ],
+  "note": ""
+ },
+ "95ae331b75": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     34,
+     37,
+     39
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2
+  ],
+  "conf": "slides",
+  "why": "TLS/SSL autentizuje strany pomocí certifikátů a výzvy-odpovědi (asymetrická kryptografie), MAC zajišťují integritu a autenticitu dat a po handshake je ustaven symetrický klíč, kterým je šifrována veškerá další komunikace.",
+  "opts": [
+   "Špatně – autentizace je založena na certifikátech veřejných klíčů a znalosti soukromých klíčů (slide 34, 39).",
+   "Správně – po handshake je ustaven symetrický šifrovací klíč pro všechnu další komunikaci (slide 34).",
+   "Správně – „autentizační kódy (MAC) zajišťují integritu a autenticitu dat“ (slide 34).",
+   "Špatně – veřejným klíčem serveru se šifruje jen PreMasterSecret, data pak symetricky (slide 37)."
+  ],
+  "note": ""
+ },
+ "56632a7efa": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     14,
+     22
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "slides",
+  "why": "Slide 14: RAM řádově jednotky kB (jinak desítky kB), ROM desítky až stovky kB, EEPROM řádově stovky kB; příklad Infineon SLE 88CX642S má 6 kB RAM, 192 kB ROM a 72 kB EEPROM. Nejlépe odpovídá varianta s RAM pod 10 kB.",
+  "opts": [
+   "Špatně – EEPROM přes 1 MB je mimo typické hodnoty (slide 14, 22).",
+   "Špatně – RAM přes 256 kB je na kartě nereálná, RAM bývá jednotky kB (slide 14).",
+   "Špatně – ~128 kB RAM je řádově víc než typických x kB (slide 14).",
+   "Správně – < 10 kB RAM, ~100 kB ROM a desítky kB EEPROM odpovídají např. kartě s 6 kB RAM, 192 kB ROM, 72 kB EEPROM (slide 22)."
+  ],
+  "note": ""
+ },
+ "2890f2c8f0": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     19,
+     20
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "reasoned",
+  "why": "Server má dlouhodobý host key a (v SSH1) krátkodobý server key, kterým se chrání přenos klíče relace (slide 19, 20). Krátkodobý klíč se pravidelně mění, takže kompromitace nebo prolomení se netýká dlouhodobého host key a zajišťuje se i ochrana dřívějších relací.",
+  "opts": [
+   "Špatně – server key se nepoužívá kvůli rychlosti autentizace klienta.",
+   "Špatně – SSH nahrazuje telnet/rlogin, kompatibilita s telnetem není důvodem.",
+   "Správně – krátkodobý server key chrání dlouhodobý host key (slide 19: host key je „dlouhodobý“) před kompromitací.",
+   "Špatně – nejde o rychlost; důvodem je bezpečnost dlouhodobého klíče."
+  ],
+  "note": ""
+ },
+ "8a02cb9b6d": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     7,
+     8
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Zásadní rozdíl oproti heslům a tokenům: biometrická data nejsou nikdy 100% shodná a systém musí povolit určitou variabilitu. 100% shoda naopak signalizuje podvod (útočník získal registrační data) nebo chybu.",
+  "opts": [
+   "Špatně – žádná pevná hranice 99 % neplatí, je nutné povolit variabilitu (slide 7).",
+   "Správně – „biometrická data nejsou nikdy 100% shodná“ (slide 7).",
+   "Špatně – výjimka pro otisky prstů neexistuje, platí pro všechny biometriky (slide 7).",
+   "Špatně – 100% shoda je podezřelá, svědčí o útoku nebo chybě (slide 8)."
+  ],
+  "note": ""
+ },
+ "28330bfb3d": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     15,
+     17
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "slides",
+  "why": "IP spoofing je nesprávné uvedení zdrojové adresy (odesílatele) v IP datagramu.",
+  "opts": [
+   "Špatně – spoofing se týká zdrojové adresy, ne adresy příjemce (slide 15).",
+   "Špatně – nejde o zachycení (odposlech), ale o podvržení adresy (slide 15).",
+   "Špatně – nejde o zachycení, ale o podvržení zdrojové adresy (slide 15).",
+   "Správně – „nesprávně uvést zdrojovou adresu (odesilatele) – IP spoofing“ (slide 15)."
+  ],
+  "note": ""
+ },
+ "3a7c5cdc06": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     36,
+     38
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "Autentizační kalkulátory obvykle využívají protokol výzva-odpověď, kdy odpověď je funkcí tajného klíče a výzvy; vstup je manuální (klávesnice) nebo automatický (optika, čárový kód, infrared) a přístup je chráněn PINem.",
+  "opts": [
+   "Správně – „PIN – standardní (někdy i nouzový)“ (slide 36, 38).",
+   "Správně – obvykle protokol výzva-odpověď, odpověď je funkcí tajného klíče a výzvy (slide 36).",
+   "Špatně – kdo zná PIN a má kalkulátor, může ho zneužít; PIN je jen jedna vrstva ochrany.",
+   "Správně – přenos je manuální nebo automatický (optika, čárový kód, infrared) (slide 36)."
+  ],
+  "note": ""
+ },
+ "a7f74be6be": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     24
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Odolnost vůči narušení (tamper resistance) je vlastnost části systému chráněné proti neautorizované modifikaci podstatně lépe než ostatní části systému. Detekce a odpověď na narušení jsou samostatné pojmy.",
+  "opts": [
+   "Špatně – to je odpověď na narušení (tamper response) (slide 24).",
+   "Špatně – to je detekce narušení (tamper detection) (slide 24).",
+   "Správně – přesná definice odolnosti vůči narušení (slide 24).",
+   "Špatně – rušení rádiového signálu s pojmem tamper resistance nesouvisí (slide 24)."
+  ],
+  "note": ""
+ },
+ "f8a99915ea": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     26,
+     27,
+     29
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Logické útoky jsou časová a výkonová analýza, indukce chyb a útoky přes API. Preparace čipu je invazivní a ozařování (záření, laser) semi-invazivní fyzický útok.",
+  "opts": [
+   "Špatně – časová analýza je logický útok (slide 29).",
+   "Špatně – programové útoky přes API jsou logické (slide 29).",
+   "Správně – ozařování je semi-invazivní fyzický útok (slide 27).",
+   "Správně – preparace čipu je invazivní fyzický útok (slide 27)."
+  ],
+  "note": ""
+ },
+ "8579e3a015": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     38,
+     39
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3
+  ],
+  "conf": "slides",
+  "why": "Snímání hlasu probíhá kvalitním mikrofonem, běžným audio mikrofonem nebo telefonem. Šum ovlivňuje přesnost, ale slidy žádnou speciální komoru ani soustavu mikrofonů nevyžadují.",
+  "opts": [
+   "Správně – „běžný audio mikrofon“ (slide 38).",
+   "Špatně – soustavu mikrofonů slidy neuvádí (slide 38).",
+   "Špatně – odhlučněná komora není nutná; šum jen zhoršuje výsledky (slide 39).",
+   "Správně – „telefon (jeho mikrofon i úpravy dat pro přenos)“ (slide 38)."
+  ],
+  "note": ""
+ },
+ "fa742cb760": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     10,
+     36,
+     40
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   2
+  ],
+  "conf": "slides",
+  "why": "Autentizační kalkulátory se dělí na kalkulátory s tajnou informací a s hodinami a liší se způsobem vstupu/výstupu: vstup může být manuální (klávesnice) nebo automatický (optika, čárový kód), takže existují i kalkulátory bez klávesnice (např. RSA SecurID).",
+  "opts": [
+   "Správně – „s hodinami“ (slide 10, 40).",
+   "Správně – „s tajnou informací“ (slide 10).",
+   "Správně – vstup může být automatický (optika, čárový kód, infrared), klávesnice není nutná; hodinový token SecurID ji nemá (slide 36, 40).",
+   "Špatně – „vestavěný budík“ jako typ kalkulátoru neexistuje (slide 10)."
+  ],
+  "note": ""
+ },
+ "93e2ff6909": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     43
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Ptáme se na NEPRAVDIVÁ tvrzení. Slide 43 uvádí, že přesnost se v posledních 5 letech výrazně zlepšila; ostatní tvrzení (osvětlení a pozadí, výpočetní náročnost, účes, brýle, náušnice) jsou pravdivá.",
+  "opts": [
+   "Špatně (výrok je pravdivý) – „Problém osvětlení a pozadí“ (slide 43).",
+   "Správně (výrok je nepravdivý) – „Přesnost se výrazně zlepšila v posledních 5 letech“ (slide 43).",
+   "Špatně (výrok je pravdivý) – „Velice výpočetně náročné“ (slide 43).",
+   "Špatně (výrok je pravdivý) – „Účes, brýle, náušnice“ jsou uvedeny jako komplikace (slide 43)."
+  ],
+  "note": ""
+ },
+ "c9ba6bd8a3": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     13,
+     44
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Při solení je haš funkcí hesla a dodatečné náhodné informace (soli), která se ukládá spolu s hašem. Výsledkem je delší efektivní heslo a stejná hesla s různou solí mají různé haše.",
+  "opts": [
+   "Správně – „řešení pro stejná hesla (stejná hesla s různou solí budou mít různé haše)“ (slide 13).",
+   "Správně – „delší efektivní heslo“ (slide 13).",
+   "Špatně – sůl je náhodná a veřejně uložená, k identifikaci neslouží; jejím cílem je ztížit útoky na haše (slide 13).",
+   "Špatně – solení se běžně používá (unixový crypt, PBKDF2) (slide 13, 44)."
+  ],
+  "note": ""
+ },
+ "f72b171118": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     26,
+     29,
+     32,
+     33
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Výkonová (odběrová) analýza sleduje spotřebu proudu karty: různé operace mikrokódu zapojují různý počet tranzistorů a spotřeba se výrazně liší např. u sčítání a násobení a „při zápisu 0 či 1 do paměti“. Z průběhu odběru tak útočník usuzuje na prováděné instrukce i zpracovávaná/zapisovaná data.",
+  "opts": [
+   "Správně – slajd uvádí, že spotřeba se liší při zápisu 0 či 1 do paměti (EEPROM), tedy závisí na ukládaných datech; viz i příklad SPA se zápisem čítače.",
+   "Špatně – nejde o „odběr vzorku“ paměti (to by byl fyzický invazivní útok čtením paměti), ale o měření odběru proudu.",
+   "Správně – spotřeba závisí na zpracovávaných hodnotách, na tom staví zejména diferenciální výkonová analýza (DPA).",
+   "Správně – různé instrukce (např. sčítání vs. násobení) mají výrazně odlišnou spotřebu proudu."
+  ],
+  "note": ""
+ },
+ "a796e61910": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     11,
+     12
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3
+  ],
+  "conf": "slides",
+  "why": "Při šifrovaném ukládání se ochrana souboru hesel mění na ochranu šifrovacího klíče, který „musí být přístupný autentizačnímu systému“. Problémy zůstávají podobné jako u otevřených hesel – mj. důvěra v administrátora a riziko kompromitace klíče.",
+  "opts": [
+   "Správně – slajd výslovně uvádí jako problém šifrovaného ukládání důvěru v administrátora (má přístup ke klíči i souboru).",
+   "Špatně – klíč zná autentizační systém, ne uživatel; uživatel zná jen své heslo.",
+   "Špatně – slajdy žádné takové omezení neuvádějí; DSA je navíc podpisový, ne šifrovací algoritmus, takže tvrzení s tématem nesouvisí.",
+   "Správně – šifrovací klíč musí být přístupný autentizačnímu systému (uložen na disku, v paměti apod.)."
+  ],
+  "note": ""
+ },
+ "5f54073c60": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     30
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2
+  ],
+  "conf": "slides",
+  "why": "Výpočetní bezpečnost znamená, že útok (např. faktorizace velkých čísel u RSA) nelze provést v rozumném čase dostupným výpočetním výkonem. Algoritmus přitom není dokazatelně neprolomitelný – pokrok (např. nový algoritmus faktorizace) by jej mohl prolomit.",
+  "opts": [
+   "Špatně – podepisování výsledku a integrita s pojmem výpočetní bezpečnosti nesouvisí.",
+   "Správně – bezpečnost je dána tím, že prolomení v rozumném čase neumíme, tj. náročnost výrazně převyšuje dostupný výkon.",
+   "Správně – slajd zmiňuje, že pokrok ve faktorizaci (nový algoritmus) by umožnil odvodit privátní klíč; algoritmus tedy není neprolomitelný, jen zatím neznáme efektivní postup.",
+   "Špatně – tvrzení 1 a 2 platí."
+  ],
+  "note": ""
+ },
+ "c11aa87b3d": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     24
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "ssh-agent drží v paměti odemčený soukromý klíč uživatele: passphrase se zadá „jen jednou“ a „následné autentizační požadavky řeší agent“. Slouží tedy k pohodlné opakované autentizaci klienta.",
+  "opts": [
+   "Špatně – autentizaci a ochranu přenášených dat zajišťuje samotný protokol ssh (šifrování relace), ne agent.",
+   "Správně – po prvním zadání passphrase agent uloží klíč do paměti a další požadavky řeší sám (formulace „heslo“ zde znamená passphrase ke klíči).",
+   "Špatně – agent autentizuje klienta (uživatele) vůči serveru, ne server vůči uživateli; server se ověřuje svým host key a known_hosts.",
+   "Špatně – agent se u ssh používá právě pro práci s asymetrickými klíči (ssh-agent)."
+  ],
+  "note": ""
+ },
+ "0926ddc34a": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     9,
+     39,
+     43,
+     44,
+     59
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Volitelné řízení přístupu (DAC) znamená, že o přístupu rozhoduje vlastník objektu; typicky se realizuje maticí přístupových práv ukládanou jako seznamy přístupových práv (ACL). Bell-LaPadula je naopak primární model víceúrovňového povinného řízení přístupu.",
+  "opts": [
+   "Špatně – hašování dat je technika pro integritu, ne metoda řízení přístupu.",
+   "Špatně – biometrika je metoda autentizace, ne řízení přístupu.",
+   "Správně – ACL (seznam přístupových práv) ukládá matici práv po objektech a je typickým nástrojem volitelného řízení přístupu podporovaného OS.",
+   "Špatně – Bell-LaPadula je model povinného (MLS) řízení přístupu; volitelnou vlastnost má jen jako doplněk (s. 59)."
+  ],
+  "note": ""
+ },
+ "0922a14ae6": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     36,
+     37
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slajd říká: „Důležitý je nejen výsledný podpis, ale i způsob (dynamika) jeho psaní.“ Hodnotí se tedy výsledný podpis i průběh – čas, pořadí tahů, tlak apod.",
+  "opts": [
+   "Špatně – „aretačně-dynamický tablet“ není pojem z přednášky; vstupním zařízením je obecně tablet či speciální snímač.",
+   "Správně – čas provedení je součástí dynamiky (způsobu) psaní.",
+   "Správně – pořadí tahů pera patří k dynamice psaní podpisu.",
+   "Správně – slajd výslovně uvádí, že důležitý je i výsledný podpis („nejen výsledný podpis, ale i…“)."
+  ],
+  "note": "Set A neoznačuje možnost 3 (výsledný podpis); slajd L04 s. 36 ale výslovně říká, že důležitý je nejen výsledný podpis, ale i dynamika – výsledný podpis tedy důležitý je."
+ },
+ "aa2e86f3c8": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     32
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "U zero-knowledge protokolů slajd definuje úplnost (completeness) jako vlastnost, že „poctivé strany vždy dosáhnou úspěšného výsledku“. Korektnost (soundness) se týká nepoctivého útočníka.",
+  "opts": [
+   "Špatně – „částečné uspokojení“ není vlastnost ZK protokolů z přednášky.",
+   "Správně – přesně definice úplnosti (completeness) ze slajdu.",
+   "Špatně – korektnost znamená, že nepoctivý útočník má mizivou šanci se úspěšně vydávat za jinou stranu.",
+   "Špatně – „úplné uspokojení“ není pojem z přednášky."
+  ],
+  "note": ""
+ },
+ "cd1fa4378b": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     42,
+     43,
+     45
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2
+  ],
+  "conf": "slides",
+  "why": "IPsec podle slajdu zajišťuje autentizaci původu dat, integritu, důvěrnost, ochranu proti přehrání a automatickou správu klíčů. Nepopiratelnost ani ochrana proti analýze provozu v tomto výčtu nejsou – AH/ESP používají symetrické klíče (MAC), což nepopiratelnost neumožňuje.",
+  "opts": [
+   "Správně (nezajišťuje) – ochrana proti analýze provozu ve výčtu služeb IPsec není.",
+   "Špatně (zajišťuje) – integrita a autentizace původu dat jsou výslovně uvedeny (AH i ESP).",
+   "Správně (nezajišťuje) – nepopiratelnost přijetí IPsec neposkytuje; používá sdílené symetrické klíče, ne podpisy.",
+   "Špatně (zajišťuje) – důvěrnost (ESP) i ochrana proti přehrání (sekvenční čísla) jsou uvedeny."
+  ],
+  "note": ""
+ },
+ "9e84f36eb6": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     32,
+     33
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Korektnost (soundness) je podle slajdu vlastnost, že „pravděpodobnost, že nepoctivý útočník se může úspěšně vydávat za jinou stranu je mizivá“. U Fiat-Shamir se toho dosahuje opakováním (podvod s pravděpodobností 2^-t).",
+  "opts": [
+   "Špatně – takový pojem přednáška neuvádí.",
+   "Správně – přesná definice korektnosti (soundness) ze slajdu.",
+   "Špatně – takový pojem přednáška neuvádí.",
+   "Špatně – úplnost (completeness) znamená, že poctivé strany vždy uspějí."
+  ],
+  "note": ""
+ },
+ "fb9f39b281": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     36,
+     40
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "Token s hodinami dává v daném okamžiku hodnotu jedinečnou pro přístroj (z tajemství a času), kterou umí spočítat i server. Je proto nutné řešit ztrátu synchronizace hodin (časové rámce, offset na serveru).",
+  "opts": [
+   "Špatně – tokeny s hodinami „bývají součástí autentizačních kalkulátorů, ale ne vždy“ (např. RSA SecurID jen s displejem, bez klávesnice).",
+   "Správně – hodnota je jedinečná pro přístroj (tajná informace) a platná jen v časovém rámci; server ji spočítá stejně.",
+   "Špatně – PIN není nutnou podmínkou; např. SecurID bez klávesnice PIN do tokenu zadat neumožňuje.",
+   "Správně – slajd: „Je potřeba řešit otázku ztráty synchronizace hodin.“"
+  ],
+  "note": ""
+ },
+ "f9df4a5641": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     24,
+     43,
+     44
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Mezi obecné výhody tokenů slajd řadí: rychle se zjistí jejich ztráta, nejsou jednoduše kopírovatelné a mohou samy zpracovávat či přenášet informace. Detekce narušení a odpověď na něj (tamper detection/response) obecnou výhodou tokenů není.",
+  "opts": [
+   "Špatně (je výhodou) – „nejsou jednoduše kopírovatelné“.",
+   "Špatně (je výhodou) – „rychle se zjistí jejich ztráta“.",
+   "Správně (není výhodou) – tato vlastnost ve výčtu výhod chybí; detekce/odpověď na narušení jsou zvláštní vlastnosti jen některých (odolných) zařízení.",
+   "Špatně (je výhodou) – tokeny „mohou být schopny zpracovávat nebo přenášet další informace“."
+  ],
+  "note": "Set B označuje navíc možnost 3 (možnost zpracovávání informací) – chybně, slajd L03 s. 43 ji výslovně uvádí mezi obecnými výhodami tokenů."
+ },
+ "1228972b3f": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     4
+    ]
+   },
+   {
+    "l": "L08",
+    "s": [
+     2
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "slides",
+  "why": "Po autentizaci „v návaznosti pak nastupuje řízení přístupu“ (L02). Řízení přístupu „vychází z bezpečně implementované funkce Identifikace & autentizace“ (L08). Autentizace je tedy obvyklým předpokladem řízení přístupu, nikoli naopak.",
+  "opts": [
+   "Špatně – pojmy spolu úzce souvisejí, řízení přístupu na autentizaci navazuje.",
+   "Špatně – autentizace ověřuje identitu, řízení přístupu rozhoduje o právech subjektu k objektu; nejsou to synonyma.",
+   "Špatně – vztah je opačný.",
+   "Správně – řízení přístupu obvykle vychází z identifikace a autentizace (případně z tokenů)."
+  ],
+  "note": ""
+ },
+ "1619075140": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     12,
+     41
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2
+  ],
+  "conf": "reasoned",
+  "why": "Slajdy přímou viditelnost u RFID neřeší. Zda se rádiový signál šíří jen přímou viditelností, je fyzikální vlastnost elektromagnetické vlny – dána její vlnovou délkou, tj. ekvivalentně frekvenčním pásmem (vysoké frekvence se šíří přímočaře). Kryptografie ani objem dat šíření neovlivňují.",
+  "opts": [
+   "Špatně – kryptografické mechanismy ovlivňují bezpečnost komunikace, ne šíření signálu.",
+   "Správně – šíření na přímou viditelnost závisí na vlnové délce použitého záření.",
+   "Správně – frekvenční pásmo je s vlnovou délkou svázané (λ = c/f), jde o tutéž příčinu.",
+   "Špatně – množství dat ovlivňuje dobu přenosu, ne způsob šíření."
+  ],
+  "note": ""
+ },
+ "1eb4c7ab45": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     13,
+     14,
+     15,
+     18
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Počítače lze autentizovat na základě adresy (MAC, IP) nebo tajné informace (symetrický či asymetrický klíč). Ptáme se, co je možné – i slabá autentizace podle adres (a jejich kombinace) je možná, jen méně bezpečná (adresy lze změnit/podvrhnout).",
+  "opts": [
+   "Správně – asymetrická kryptografie je uvedena jako způsob autentizace tajnou informací.",
+   "Správně – autentizace podle adresy (MAC, IP) je uvedena; kombinace identifikátorů je možná, i když slabá (nejsou tajné, lze je změnit).",
+   "Správně – kombinace adresy a tajného symetrického klíče je kombinací dvou uvedených způsobů.",
+   "Správně – symetrická kryptografie je výslovně uvedena."
+  ],
+  "note": "Set A označuje jen 0 a 3. Otázka se ale ptá, které příklady jsou „možné“, a L06 s. 13–14 uvádí i autentizaci podle MAC/IP adresy, takže kombinace 1 a 2 jsou možné (byť 1 je slabá); set B (všechny) odpovídá slajdům lépe."
+ },
+ "c1a59364be": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     34,
+     39
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "TLS/SSL poskytuje autentizaci stran (certifikáty a protokol výzva-odpověď), integritu a důvěrnost dat. Handshake umožňuje vzájemnou autentizaci, přičemž implicitně je povinná jen autentizace serveru; autentizace je založena na certifikátech veřejných klíčů a znalosti soukromých klíčů.",
+  "opts": [
+   "Špatně – důvěrnost zajišťuje: po handshaku se šifruje veškerá komunikace symetrickým klíčem.",
+   "Špatně – implicitně je povinná autentizace serveru, autentizace klienta je volitelná.",
+   "Správně – autentizace probíhá prezentací certifikátů veřejných klíčů a prokázáním znalosti soukromých klíčů (asymetrická kryptografie).",
+   "Správně – Handshake Protocol „umožňuje vzájemnou autentizaci serveru a klienta“."
+  ],
+  "note": ""
+ },
+ "6dd48a7145": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     12,
+     15
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Elektronický pas ověřuje data pasivní autentizací, která je principiálně podobná SDA: haše DG souborů jsou podepsány a podpis se ověřuje řetězem certifikátů až ke kořenu – u pasů certifikátu CSCA vydávajícího státu. Bez japonského CSCA nelze podpis (a tedy pravost dat) ověřit.",
+  "opts": [
+   "Špatně – CSCA je kořen důvěry pro ověření podpisu dat v čipu, bez něj ověření není možné.",
+   "Špatně – český CSCA podepisuje jen české Document Signer certifikáty, japonský podpis jím ověřit nelze.",
+   "Špatně – shoda hašů DG se souborem SOD dokazuje jen konzistenci; bez ověření podpisu SOD (CSCA) může jít o podvržená data i haše.",
+   "Správně – bez CSCA certifikátu Japonska nelze ověřit pravost (platnost) dat v čipu."
+  ],
+  "note": ""
+ },
+ "553368c1f9": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     29,
+     30,
+     33
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Markanty jsou podle slajdu „významné body“ otisku prstu (např. ukončení či rozdvojení papilární linie); porovnání otisků podle markantů je standardizováno (ISO/IEC 19794-4).",
+  "opts": [
+   "Správně – markanta = významný bod v otisku prstu.",
+   "Špatně – s poškozením biometriky pojem nesouvisí.",
+   "Špatně – markanty se týkají otisků prstů, ne zpracování duhovky.",
+   "Špatně – markanta není technologie ani nesouvisí s EER."
+  ],
+  "note": ""
+ },
+ "6e0d4fb060": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     10,
+     11,
+     12,
+     13
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Mezi nejčastějšími tokeny v IT jsou karty s magnetickým proužkem a čipové karty – kontaktní i bezkontaktní. Podobou čipové karty je i SIM karta v telefonech GSM.",
+  "opts": [
+   "Správně – kontaktní čipové karty jsou uvedeny.",
+   "Špatně – magnetický proužek se čte kontaktně (ve čtečce); „bezkontaktní magnetický proužek“ jako typ karty neexistuje.",
+   "Správně – bezkontaktní čipové karty jsou uvedeny (např. e-pasy, fyzická kontrola přístupu).",
+   "Správně – SIM karta je uvedena jako podoba čipové karty."
+  ],
+  "note": ""
+ },
+ "06ec31f919": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     17,
+     19,
+     20,
+     22,
+     23
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "reasoned",
+  "why": "ssh šifruje relaci (zašifrovaný klíč relace) a autentizuje server jeho host key ověřovaným proti known_hosts, takže heslo nelze odposlechnout v síti a podvržení serveru (DNS/IP/routing spoofing, na které je náchylné .rhosts) se odhalí. Nechrání ale klientský počítač (např. keylogger) ani před analýzou objemu provozu.",
+  "opts": [
+   "Špatně – na uživatelově PC (malware, keylogger) heslo zachytit lze, ssh chrání jen přenos.",
+   "Špatně – ssh šifruje obsah, ale analýze provozu (objem, časování, adresy) nebrání.",
+   "Správně – heslo se přenáší až v šifrovaném kanálu, odposlech v síti nic nedá.",
+   "Správně – server se prokazuje klíčem ověřeným v known_hosts; při podvržení se zobrazí varování o změně identity (MITM)."
+  ],
+  "note": ""
+ },
+ "6d94ca3d89": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     24
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Zjistitelnost narušení (tamper evidence) je vlastnost systému, u kterého „jakákoliv neautorizovaná modifikace zanechává zjistitelné stopy“. Automatické zjištění je detekce narušení a automatická reakce je odpověď na narušení.",
+  "opts": [
+   "Správně – odpovídá definici: narušení zanechá zjistitelné (obtížně odstranitelné) stopy.",
+   "Špatně – automatická obranná akce chráněné části je odpověď na narušení (tamper response).",
+   "Špatně – jde o zmatené vymezení odolnosti (tamper resistance), ne zjistitelnosti.",
+   "Špatně – reakce na fyzický útok odpovídá detekci/odpovědi na narušení, ne zjistitelnosti."
+  ],
+  "note": ""
+ },
+ "742e5178a1": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     8,
+     20,
+     21
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2,
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Při autentizaci se místo hesla posílá jen jeho haš: kdo ho odposlechne, nezíská přímo heslo, ale „haš však lze použít pro podvodnou autentizaci“ – tedy přehrání a vydávání se za uživatele. Odposlechnutý haš navíc umožňuje offline slovníkový útok na slabé heslo.",
+  "opts": [
+   "Špatně – nesmysl; transformace na zero-knowledge protokoly není nevýhodou (a ani není snadná).",
+   "Správně – zachycený haš lze přehrát a úspěšně se autentizovat.",
+   "Správně – „podvodná autentizace“ pomocí haše je právě impersonace (vydávání se za uživatele).",
+   "Správně – s odposlechnutým hašem může útočník offline zkoušet slovníková hesla, dokud haš nesouhlasí."
+  ],
+  "note": "Sety A a B označují jen možnost 1 (přehrání). Slajd L02 s. 8 mluví o „podvodné autentizaci“, což je impersonace (možnost 2), a odposlechnutý haš umožňuje offline slovníkový útok (L02 s. 20–21). Klíč je proto rozšířen; otázka je ale interpretační."
+ },
+ "666a054efc": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     5,
+     50
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "slides",
+  "why": "PIN (Personal Identification Number) je krátká číselná tajná informace (obvykle 4–8 znaků) zadávaná na levnější číselné klávesnici, typicky ve spojení s fyzickým předmětem.",
+  "opts": [
+   "Špatně – PIN je tajná informace, kterou by neměl znát nikdo jiný než oprávněný uživatel, ne sdílená.",
+   "Špatně – PIN je číselný (Number), ne kombinace s písmeny A–F.",
+   "Špatně – autentizační informace musí být tajná.",
+   "Správně – PIN je číselný kód pro autentizaci."
+  ],
+  "note": ""
+ },
+ "c13b64a94c": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     18,
+     38
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "slides",
+  "why": "CRC (cyklický kontrolní součet) slouží k detekci neúmyslných chyb při přenosu či uložení dat. Protože je snadné spočítat i podvrhnout odpovídající kontrolní součet, nechrání proti úmyslné modifikaci – je to metoda „bez použití kryptografie (pouze integrita)“.",
+  "opts": [
+   "Špatně – CRC nechrání před úmyslnou modifikací, autenticitu tedy nezajistí (na to MAC nebo podpis).",
+   "Špatně – CRC data nekomprimuje.",
+   "Špatně – CRC data nešifruje.",
+   "Správně – slouží k detekci (neúmyslných) chyb při přenosu a uložení dat."
+  ],
+  "note": ""
+ },
+ "13523c1426": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     32,
+     33
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "V jednom kole Fiat-Shamir může podvodník uspět s pravděpodobností 1/2 (uhodne výzvu e). Opakováním t-krát klesne pravděpodobnost podvádění na 2^-t, čímž se posiluje korektnost (soundness).",
+  "opts": [
+   "Špatně – vlastnost nulového rozšíření znalostí platí pro každé kolo; opakování ji nezvyšuje, ale zvyšuje odolnost proti podvodníkovi.",
+   "Správně – pravděpodobnost úspěšného podvodu je 2^-t pro t opakování.",
+   "Špatně – jedno kolo dává útočníkovi šanci 1/2, to nestačí.",
+   "Špatně – sice nezvyšuje záruku nulové znalosti, ale tvrzení „ničeho“ je mylné: zvyšuje se korektnost."
+  ],
+  "note": ""
+ },
+ "48f8cf3976": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     15
+    ]
+   },
+   {
+    "l": "L03",
+    "s": [
+     12
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Slajdy klonování pasu podrobně neřeší. Klonování znamená zkopírovat data (DG soubory včetně podepsaného SOD) z jednoho čipu do jiného; pasivní autentizace (analogie SDA) klon neodhalí, proti tomu slouží aktivní autentizace (analogie DDA s privátním klíčem, který čip neopouští).",
+  "opts": [
+   "Špatně – neautorizované čtení bez znalosti MRZ (obejití BAC) je skimming, ne klonování.",
+   "Špatně – změna dat detekovatelná podpisem je modifikace, ne klon; klon naopak obsahuje původní platně podepsaná data.",
+   "Špatně – opakované využití identifikátoru čipu (UID z ISO 14443) souvisí se sledovatelností, ne s klonováním.",
+   "Správně – klon = kopie souborů z pravého pasu do jiného čipu."
+  ],
+  "note": ""
+ },
+ "425cc980f7": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     36,
+     38,
+     39
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "TLS/SSL se skládá z komponent Record Layer Protocol, Handshake Protocol, Change Cipher Specification Protocol a Alert protocol. Kerberos a IPsec jsou samostatné protokoly.",
+  "opts": [
+   "Špatně – Kerberos je samostatný autentizační protokol, není součástí TLS.",
+   "Správně – Record Layer Protocol zpracovává aplikační data.",
+   "Špatně – IPsec je samostatný protokol síťové vrstvy, TLS pracuje nad TCP.",
+   "Správně – Handshake Protocol zajišťuje úvodní domluvu parametrů a autentizaci."
+  ],
+  "note": ""
+ },
+ "1ab54f6fac": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     17
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Integrita dat podle slajdu znamená, že „data nebyla neautorizovaně změněna“ (vložení, smazání, přeskupení…) od doby vytvoření, přenosu atd. – nejen při přenosu.",
+  "opts": [
+   "Špatně – obnova po modifikaci je oprava chyb/zálohování, ne integrita.",
+   "Špatně – integrita se netýká pouze přenosu, ale i uložení od doby vytvoření.",
+   "Správně – přesně definice ze slajdu.",
+   "Špatně – nesmyslné tvrzení; předávání dat s integritou nesouvisí."
+  ],
+  "note": ""
+ },
+ "a383b82ed7": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     18,
+     20,
+     39
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Každý subjekt má pro digitální podpis dva klíče: privátní pro vytvoření podpisu a veřejný pro jeho ověření. Digitální pečetí se dříve označoval MAC založený na sdíleném tajném klíči.",
+  "opts": [
+   "Špatně – „digitální klíč“ není pojem z přednášky; potřebujeme konkrétně pár klíčů.",
+   "Správně – privátní klíč pro vytváření a veřejný pro ověření podpisu.",
+   "Špatně – sdílené symetrické klíče se používají u MAC, ne u digitálního podpisu.",
+   "Špatně – digitální pečeť = MAC (haš s tajným klíčem), jiný mechanismus než digitální podpis."
+  ],
+  "note": ""
+ },
+ "bbad950de7": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     26,
+     29,
+     34,
+     35
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "reasoned",
+  "why": "Slajdy uvádějí indukci chyb během činnosti (chybovou analýzu) a programové útoky přes API jako samostatné typy logických útoků. Chybová analýza mění fyzické podmínky (napětí, hodiny, teplota), útoky přes API zneužívají chyby návrhu rozhraní – vzájemně na sobě nezávisí.",
+  "opts": [
+   "Správně – jde o dvě oddělené kategorie logických útoků (formulace „nijak“ je ale kategorická).",
+   "Špatně – slovní hříčka: „chyby“ v API jsou chyby návrhu, kdežto chybová analýza znamená indukci chyb během výpočtu.",
+   "Špatně – útok přes API žádnou indukci chyb nepotřebuje.",
+   "Špatně – útok přes API není součástí chybové analýzy."
+  ],
+  "note": ""
+ },
+ "b422c2b605": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     23
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Pravděpodobnost úspěchu hrubé síly = počet pokusů, které útočník stihne (čas platnosti × počet odhadů za jednotku času), dělený velikostí prostoru hesel (velikost abecedy umocněná na délku hesla).",
+  "opts": [
+   "Špatně – prostor hesel není součin abecedy a délky a čas není exponent.",
+   "Správně – odpovídá vzorci na slajdu: (čas platnosti × počet odhadů) / abeceda^délka.",
+   "Špatně – délka hesla nepatří do čitatele a exponentem je délka, ne čas.",
+   "Špatně – zaměněné veličiny, prostor hesel je abeceda^délka."
+  ],
+  "note": ""
+ },
+ "84d0946f97": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     20
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "reasoned",
+  "why": "Slajdy CAPTCHA výslovně nerozebírají. CAPTCHA je test, který má odlišit člověka od automatizovaného programu (robota); používá se např. ke zpomalení automatizovaných online útoků na hesla.",
+  "opts": [
+   "Správně – účelem je rozlišit lidské uživatele od robotů.",
+   "Špatně – cílem není rozlišovat mezi generacemi robotů, ale robota od člověka.",
+   "Špatně – opisování textu je jen prostředek, ne účel.",
+   "Špatně – nejde o designový prvek, ale o bezpečnostní mechanismus."
+  ],
+  "note": ""
+ },
+ "2b58c3aa96": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     15,
+     17
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Soubor .rhosts nahrazuje autentizaci heslem důvěrou v uvedené stroje („že správně uvedou uživatelské jméno“). Slajd vyjmenovává možné útoky: počítač neuvede správně login uživatele, DNS, routing nebo IP spoofing.",
+  "opts": [
+   "Správně – podvržená odpověď DNS (DNS spoofing) je uvedena mezi útoky.",
+   "Špatně – není žádné heslo, které by šlo hrubou silou hádat; autentizace stojí na důvěře v adresu stroje.",
+   "Správně – důvěryhodný (nebo kompromitovaný) stroj může uvést nesprávný login uživatele.",
+   "Správně – IP spoofing je výslovně uveden."
+  ],
+  "note": ""
+ },
+ "a076aa16f7": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     3,
+     27,
+     32
+    ]
+   },
+   {
+    "l": "L02",
+    "s": [
+     3
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Podle definice autentizační protokol „zajistí jedné straně určitou míru jistoty o identitě jiné strany“. Zero-knowledge protokoly slouží k prokázání znalosti tajemství, tedy k autentizaci, a cílem Kerbera je autentizace A vůči B (spolu s ustavením klíče). Samotný protokol pro ustavení klíče jen ustaví sdílené tajemství, identitu neověřuje.",
+  "opts": [
+   "Špatně – protokol pro ustavení klíče podle slidu jen „ustaví sdílené tajemství“; identitu potvrzuje až autentizovaný protokol pro ustavení klíče.",
+   "Správně – přesně tak jsou autentizační protokoly definovány (L07 s. 3).",
+   "Správně – ZK protokoly demonstrují znalost tajemství bez jeho odhalení, takže jde o autentizaci (L07 s. 32, L02 s. 3).",
+   "Správně – cílem Kerbera je mj. „autentizace subjektu A vůči B“ (L07 s. 27)."
+  ],
+  "note": ""
+ },
+ "fd828cf3e2": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     11
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slide o kartách s magnetickým proužkem uvádí, že se „poměrně jednoduše kopírují“ (falešné bankomaty, čtečky) a že se hologramy obtížně kontrolují automaticky. Ostatní možnosti s magnetickým proužkem nesouvisí.",
+  "opts": [
+   "Špatně – podpisový proužek na kartě slide mezi problémy magnetických karet neuvádí; nejde o autentizační mechanismus karty.",
+   "Špatně – chybová analýza (indukce chyb) se týká čipů, které počítají; magnetický proužek jen pasivně nese data.",
+   "Správně – „Poměrně jednoduše se kopírují“ (skimming, libanonská smyčka).",
+   "Správně – „Hologramy se obtížně kontrolují (autom.?)“."
+  ],
+  "note": ""
+ },
+ "89dd5340f1": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     9,
+     13
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "ACL ukládá matici přístupových práv po objektech, takže pro objekt je snadné zjistit, kdo k němu má přístup. Nevýhodou je obtížná správa a to, že je „nesnadné zjistit, k jakým objektům má určitý uživatel přístup“. Opačný problém mají capabilities (C-listy).",
+  "opts": [
+   "Špatně – to je nevýhoda seznamu oprávnění (capabilities); ACL je uložen u objektu, takže subjekty s přístupem k objektu zjistíme snadno.",
+   "Správně – přímo nevýhoda ACL ze slidu 9 (např. při změně pracovního zařazení).",
+   "Špatně – nesmyslná formulace; uživatel není objekt, ke kterému se přistupuje.",
+   "Špatně – slide naopak uvádí obtížnou správu a neefektivní kontrolu; „malá režie“ není nevýhoda a ACL umožňují jemné nastavení."
+  ],
+  "note": ""
+ },
+ "f01ee9c9e4": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     19,
+     23
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2
+  ],
+  "conf": "slides",
+  "why": "Slide o ssh vyjmenovává metody autentizace klienta: .rhosts/hosts.equiv (i s RSA/DSA/ECDSA autentizací počítače), RSA/DSA/ECDSA autentizaci uživatele, heslo uživatele a Kerberos. Server se přitom autentizuje vždy svým host key.",
+  "opts": [
+   "Správně – „RSA/DSA/ECDSA autentizace klienta (uživatele)“.",
+   "Špatně – zero-knowledge protokol mezi metodami ssh uveden není.",
+   "Správně – „.rhosts nebo /etc/hosts.equiv“ je uvedeno jako metoda autentizace klienta.",
+   "Špatně – heslo je podporováno, ale ssh vždy autentizuje i server („Autentizace serveru i klienta“), takže ne „bez autentizace serveru“."
+  ],
+  "note": ""
+ },
+ "7f03f9b7f0": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     45,
+     47
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Podle slidu „ESP zajišťuje integritu a autenticitu dat, brání útokům přehráním a zajišťuje důvěrnost dat“. Nepravdivé jsou tedy tvrzení, která integritu nebo ochranu proti přehrání popírají, a tvrzení o ochraně proti analýze provozu, kterou slidy u ESP neuvádějí.",
+  "opts": [
+   "Správně (je nepravdivé) – ESP zajišťuje i integritu a autenticitu, nejen důvěrnost.",
+   "Špatně (je pravdivé) – přesně odpovídá popisu ESP na slidu 45.",
+   "Správně (je nepravdivé) – obranu proti analýze provozu slidy ESP nepřisuzují; šifruje se obsah, ale provoz (objem, časování, vnější hlavičky) zůstává pozorovatelný.",
+   "Správně (je nepravdivé) – ESP podle slidu útokům přehráním brání."
+  ],
+  "note": ""
+ },
+ "d1deecd426": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     69,
+     70,
+     71
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "slides",
+  "why": "(Prostý) elektronický podpis jsou data v elektronické podobě připojená k jiným datům nebo s nimi logicky spojená, která podepisující osoba používá k podepisování – např. jméno pod e-mailem. Jde tedy o širší právní pojem než kryptografický digitální podpis.",
+  "opts": [
+   "Špatně – pojem zákon (dnes eIDAS čl. 3/10) obsahuje a definuje.",
+   "Špatně – digitální podpis je kryptografický mechanismus; elektronický podpis je právně širší (i „podpis v e-mailu“).",
+   "Špatně – ručně psaný podpis není v elektronické podobě.",
+   "Správně – „cokoli, co používá daná osoba k podepisování (resp. data připojena k jiným datům)“ (L05 s. 71)."
+  ],
+  "note": ""
+ },
+ "8359cb6ce4": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     14,
+     15
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "reasoned",
+  "why": "Slidy jen uvádějí, že aktivní autentizace e-pasů je principiálně podobná DDA, tj. terminálem iniciovanému protokolu výzva-odpověď s RSA a soukromým klíčem uloženým v čipu. Soukromý klíč čip nikdy nevydá; veřejný klíč je uložen v pasu (podepsaný v rámci pasivní autentizace), ne ve čtečce.",
+  "opts": [
+   "Špatně – aktivní autentizace je výzva-odpověď (podpis výzvy soukromým klíčem čipu), ne Fiat-Shamir.",
+   "Správně – soukromý klíč je v chráněné paměti čipu a nelze ho přímo vyčíst; čip jím jen podepisuje výzvy.",
+   "Špatně – veřejný klíč pro AA je uložen v čipu pasu a jeho integritu chrání podepsaná data pasivní autentizace, ne čtečka.",
+   "Špatně – výzva-odpověď je standardní mechanismus AA, ne náhradní řešení za ZK protokol."
+  ],
+  "note": ""
+ },
+ "7b4ad2b3ae": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     21
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Slide výslovně říká, že při kombinaci šifrování a podpisu je nutné dokument „nejprve podepsat a pak teprve zašifrovat“ (analogie dopis–obálka). Podpis na vnější straně šifrového textu lze snadno odstranit, případně nahradit vlastním, a neváže se na čitelný obsah.",
+  "opts": [
+   "Špatně – nevýhoda existuje; slidy předepisují opačné pořadí.",
+   "Špatně – pořadí operací kryptoanalýzu nijak výrazně neurychluje.",
+   "Správně – podpis „nad obálkou“ lze snadno odstranit a nahradit, nedokazuje autorství obsahu.",
+   "Špatně – vícenásobné podepsání není výhoda, která by vyvážila problém; slidy toto pořadí nedoporučují."
+  ],
+  "note": ""
+ },
+ "e117213796": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     33,
+     34
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Silná bezkoliznost znamená, že v rozumném čase nenajdeme libovolná x, x′ (x ≠ x′) se stejným hašem h(x) = h(x′). Útočník volí oba vstupy, proto pomáhá narozeninový paradox.",
+  "opts": [
+   "Špatně – pro x = y je vždy h(x) = h(y), tvrzení nedává smysl.",
+   "Špatně – pro x = y je shoda hašů triviální, nejde o kolizi.",
+   "Správně – přesně definice silné bezkoliznosti (L05 s. 33).",
+   "Špatně – různé haše pro různé vstupy najdeme snadno, to není bezpečnostní vlastnost."
+  ],
+  "note": ""
+ },
+ "0292cddca3": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     6,
+     7,
+     8
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2
+  ],
+  "conf": "slides",
+  "why": "Cena výroby tokenu v přepočtu na kus klesá s velikostí série. Pro padělání podle slidu „platí to, co pro cenu výroby“, a dilema „přestává platit v případech, kdy se vyplatí produkce mnohakusové série (padělků)“ – cena padělku na kus tedy také klesá.",
+  "opts": [
+   "Správně – „V přepočtu na kus klesá při výrobě větších sérií“ (s. 7).",
+   "Špatně – cena padělání na počtu kusů závisí; pro ni platí totéž co pro cenu výroby (s. 8).",
+   "Správně – pokud lze uplatnit sérii padělků, cena jednoho padělku klesá (s. 6, 8).",
+   "Špatně – relativní cena padělání se s každým dalším kusem naopak snižuje."
+  ],
+  "note": "Sady M a B uvádějí jen [0]; možnost 2 je však podle L03 s. 6 a 8 také pravdivá (pro padělání platí stejná ekonomika série jako pro výrobu). Sada A [0,2] je v souladu se slidy."
+ },
+ "e69cffb841": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     20
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Slide „Chybovost“ výslovně uvádí, že chybovost biometrických systémů závisí na typu snímače, prostředí, nastavení (počet pokusů, kvalita vzorků) a na uživatelích (trénovanost, profese, motivace).",
+  "opts": [
+   "Správně – uživatelé: trénovaní/nováčci, profese a „jejich motivace“.",
+   "Správně – „nastavení (počet pokusů, omezení kvality vzorků, …)“.",
+   "Správně – „typ snímače, používání různých typů snímačů“.",
+   "Správně – „prostředí (vnitřní, venkovní prostory, zdroje světla…)“."
+  ],
+  "note": ""
+ },
+ "423319c363": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     14,
+     15,
+     16,
+     17,
+     21
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Protokoly výzva-odpověď mohou být založeny na symetrických technikách (symetrické šifrování, jednosměrná funkce s klíčem – MAC, generátory passcode) i na asymetrických (dešifrování, digitální podpis). Klíčovaná hašovací funkce je jednosměrná funkce s klíčem, tedy MAC.",
+  "opts": [
+   "Správně – klíčované jednosměrné funkce, ISO/IEC 9798-4, hK (s. 17).",
+   "Správně – symetrické šifrování, ISO/IEC 9798-2 (s. 14, 16).",
+   "Správně – digitální podpis, ISO/IEC 9798-3 (s. 14, 21).",
+   "Správně – „Jednosměrná funkce s klíčem (MAC)“ (s. 14)."
+  ],
+  "note": ""
+ },
+ "a4287d4dfd": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     19,
+     20
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2
+  ],
+  "conf": "reasoned",
+  "why": "Ssh podle slidů zajišťuje autentizaci serveru (host key) i klienta a šifrovaný kanál. Ochranu proti analýze provozu ani proti (D)DoS slidy u ssh neuvádějí; jde o aplikační protokol nad TCP, který nemůže skrýt objem a časování provozu ani zabránit zahlcení serveru.",
+  "opts": [
+   "Špatně – ssh autentizaci uživatele zajišťuje (heslo, klíče, .rhosts, Kerberos).",
+   "Správně – ssh šifruje obsah, ale před analýzou provozu (kdo, kdy, kolik) nechrání.",
+   "Správně – před distribuovaným odmítnutím služby ssh neochrání.",
+   "Špatně – „Autentizace serveru i klienta“; server se prokazuje host key."
+  ],
+  "note": ""
+ },
+ "20f3387e25": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     21,
+     23
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Na čipové kartě lze implementovat kryptografické algoritmy i protokoly. Symetrické algoritmy běží bez problémů (často s HW akcelerátorem AES), asymetrické jsou řádově náročnější, „proto vyžadují specifické koprocesory“.",
+  "opts": [
+   "Špatně – karty zvládají i symetrickou kryptografii.",
+   "Špatně – karty mají „nezanedbatelnou výpočetní sílu“ a kryptografii provádějí.",
+   "Správně – symetrická i asymetrická kryptografie, asymetrická s koprocesorem (s. 21, příklad časů RSA/ECDSA s. 23).",
+   "Špatně – zvládají i asymetrickou kryptografii (RSA, ECDSA)."
+  ],
+  "note": ""
+ },
+ "aa83e89afa": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     24
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Slide definuje fyzickou bezpečnost jako „překážku/y umístěnou/é kolem počítačového systému za účelem ztížení neautorizovaného fyzického přístupu“. Možnost 2 je téměř doslovná definice; možnost 3 popisuje její účel (ztížit útoky vyžadující fyzický přístup). Ochrana proti odběrové analýze nebo hádání PINu jsou jiné mechanismy.",
+  "opts": [
+   "Špatně – obrana proti výkonové analýze patří k logickým útokům (monitorování), ne k fyzické bezpečnosti.",
+   "Špatně – zkoušení PINu řeší čítač pokusů (PIN management), ne fyzická bezpečnost.",
+   "Správně – odpovídá definici fyzické bezpečnosti ze slidu 24.",
+   "Správně – smyslem fyzické bezpečnosti je ztížit útoky, které vyžadují fyzický přístup (nezaměňovat ale s „tamper resistance“)."
+  ],
+  "note": "Sady M a B uvádějí jen [3]; možnost 2 je přitom téměř doslovnou definicí fyzické bezpečnosti ze slidu L03 s. 24 (kvíz uvádí naopak jen [2]). Možnost 3 je sporná, protože „odolnost“ může připomínat tamper resistance, ale jako účel fyzické bezpečnosti obstojí; zachováno [2,3] podle sady A."
+ },
+ "6493e28060": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     43,
+     44
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Slide „Kvalita snímku (ISO 19794-5)“ ukazuje jako vadné snímky mj. zavřené oči, pestré pozadí (busy background) a pokrývku hlavy (hat, cap). Kontaktní čočky mezi nedostatky nejsou, protože nejsou na snímku obličeje vidět.",
+  "opts": [
+   "Správně (nepatří) – kontaktní čočky na slidu mezi vadami nejsou a vzhled obličeje nemění.",
+   "Špatně (patří) – „busy background“; také „problém osvětlení a pozadí“ (s. 43).",
+   "Špatně (patří) – „wearing a hat / wearing a cap“.",
+   "Špatně (patří) – „eyes closed“."
+  ],
+  "note": ""
+ },
+ "e10741f150": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     29,
+     33,
+     38
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "slides",
+  "why": "Heslo založené na frázi vzniká z delší, snadno zapamatovatelné věty (např. z počátečních písmen slov), takže je zapamatovatelné a přitom obtížně uhodnutelné. Fráze slouží jako pomůcka pro zapamatování složitého hesla.",
+  "opts": [
+   "Špatně – příklad „PlSeMk,VTCO;o24zI“ obsahuje velká písmena, interpunkci i číslice.",
+   "Špatně – nejde o veřejně známou frázi, kterou by znali všichni; heslo musí zůstat tajné.",
+   "Špatně – čitelnost není cílem; cílem je zapamatovatelnost a obtížná uhodnutelnost.",
+   "Správně – fráze je pomůcka k zapamatování složitého hesla („Lehce zapamatovatelné, obtížně uhodnutelné“)."
+  ],
+  "note": ""
+ },
+ "fd4f4f4ee8": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     12,
+     39
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "reasoned",
+  "why": "Slidy žádné „magneto-optické čipové karty“ neuvádějí; typy čipových karet jsou paměťové, procesorové, kontaktní, bezkontaktní, hybridní a duální. Uvedené vlastnosti jsou smyšlené nebo patří jiným zařízením, proto platí „žádná z uvedených“.",
+  "opts": [
+   "Špatně – snímání kódu z obrazovky (flicker kód) dělají autentizační kalkulátory (L03 s. 39), ne „magneto-optické karty“.",
+   "Správně – žádné z ostatních tvrzení neodpovídá skutečnému typu karty.",
+   "Špatně – takové „prokazatelně bezpečné“ rozhraní neexistuje; karty jsou kontaktní nebo bezkontaktní.",
+   "Špatně – smyšlená kombinace pojmů; „magneto-optický proužek“ u čipových karet neexistuje."
+  ],
+  "note": ""
+ },
+ "48de57a0ff": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     25
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Shamirův protokol bez klíčů používá komutativní šifru: A → B: E_KA(X); B → A: E_KB(E_KA(X)); A → B: E_KB(X). Slide uzavírá: „Nyní obě strany sdílí X; byly nutné 3 zprávy.“",
+  "opts": [
+   "Špatně – dvě zprávy nestačí, B by měl jen X zašifrované klíčem A.",
+   "Špatně – stačí 3 zprávy.",
+   "Správně – „byly nutné 3 zprávy“ (L07 s. 25).",
+   "Špatně – správná odpověď (3) mezi možnostmi je."
+  ],
+  "note": ""
+ },
+ "24d878fa6a": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     26,
+     34,
+     35
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "API umožňuje volat rutiny karty jednotným způsobem a „chyby návrhu API mohou umožňovat útočníkovi neautorizovaný přístup k datům“. Útočník tedy zneužívá chybu v návrhu rozhraní tím, že posílá specifické vstupy s nezamýšleným dopadem. Indukce chyb je samostatný typ útoku.",
+  "opts": [
+   "Správně – útok využívá „chyby návrhu API“.",
+   "Správně – zaslání specifických vstupů, které rozhraní zpracuje nezamýšleným způsobem, je podstatou programového útoku přes API.",
+   "Špatně – API je naopak přístupové rozhraní k vnitřním rutinám karty; útok jeho dostupnost využívá.",
+   "Špatně – indukce chyb (napětí, hodiny, teplota) je samostatný typ logického útoku (s. 34), ne útok přes API."
+  ],
+  "note": ""
+ },
+ "8cac251c8a": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     33
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Odolná implementace je „sniž čítač – ověř – [zvyš čítač]“: čítač se do paměti sníží ještě před ověřením PINu a obnoví se jen při správném PINu. Zranitelná implementace „ověř – [zvyš/sniž čítač]“ dovolí podle výkonového profilu poznat špatný PIN a přerušit napájení dřív, než se čítač sníží.",
+  "opts": [
+   "Špatně – zvyšování čítače před ověřením nedává smysl a neomezuje pokusy.",
+   "Správně – test čítače > 0, snížení, ověření, při dobrém PINu zvýšení (vzor ze slidu 33).",
+   "Špatně – čítač se musí před ověřením snížit, ne zvýšit.",
+   "Špatně – to je zranitelná implementace: snížení až po ověření lze přerušit odpojením napájení."
+  ],
+  "note": ""
+ },
+ "817b8a8b7b": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     22,
+     23
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Varování „REMOTE HOST IDENTIFICATION HAS CHANGED“ vzniká, když se klíč poslaný serverem liší od záznamu v known_hosts. Příčinou může být útok man-in-the-middle, legitimní změna host key, nebo změna záznamu v known_hosts u uživatele („Offending key in …/known_hosts“).",
+  "opts": [
+   "Správně – „It is also possible that the RSA host key has just been changed.“",
+   "Špatně – chybějící záznam vede k hlášce při prvním připojení („authenticity of host … can't be established“), ne k hlášce o změně.",
+   "Správně – podvržený server = man-in-the-middle („Someone could be eavesdropping…“).",
+   "Správně – porovnává se se záznamem v ~/.ssh/known_hosts; když se změní lokální záznam, klíče se neshodují."
+  ],
+  "note": ""
+ },
+ "b6c453a44d": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     42,
+     43,
+     45
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "IPsec podle slidu zajišťuje autentizaci původu dat, integritu dat, důvěrnost dat, ochranu před útokem přehráním a automatickou správu klíčů. Nepopiratelnost (přijetí ani odeslání) mezi jeho službami není, protože používá symetrické klíče a MAC.",
+  "opts": [
+   "Špatně – nepopiratelnost přijetí IPsec nezajišťuje (MAC se sdíleným klíčem nepopiratelnost neposkytuje).",
+   "Správně – „Důvěrnost dat“ i „Ochrana před útokem přehráním“.",
+   "Správně – „Autentizace původu dat“ a „Integrita dat“.",
+   "Správně – „Automatickou správu klíčů“."
+  ],
+  "note": ""
+ },
+ "350a68894e": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     54,
+     55
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Testování živosti má podle slidu obvykle tyto dopady: zvětšení senzoru/zařízení, vyšší náklady na vývoj a výrobu a zvýšený počet nesprávných odmítnutí. Brnění uživatele mezi nimi není.",
+  "opts": [
+   "Správně (nemá) – nepříjemné pocity brnění slide neuvádí.",
+   "Špatně (má) – „Zvýšený počet nesprávných odmítnutí.“",
+   "Špatně (má) – vyšší náklady a větší zařízení znamenají vyšší cenu.",
+   "Špatně (má) – „Vyšší náklady na vývoj a výrobu.“"
+  ],
+  "note": ""
+ },
+ "452106e0b8": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     5
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3
+  ],
+  "conf": "slides",
+  "why": "Pro bezpečnou autentizaci tajnou informací musí být informace opravdu tajná (zná ji jen oprávněný uživatel) a vybraná z velkého prostoru hodnot, ideálně se stejnou pravděpodobností. Také musí jít po kompromitaci nastavit novou.",
+  "opts": [
+   "Správně – „nikdo jiný než oprávněný uživatel by ji neměl znát“.",
+   "Špatně – sdělení administrátorovi porušuje tajnost; administrátor může heslo resetovat, nepotřebuje ho znát.",
+   "Špatně – inicializační vektor s autentizací tajnou informací nesouvisí.",
+   "Správně – „autentizační informace by měla být vybrána z velkého prostoru možných hodnot“."
+  ],
+  "note": ""
+ },
+ "cf06eafe5f": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     16,
+     17
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "Řízení přístupu k datům na kartě je „tvořeno především řízením přístupu k souborům“ a „s každým souborem je svázána hlavička souboru, která určuje přístupová práva“ (ALW, CHV1, CHV2, NEV). Základem je zadávání PINů.",
+  "opts": [
+   "Špatně – data čipové karty jsou v její paměti (EEPROM) ve struktuře MF/DF/EF, ne na magnetickém proužku.",
+   "Správně – hlavička souboru určuje přístupová práva.",
+   "Špatně – data lze číst i měnit podle přístupových podmínek (např. ALW, CHV1); NEV je jen jedna z možností.",
+   "Správně – „tvořeno především řízením přístupu k souborům“."
+  ],
+  "note": ""
+ },
+ "ad7cacaed6": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     24
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "slides",
+  "why": "Odpověď na narušení (tamper response) je „automatická akce provedená chráněnou částí při zjištění pokusu o narušení“, např. smazání klíčů. Jde o reakci chráněné části na probíhající útok.",
+  "opts": [
+   "Špatně – správná odpověď mezi možnostmi je.",
+   "Špatně – nejde o službu internetového bankovnictví, ale o vlastnost hardwaru odolného vůči narušení.",
+   "Špatně – reaguje chráněná část systému, ne nechráněná, a reaguje na zjištěný pokus, ne jen potenciální útok.",
+   "Správně – automatická reakce chráněné části na zjištěný pokus o narušení."
+  ],
+  "note": ""
+ },
+ "5d17fbea24": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     7,
+     33,
+     38,
+     39
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1,
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Slide „Dilema“ staví lidskou paměť (co nejkratší a nejjednodušší) proti bezpečnosti (co nejdelší a nejsložitější). Doporučení je „lehce zapamatovatelné, obtížně uhodnutelné“ heslo, typicky založené na frázi; fráze se podle experimentu nepamatují hůře než naivní hesla. Čistě z hlediska paměti vyhovují i jednoduchá hesla.",
+  "opts": [
+   "Správně – „Lehce zapamatovatelné, obtížně uhodnutelné!“ (s. 38).",
+   "Správně – otázka se ptá jen na hledisko paměti, a to preferuje „co nejkratší / nejjednodušší“ (s. 7); z hlediska bezpečnosti jde ovšem o špatnou volbu.",
+   "Špatně – obtížně zapamatovatelná hesla a časté změny paměti škodí; expirace vede ke slabým heslům (s. 35–36).",
+   "Správně – hesla založená na frázích se „nepamatují hůře než naivně zvolená hesla“ (s. 33, 39)."
+  ],
+  "note": ""
+ },
+ "7b339769a1": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     48,
+     49
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "L1 dominuje L2, pokud C1 ≥ C2 a S1 ⊇ S2. Zde TS > S a {obrana, ekonomika} ⊇ {obrana}, takže L1 dominuje L2. Neporovnatelné by byly, kdyby žádná množina kategorií neobsahovala tu druhou.",
+  "opts": [
+   "Špatně – úrovně jsou porovnatelné, protože {obrana} ⊆ {obrana, ekonomika}.",
+   "Správně – TS ≥ S a množina kategorií L1 obsahuje kategorie L2.",
+   "Špatně – S < TS a {obrana, ekonomika} ⊄ {obrana}.",
+   "Špatně – dominance závisí jen na klasifikaci a kategoriích, ne na *-vlastnosti (ta je pravidlo pro přístup)."
+  ],
+  "note": ""
+ },
+ "282918083d": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     2,
+     36
+    ]
+   },
+   {
+    "l": "L10",
+    "s": [
+     4
+    ]
+   }
+  ],
+  "key": [
+   2,
+   3
+  ],
+  "conf": "slides",
+  "why": "Dvoufaktorová autentizace kombinuje dva různé faktory: token (něco, co máme) a znalost (něco, co známe). Pokud se uživatel musí vůči tokenu nejprve prokázat PINem nebo heslem, přibude k tokenu faktor znalosti. Slidy e-bankovnictví uvádějí právě „token … a znalosti (přístupový PIN) k vygenerování OTP“.",
+  "opts": [
+   "Špatně – počet systémů, kde se heslo použije, s faktory nesouvisí.",
+   "Špatně – „dvoufaktorová“ neznamená dva faktorizační problémy; jde o dva typy autentizačních faktorů.",
+   "Správně – heslo je faktor znalosti, token faktor vlastnictví.",
+   "Správně – PIN je faktor znalosti (L10 s. 4, L03 s. 36: PIN u kalkulátorů)."
+  ],
+  "note": ""
+ },
+ "f91080c678": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     12
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2
+  ],
+  "conf": "reasoned",
+  "why": "Slide definuje hybridní kartu jako kartu se „2 vzájemně nepropojenými čipy“ (na rozdíl od duální/kombinované karty: 1 čip, 2 rozhraní). Typicky jde o kontaktní a bezkontaktní čip, takže karta komunikuje přes obě rozhraní.",
+  "opts": [
+   "Správně – „Hybridní (2 vzájemně nepropojené čipy)“.",
+   "Špatně – výhradní technologií pro bankovní operace hybridní karta není; bankovní karty jsou běžně duální nebo jen kontaktní.",
+   "Správně – dva čipy obvykle znamenají kontaktní a bezkontaktní rozhraní (každé přes vlastní čip).",
+   "Špatně – „hybridní“ označuje fyzické uspořádání čipů, ne kombinaci typů kryptografie."
+  ],
+  "note": ""
+ },
+ "edc86c4bb4": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     12
+    ]
+   },
+   {
+    "l": "L10",
+    "s": [
+     43
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "reasoned",
+  "why": "Bezkontaktní karta nemá vlastní zdroj energie a přes anténu získává energii z pole čtečky i komunikuje (proto „omezený zdroj energie“). Bezdrátovou komunikaci lze odposlechnout a operace mohou proběhnout „bez vědomí uživatele“. Kontaktní karta je napájena čtečkou.",
+  "opts": [
+   "Správně – anténa slouží ke komunikaci i k napájení z pole čtečky (omezený zdroj energie, s. 12).",
+   "Správně – bezdrátový kanál umožňuje pasivní i aktivní útoky včetně odposlechu (L03 s. 12; obdobně L10 s. 43).",
+   "Špatně – kontaktní karta vlastní zdroj nemá: „nutný kontakt se čtečkou (zdroj energie)“.",
+   "Špatně – slidy nic takového neuvádějí; výpadek napájení naopak bývá zneužíván k útokům (L03 s. 33)."
+  ],
+  "note": ""
+ },
+ "9af0fb5f0f": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     2,
+     50
+    ]
+   },
+   {
+    "l": "L03",
+    "s": [
+     19
+    ]
+   },
+   {
+    "l": "L10",
+    "s": [
+     5,
+     8
+    ]
+   }
+  ],
+  "key": [
+   1,
+   2
+  ],
+  "conf": "slides",
+  "why": "PIN je krátká tajná informace (něco, co známe), která se u bankomatu používá jako druhý faktor vedle karty. Uživatelé volí PINy velmi předvídatelně – analýza 3,4 mil. PINů ukazuje na čele 1234, 1111, 0000.",
+  "opts": [
+   "Špatně – PIN musí znát jen oprávněný uživatel; banka ani originální PIN neuchovává, generuje se v HSM a zasílá v obálce (L10 s. 8).",
+   "Správně – L03 s. 19 („PIN-paráda“) uvádí nejčastější 1234, 1111, 0000; hodnota 0007 v tabulce není, ale smysl odpovědi (předvídatelné volby) odpovídá.",
+   "Správně – u bankomatu jde o dvoufaktorovou autentizaci: karta (token) + PIN (L10 s. 5, L02 s. 50 „obvykle používány s fyzickým předmětem“).",
+   "Špatně – PIN karty nemá s heslem do internetového bankovnictví nic společného; generuje se z PAN a tajného klíče v HSM (L10 s. 8)."
+  ],
+  "note": ""
+ },
+ "a584871f7d": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     15
+    ]
+   },
+   {
+    "l": "L03",
+    "s": [
+     12
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Bezkontaktní čip (např. e-pas) lze číst bez vědomí uživatele (L03 s. 12), proto se soukromí chrání tím, že čip nevydává stálý identifikátor (náhodné UID) a že ho nelze přečíst, když je dokument zavřený (stínění). Slajdy tyto techniky výslovně nevyjmenovávají.",
+  "opts": [
+   "Špatně – data z MRZ se naopak používají k odvození přístupových klíčů (BAC); „maskování prvních 5 bajtů“ není technika ochrany soukromí.",
+   "Správně – náhodný/měnící se identifikátor čipu brání sledování (tracking) držitele podle UID.",
+   "Špatně – podepsané haše v EF.SO_D slouží k pasivní autentizaci dat (integrita a původ, obdoba SDA – L10 s. 15), ne k ochraně soukromí.",
+   "Správně – stínění (Faradayova klec, např. v deskách pasu) brání neoprávněnému čtení bezkontaktního čipu."
+  ],
+  "note": ""
+ },
+ "e58c05cac9": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     17,
+     18
+    ]
+   }
+  ],
+  "key": [
+   0,
+   3
+  ],
+  "conf": "slides",
+  "why": "Integritu dat (že data nebyla neautorizovaně změněna) zajišťují kryptografické metody autentizace dat: MAC (haš s tajným klíčem) a digitální podpis (L05 s. 18).",
+  "opts": [
+   "Správně – MAC/HMAC je uveden mezi metodami autentizace dat a zpráv (L05 s. 18).",
+   "Špatně – zero-knowledge protokol slouží k autentizaci entity (prokázání znalosti tajemství), ne k ochraně integrity přenášené zprávy.",
+   "Špatně – privátní klíč se nepřenáší a jeho „integrita“ nijak neověřuje změnu zprávy.",
+   "Správně – digitální podpis zajišťuje integritu, autenticitu i nepopiratelnost (L05 s. 2, 18)."
+  ],
+  "note": ""
+ },
+ "0b3717a2fe": {
+  "lecture": "L06",
+  "src": [
+   {
+    "l": "L06",
+    "s": [
+     22,
+     23
+    ]
+   }
+  ],
+  "key": [
+   1,
+   3
+  ],
+  "conf": "slides",
+  "why": "SSH si pamatuje veřejné klíče serverů v known_hosts. Když server pošle jiný klíč, zobrazí se „REMOTE HOST IDENTIFICATION HAS CHANGED“ – může jít o MITM útok, nebo o legitimní změnu klíče hostitele (L06 s. 23).",
+  "opts": [
+   "Špatně – nejde o samostatnou odpověď, jen o úlomek textu otázky („…může být způsobeno“).",
+   "Správně – hlášení výslovně uvádí „It is also possible that the RSA host key has just been changed“ (L06 s. 23).",
+   "Špatně – chybějící záznam vede k jinému hlášení („authenticity of host can't be established“) při prvním připojení, ne k hlášení o změně.",
+   "Správně – „Someone could be eavesdropping… (man-in-the-middle attack)“ – podvržený server má jiný klíč (L06 s. 23)."
+  ],
+  "note": ""
+ },
+ "8f1c443ab5": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     12
+    ]
+   }
+  ],
+  "key": [
+   3
+  ],
+  "conf": "reasoned",
+  "why": "Slajdy dělí čipové karty na paměťové, s logikou a procesorové, kontaktní/bezkontaktní/hybridní/duální (L03 s. 12); žádná z nabízených vlastností neodpovídá. Uvedená tvrzení jsou smyšlená, proto platí „žádná z výše uvedených“.",
+  "opts": [
+   "Špatně – „magneto-optický proužek“ s takovou vlastností není popsán; tvrzení je vymyšlené.",
+   "Špatně – snímání kódů z obrazovky (flicker kód) dělají autentizační kalkulátory (L03 s. 39), ne „magneto-optické karty“.",
+   "Špatně – „prokazatelně bezpečné magneto-optické rozhraní“ neexistuje; karty komunikují kontaktně nebo bezkontaktně (L03 s. 12).",
+   "Správně – žádné z tvrzení není pravdivé."
+  ],
+  "note": ""
+ },
+ "ce12809bc3": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     25
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Shamirův protokol bez klíčů používá komutativní šifru: A→B E_KA(X), B→A E_KB(E_KA(X)), A→B E_KB(X). Slajd výslovně říká „byly nutné 3 zprávy“.",
+  "opts": [
+   "Špatně – správná odpověď mezi možnostmi je (3).",
+   "Špatně – dvě zprávy nestačí, B by ještě neměl X.",
+   "Správně – 3 zprávy (L07 s. 25).",
+   "Špatně – čtvrtá zpráva není potřeba."
+  ],
+  "note": ""
+ },
+ "cab956dbbe": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     15
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "reasoned",
+  "why": "Klonování brání aktivní autentizace / autentizace čipu: čip prokazuje znalost soukromého klíče, který nelze z čipu vyčíst (analogie DDA u EMV, L10 s. 15). Data z MRZ slouží jen k přístupu k datům (BAC), ne ke klonování klíče. Konkrétní pasy slajdy nepopisují.",
+  "opts": [
+   "Špatně – z MRZ lze odvodit jen přístupové klíče ke čtení dat; soukromý klíč čipu tím nezískáme.",
+   "Správně – klon by musel mít soukromý klíč čipu, který je v čipu uložen a nelze ho vyčíst (obdoba DDA, L10 s. 15).",
+   "Špatně – e-pas nemá uživatelský PIN; ani spolupráce držitele neumožní soukromý klíč vyčíst."
+  ],
+  "note": ""
+ },
+ "d3d914997b": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     55,
+     56,
+     58
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Bell-LaPadula chrání důvěrnost: ss-vlastnost = no read up (nečíst výš), *-vlastnost = no write down (nezapisovat níž) (L08 s. 55).",
+  "opts": [
+   "Správně – *-vlastnost, NWD – no write down (L08 s. 55, 58).",
+   "Správně – ss-vlastnost, NRU – no read up (L08 s. 55, 56).",
+   "Špatně – čtení z nižší úrovně je povoleno; zákaz „read down“ je naopak vlastnost Biby (integrita)."
+  ],
+  "note": ""
+ },
+ "ca54d7a73f": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     15
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "reasoned",
+  "why": "Klonování brání aktivní autentizace / autentizace čipu: čip prokazuje znalost soukromého klíče, který nelze z čipu vyčíst (analogie DDA u EMV, L10 s. 15). Data z MRZ slouží jen k přístupu k datům (BAC), ne ke klonování klíče. Konkrétní pasy slajdy nepopisují.",
+  "opts": [
+   "Špatně – z MRZ lze odvodit jen přístupové klíče ke čtení dat; soukromý klíč čipu tím nezískáme.",
+   "Správně – klonování vyžaduje soukromý klíč čipu, který z čipu nelze vyčíst (obdoba DDA, L10 s. 15).",
+   "Špatně – PIN držitele u pasu nehraje roli; soukromý klíč nelze vyčíst ani s jeho spoluprací."
+  ],
+  "note": ""
+ },
+ "522d62c80c": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     49,
+     50
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "reasoned",
+  "why": "Běžná komerční biometrická zařízení jsou levná periferie navržená pro pohodlí, ne bezpečnost – výrobce sám píše, že čtečka „is not a security feature“ a přednáška dodává „Zařízení opravdu není příliš bezpečné“ (L04 s. 49). Taková zařízení nemají ochranu proti průniku, kvalitní šifrování ani autentizaci vůči ostatním prvkům.",
+  "opts": [
+   "Špatně – detekce či odolnost proti průniku je vlastnost dražších bezpečnostních zařízení, ne běžné komerční čtečky (L04 s. 49).",
+   "Špatně – rozebíraná čtečka (odkaz na Kiviharju, BlackHat 2006, L04 s. 49) přenášená data dobře nechránila.",
+   "Správně – běžné zařízení se typicky vůči dalším komunikujícím neautentizuje, lze ho tedy podvrhnout nebo přehrát jeho data."
+  ],
+  "note": ""
+ },
+ "76f9e2fb2b": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L07",
+    "s": [
+     26,
+     27,
+     28
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "Kerberos (projekt Athena, MIT) používá symetrickou šifru E; každá strana sdílí tajný klíč se serverem (K_AT, K_BT) a server distribuuje relační klíč k (L07 s. 27).",
+  "opts": [
+   "Špatně – základní Kerberos nepoužívá asymetrickou část, nejde tedy o hybridní schéma.",
+   "Správně – „Symetrická šifra E“ (L07 s. 27).",
+   "Špatně – asymetrické techniky přenosu klíče jsou na slajdech až dále (L07 s. 29), s Kerberem nesouvisí."
+  ],
+  "note": ""
+ },
+ "703729ce7a": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     3,
+     8,
+     9
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Heslo v čisté podobě lze odposlechnout, proto se posílá nanejvýš jeho haš (L02 s. 8), lépe se heslo neposílá vůbec a použije se výzva-odpověď (L02 s. 9).",
+  "opts": [
+   "Správně – „neposílá se heslo samotné, ale pouze haš hesla“ (L02 s. 8); pozor, odposlechnutý haš lze přehrát.",
+   "Správně – u výzva-odpověď ani zero-knowledge se heslo/tajemství nepřenáší (L02 s. 3, 9).",
+   "Špatně – „Heslo v čisté podobě je možné odposlechnout“ (L02 s. 8)."
+  ],
+  "note": ""
+ },
+ "8bdefaec5f": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     68,
+     70
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Biometriky autentizují uživatele, ne počítače nebo data; výhodně mohou chránit přístup k tajnému klíči a hodí se jako doplňková metoda (L04 s. 68, 70).",
+  "opts": [
+   "Správně – „Biometriky autentizují uživatele, nikoliv počítače nebo data, zprávy“ (L04 s. 68).",
+   "Špatně – „Biometriky mohou výhodně chránit přístup k tajnému klíči“ (L04 s. 68), tedy použití je výhodné.",
+   "Špatně – „Výhodné je použití biometrik jako doplňkové metody“ (L04 s. 70)."
+  ],
+  "note": ""
+ },
+ "d6411ba515": {
+  "lecture": "L03",
+  "src": [
+   {
+    "l": "L03",
+    "s": [
+     40
+    ]
+   },
+   {
+    "l": "L02",
+    "s": [
+     45
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Hodiny tokenu a serveru se postupně rozcházejí, proto je třeba řešit ztrátu synchronizace: tolerance časových rámců „před“ a „po“ a uložený offset na serveru, aktualizovaný po úspěšném přihlášení (L03 s. 40).",
+  "opts": [
+   "Špatně – token pracuje s absolutním časem (např. UTC), letní čas ani přestupné roky nejsou důvodem.",
+   "Špatně – správná odpověď mezi možnostmi je.",
+   "Správně – „Je potřeba řešit otázku ztráty synchronizace hodin“, offset v čítači na serveru (L03 s. 40)."
+  ],
+  "note": ""
+ },
+ "0804cf2a82": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     20,
+     50
+    ]
+   },
+   {
+    "l": "L03",
+    "s": [
+     18
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "PIN má malý prostor hodnot, takže proti hrubé síle chrání procedurální omezení: po 3 chybných pokusech zabavení karty / blokace a odblokování delším PINem (PUK) (L02 s. 50, L03 s. 18).",
+  "opts": [
+   "Špatně – pravidelná změna nezvětší prostor hodnot ani nezabrání zkoušení všech kombinací.",
+   "Správně – „Zabavení karty při několika (3) nesprávných PINech“ (L02 s. 50); „Počet neúspěšných pokusů bývá omezen“ (L03 s. 18).",
+   "Špatně – školení může zlepšit volbu PINu, ale útok hrubou silou neeliminuje."
+  ],
+  "note": ""
+ },
+ "db27bef8a2": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     62,
+     67
+    ]
+   }
+  ],
+  "key": [
+   0,
+   1
+  ],
+  "conf": "slides",
+  "why": "Hlavní poznatky (L04 s. 62): biometriky mohou být velmi citlivé, nejsou tajné, kopírování nemusí být triviální, ale není obtížné.",
+  "opts": [
+   "Správně – doslova „Kopírování nemusí být triviální, ale není obtížné“ (L04 s. 62).",
+   "Správně – „Biometriky mohou být velmi citlivé informace“ (L04 s. 62).",
+   "Špatně – „Biometriky nejsou tajné“ (L04 s. 62, 67)."
+  ],
+  "note": ""
+ },
+ "994809375d": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     7
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Dilema hesel: lidská paměť (co nejkratší/nejjednodušší) versus bezpečnost (co nejdelší/nejsložitější) (L02 s. 7).",
+  "opts": [
+   "Správně – přesně dilema „zapamatování versus bezpečnost“ (L02 s. 7).",
+   "Špatně – ignorovat zapamatovatelnost vede k zapisování hesel a jiným nebezpečným návykům.",
+   "Špatně – žádný takový požadavek neexistuje."
+  ],
+  "note": ""
+ },
+ "9572c01947": {
+  "lecture": "L05",
+  "src": [
+   {
+    "l": "L05",
+    "s": [
+     21
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Asymetrické podpisové algoritmy jsou pomalé, proto se v praxi podepisuje jen haš dokumentu (fixní délka řádově stovky bitů); dělit dokument na části a podepisovat zvlášť není bezpečné (L05 s. 21).",
+  "opts": [
+   "Správně – „nepodepisujeme celý dokument… ale pouze haš“ (L05 s. 21).",
+   "Špatně – podepisuje se haš bez ohledu na velikost dokumentu.",
+   "Špatně – přímé podepisování celého dokumentu se v praxi nedělá (pomalost, L05 s. 21)."
+  ],
+  "note": ""
+ },
+ "b63217aa95": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     15
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "reasoned",
+  "why": "Klonování brání aktivní autentizace / autentizace čipu: čip prokazuje znalost soukromého klíče, který nelze z čipu vyčíst (analogie DDA u EMV, L10 s. 15). Data z MRZ slouží jen k přístupu k datům (BAC), ne ke klonování klíče. Konkrétní pasy slajdy nepopisují.",
+  "opts": [
+   "Špatně – z MRZ lze odvodit jen přístupové klíče (BAC); aktivní autentizaci tím neobejdeme.",
+   "Správně – aktivní autentizace (obdoba DDA, L10 s. 15) vyžaduje soukromý klíč čipu, který nelze vyčíst.",
+   "Špatně – pas nemá PIN držitele; soukromý klíč nelze získat ani se spoluprací držitele."
+  ],
+  "note": ""
+ },
+ "16880cd523": {
+  "lecture": "L04",
+  "src": [
+   {
+    "l": "L04",
+    "s": [
+     7,
+     8
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "slides",
+  "why": "Zásadní rozdíl oproti heslům a tokenům: biometrická data nejsou nikdy 100% shodná, proto musíme povolit variabilitu mezi registračním vzorkem a později získanými daty (L04 s. 7). 100% shoda naopak naznačuje podvod (přehrání) (L04 s. 8).",
+  "opts": [
+   "Špatně – transplantace není důvodem tolerance; jde o běžné odchylky při každém snímání.",
+   "Špatně – odchylky způsobuje hlavně měření (poloha, tlak, prostředí, senzor), ne obnova buněk.",
+   "Správně – „biometrická data nejsou nikdy 100% shodná“ (L04 s. 7)."
+  ],
+  "note": ""
+ },
+ "946490f438": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     15
+    ]
+   }
+  ],
+  "key": [
+   2
+  ],
+  "conf": "reasoned",
+  "why": "Pas bez aktivní autentizace má jen pasivní autentizaci (podepsané haše dat, obdoba SDA – L10 s. 15). Podepsaná data lze přečíst a zkopírovat do jiného čipu; ke čtení stačí klíče odvozené z MRZ (BAC). Konkrétní pas slajdy nepopisují.",
+  "opts": [
+   "Špatně – bez aktivní autentizace čip žádný soukromý klíč pro autentizaci nepoužívá.",
+   "Špatně – pas nemá PIN držitele, stačí znát údaje z MRZ.",
+   "Správně – data z čipu lze s klíči z MRZ přečíst a staticky zkopírovat (podpis zůstane platný)."
+  ],
+  "note": ""
+ },
+ "f002a35041": {
+  "lecture": "L08",
+  "src": [
+   {
+    "l": "L08",
+    "s": [
+     39,
+     41
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "slides",
+  "why": "Při volitelném řízení přístupu (DAC) rozhoduje o přístupu vlastník objektu a systém se nestará o využití jednou získaných dat – kdo smí číst, může data zkopírovat a nastavit špatná práva; DAC není odolné vůči trojským koním (L08 s. 41).",
+  "opts": [
+   "Správně – např. člen skupiny důvěrný soubor zkopíruje a nesprávně nastaví práva (L08 s. 41).",
+   "Špatně – striktní hierarchie úrovní je rysem povinného řízení přístupu (MAC), ne DAC (L08 s. 39).",
+   "Špatně – i to popisuje povinné řízení přístupu (např. Bell-LaPadula), ne volitelné."
+  ],
+  "note": ""
+ },
+ "93023c7a39": {
+  "lecture": "L02",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     13
+    ]
+   }
+  ],
+  "key": [
+   0,
+   2
+  ],
+  "conf": "slides",
+  "why": "Ukládá se jen výsledek jednosměrné hašovací funkce, z něhož heslo nelze přímo spočítat; doplňuje se solí (a případně pepřem) a pomalou funkcí (L02 s. 13).",
+  "opts": [
+   "Správně – „velice se nám hodí jednosměrnost funkce“ (L02 s. 13); heslo lze jen hádat, ne zpětně spočítat.",
+   "Špatně – pokud potřebujeme otevřenou podobu hesla, hesla šifrujeme, ne hašujeme (L02 s. 12).",
+   "Správně – „Solení“: haš je funkcí hesla i náhodné soli (L02 s. 13)."
+  ],
+  "note": ""
+ },
+ "4b36d50f81": {
+  "lecture": "L07",
+  "src": [
+   {
+    "l": "L02",
+    "s": [
+     3,
+     9
+    ]
+   },
+   {
+    "l": "L07",
+    "s": [
+     32
+    ]
+   }
+  ],
+  "key": [
+   0
+  ],
+  "conf": "reasoned",
+  "why": "Protokoly výzva-odpověď (s kryptografickými klíči, tokeny, podpisy) jsou v běžných aplikacích (EMV, tokeny, TLS) rozšířené. Zero-knowledge protokoly (např. Fiat-Shamir) jsou teoreticky silnější, ale v praxi se nasazují zřídka (L07 s. 32 je popisuje jako „jdou dále“).",
+  "opts": [
+   "Správně – výzva-odpověď je v praxi standard (L02 s. 3, 9).",
+   "Špatně – zero-knowledge protokoly se v běžných aplikacích používají méně."
+  ],
+  "note": ""
+ },
+ "f89ef0c3aa": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     5,
+     23
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "CVV2/CVC je hodnota vytištěná na kartě, používaná při bezhotovostní platbě přes Internet (L10 s. 5). Nemá nic společného s CVV na magnetickém proužku (L10 s. 23).",
+  "opts": [
+   "Špatně – CVV na proužku je kryptografický kontrolní součet a „nemá nic společného s CVV2“ (L10 s. 23); není to kód pro opravu chyb.",
+   "Správně – „bezhot. platba kartou z Internetu – CVV2/CVC/CID čísla“; CVV2 je „vytištěné na kartě“ (L10 s. 5, 23)."
+  ],
+  "note": ""
+ },
+ "1781523676": {
+  "lecture": "L10",
+  "src": [
+   {
+    "l": "L10",
+    "s": [
+     28
+    ]
+   }
+  ],
+  "key": [
+   1
+  ],
+  "conf": "slides",
+  "why": "PINy v obálkách lze vyčíst prosvícením ostrým světlem; „Laserový tisk poskytuje menší ochranu než průklepový tisk“ (L10 s. 28).",
+  "opts": [
+   "Špatně – laserový tisk je vůči prosvícení méně odolný (L10 s. 28).",
+   "Správně – průklepový tisk poskytuje větší ochranu (L10 s. 28)."
+  ],
+  "note": ""
+ }
+}

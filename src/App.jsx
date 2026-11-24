@@ -19,7 +19,7 @@ export default function App() {
   const [P, setP] = useStoredState(PROGRESS_KEY, blankProgress, normalizeProgress);
   const [exam, setExam] = useStoredState(EXAM_KEY, null, validateExam);
   const [view, setView] = useState(() => (exam && !exam.done ? "exam" : "practice"));
-  const [browse, setBrowse] = useState({ q: "", f: "all", answers: true });
+  const [browse, setBrowse] = useState({ q: "", f: "all", lec: "all", answers: true });
   const practice = usePractice(P, setP);
   const examRunning = !!exam && !exam.done;
   const now = useNow(1000, examRunning);
@@ -54,6 +54,12 @@ export default function App() {
     practice.next({ mode: m });
   }
 
+  function chooseLecture(lec) {
+    setPrefs({ lec });
+    setView("practice");
+    practice.next({ lec });
+  }
+
   function openQuestion(qi) {
     setView("practice");
     practice.open(qi);
@@ -76,43 +82,52 @@ export default function App() {
   }
 
   // ----- exam -----
-  function submitExam() {
+  function submitExam(expired = false) {
     if (!examRunning || graded.current === exam.start) return;
     graded.current = exam.start;
-    const result = gradeExam(P, exam);
+    const result = gradeExam(P, exam, Date.now(), expired);
     setP(result.progress);
     setExam(result.exam);
-    if (view === "exam") window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0 });
   }
 
   const examActions = {
     config: (patch) => setPrefs({ exam: { ...P.prefs.exam, ...patch } }),
-    start: () => setExam(createExam(P, setKey, P.prefs.exam)),
-    toggle: (d) =>
+    start: () => {
+      setExam(createExam(P, setKey, P.prefs.exam));
+      window.scrollTo({ top: 0 });
+    },
+    // Tick or untick option j (original index) of question k.
+    check: (k, j, on) =>
       setExam((ex) => {
         if (!ex || ex.done) return ex;
-        const j = ex.orders[ex.idx][d];
-        if (j == null) return ex;
-        const cur = ex.sel[ex.idx];
-        const picked = cur.includes(j) ? cur.filter((x) => x !== j) : [...cur, j];
-        return { ...ex, sel: ex.sel.map((s, k) => (k === ex.idx ? picked : s)) };
+        const cur = ex.sel[k].filter((x) => x !== j);
+        const picked = on ? [...cur, j].sort((a, b) => a - b) : cur;
+        return { ...ex, idx: k, sel: ex.sel.map((s, n) => (n === k ? picked : s)) };
       }),
-    go: (k) => setExam((ex) => (ex && !ex.done && k >= 0 && k < ex.ids.length ? { ...ex, idx: k } : ex)),
-    submit: submitExam,
-    flag,
-    close: () => setExam(null),
+    submit: () => submitExam(false),
+    // Leave a running test without handing it in; the Exam tab brings it back.
+    leave: () => chooseView("practice"),
+    restart: () => {
+      setExam(createExam(P, exam ? exam.set : setKey, { ...P.prefs.exam, lec: exam?.lec ?? P.prefs.exam.lec }));
+      window.scrollTo({ top: 0 });
+    },
+    close: () => {
+      setExam(null);
+      chooseView("practice");
+    },
     practiceMistakes: () => {
       const s = exam.set;
       setExam(null);
-      setPrefs({ set: s, mode: "mistakes" });
+      setPrefs({ set: s, mode: "mistakes", lec: "all" });
       setView("practice");
-      practice.next({ setKey: s, mode: "mistakes" });
+      practice.next({ setKey: s, mode: "mistakes", lec: "all" });
     },
   };
 
   // Hand the paper in when the time limit runs out (also right after reloading).
   useEffect(() => {
-    if (examRunning && exam.limit && timeLeft(exam, now) <= 0) submitExam();
+    if (examRunning && exam.limit && timeLeft(exam, now) <= 0) submitExam(true);
   }, [now]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ----- keyboard -----
@@ -128,19 +143,15 @@ export default function App() {
       }
       else if (k === "f") { e.preventDefault(); flag(practice.cur); }
       else if (k === "s" && !practice.checked) { e.preventDefault(); practice.next(); }
-    } else if (view === "exam" && examRunning) {
-      if (/^[1-9]$/.test(k)) { e.preventDefault(); examActions.toggle(+k - 1); }
-      else if (k === "arrowright") { e.preventDefault(); examActions.go(exam.idx + 1); }
-      else if (k === "arrowleft") { e.preventDefault(); examActions.go(exam.idx - 1); }
-      else if (k === "f") { e.preventDefault(); flag(exam.ids[exam.idx]); }
-      else if (k === "enter" && !isOtherButton(e) && exam.idx < exam.ids.length - 1) {
-        e.preventDefault();
-        examActions.go(exam.idx + 1);
-      }
     }
   });
 
   const lockSets = view === "exam" && examRunning;
+
+  // A test in progress or under review takes the whole page, like the IS odpovědník.
+  if (view === "exam" && exam) {
+    return <ExamView P={P} exam={exam} setKey={setKey} now={now} actions={examActions} />;
+  }
 
   return (
     <div className="app">
@@ -173,6 +184,7 @@ export default function App() {
             current={practice.cur}
             session={practice.session}
             onMode={chooseMode}
+            onLecture={chooseLecture}
             onOpen={openQuestion}
             onToggleCount={(on) => setPrefs({ count: on })}
             onImport={importProgress}
@@ -200,7 +212,8 @@ export default function App() {
       <footer className="foot">
         Questions from the PV157 All, Midterm and Midterm 2011 sets of{" "}
         <a href="https://fimudrill.github.io/fi-muni-drill/">FI MUNI Drill</a>. Duplicates are merged, so progress on a
-        question counts in every set that contains it.
+        question counts in every set that contains it. Explanations and the “slide key” are checked against the 2026
+        lecture slides (L02–L10); 78 extra questions were written from those slides.
       </footer>
     </div>
   );

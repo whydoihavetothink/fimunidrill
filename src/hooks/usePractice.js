@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
-import { QUESTIONS, SET_LISTS } from "../lib/bank.js";
+import { QUESTIONS } from "../lib/bank.js";
 import { applyAnswer, entryOf, keyOf, markVisited, ownKey, withEntry } from "../lib/progress.js";
-import { pickNext } from "../lib/picker.js";
+import { pickNext, poolFor } from "../lib/picker.js";
 import { maskOf, shuffle } from "../lib/format.js";
 
 const IDLE = { cur: null, order: [], sel: [], checked: false, result: null, before: null };
@@ -28,14 +28,16 @@ export default function usePractice(P, setP) {
   function next(over = {}) {
     const s = over.setKey ?? setKey;
     const m = over.mode ?? P.prefs.mode;
-    const { qi, cursor } = pickNext(over.progress ?? P, s, m, recent.current);
+    let base = over.progress ?? P;
+    if (over.lec) base = { ...base, prefs: { ...base.prefs, lec: over.lec } };
+    const { qi, cursor } = pickNext(base, s, m, recent.current);
     if (cursor != null) setP((p) => ({ ...p, prefs: { ...p.prefs, cur: { ...p.prefs.cur, [s]: cursor } } }));
     show(qi);
   }
 
   function open(qi) {
     if (P.prefs.mode === "order") {
-      const at = SET_LISTS[setKey].indexOf(qi);
+      const at = poolFor(P, setKey, "order").indexOf(qi);
       setP((p) => ({ ...p, prefs: { ...p.prefs, cur: { ...p.prefs.cur, [setKey]: at } } }));
     }
     show(qi);

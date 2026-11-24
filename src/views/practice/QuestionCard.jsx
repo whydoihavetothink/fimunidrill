@@ -1,4 +1,5 @@
-import { DIFF, DISPUTED, POSITION, QUESTIONS, SET_LISTS } from "../../lib/bank.js";
+import { useState } from "react";
+import { DIFF, DISPUTED, LECTURE_BY_ID, POSITION, QUESTIONS, SET_LISTS } from "../../lib/bank.js";
 import { MASTER, entryOf, isFlagged, keyOf, statusOf } from "../../lib/progress.js";
 import { bits, plural } from "../../lib/format.js";
 import FlagButton from "../../components/FlagButton.jsx";
@@ -7,6 +8,7 @@ import RichText from "../../components/RichText.jsx";
 import SetsLabel from "../../components/SetsLabel.jsx";
 import StatusPill from "../../components/StatusPill.jsx";
 import DisputePanel from "./DisputePanel.jsx";
+import Explanation from "../../components/Explanation.jsx";
 
 function optionResult({ key, sel }, j) {
   const right = (key >> j) & 1, picked = (sel >> j) & 1;
@@ -44,6 +46,9 @@ export default function QuestionCard({ P, practice, setKey, onFlag }) {
   const { cur: qi, order, sel, checked, result } = practice;
   const q = QUESTIONS[qi];
   const key = keyOf(P, qi, setKey);
+  const [openFor, setOpenFor] = useState(null);
+  // Explanations open by themselves after a wrong answer; after a right one they are one click away.
+  const explained = checked && !!q.e && (!result.ok || openFor === qi);
 
   return (
     <section className="card">
@@ -54,6 +59,8 @@ export default function QuestionCard({ P, practice, setKey, onFlag }) {
         </span>
         <StatusPill status={statusOf(P, qi)} />
         {checked && DISPUTED[qi] && <span className="pill p-disp">Disputed key</span>}
+        {q.l && <span className="pill p-lec" title={LECTURE_BY_ID[q.l].name}>{q.l} · {LECTURE_BY_ID[q.l].name}</span>}
+        {q.isNew && <span className="pill p-new">New</span>}
         <SetsLabel question={q} />
         <span className="grow" />
         <FlagButton flagged={isFlagged(P, qi)} onToggle={() => onFlag(qi)} />
@@ -73,6 +80,7 @@ export default function QuestionCard({ P, practice, setKey, onFlag }) {
             pressed={sel.includes(j)}
             result={checked ? optionResult(result, j) : null}
             disputed={!!((DIFF[qi] >> j) & 1)}
+            reason={explained ? q.e.opts[j] : null}
             onToggle={() => practice.toggle(d)}
           />
         ))}
@@ -85,10 +93,16 @@ export default function QuestionCard({ P, practice, setKey, onFlag }) {
               <b>{result.ok ? "Correct" : "Not quite"}</b>
               <span>{verdictText(result)}</span>
             </div>
+            {q.e && result.ok && openFor !== qi && (
+              <button type="button" className="btn ghost" onClick={() => setOpenFor(qi)}>
+                Show explanation
+              </button>
+            )}
             <button type="button" id="act-main" className="btn primary" onClick={() => practice.next()}>
               Next question <kbd>Enter</kbd>
             </button>
           </div>
+          {explained && <Explanation qi={qi} setKey={setKey} gradedWith={result.key} />}
           <AttemptHistory entry={entryOf(P, qi)} />
           {DISPUTED[qi] && <DisputePanel P={P} qi={qi} setKey={setKey} onChoose={practice.regrade} />}
         </>

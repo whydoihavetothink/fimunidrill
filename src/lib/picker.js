@@ -1,10 +1,10 @@
 // Chooses the next practice question for a set and mode.
-import { DISPUTED, SET_LISTS } from "./bank.js";
+import { DISPUTED, SET_LISTS, inLecture } from "./bank.js";
 import { entryOf, isFlagged, statusOf } from "./progress.js";
 import { randomItem } from "./format.js";
 
 export function poolFor(P, setKey, mode) {
-  const list = SET_LISTS[setKey];
+  const list = SET_LISTS[setKey].filter((qi) => inLecture(qi, P.prefs.lec));
   switch (mode) {
     case "new": return list.filter((qi) => !entryOf(P, qi).n);
     case "mistakes": return list.filter((qi) => statusOf(P, qi) === "wrong");

@@ -7,6 +7,8 @@ import "./styles/question.css";
 import "./styles/sidebar.css";
 import "./styles/exam.css";
 import "./styles/browse.css";
+import "./styles/explain.css";
+import "./styles/is-exam.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

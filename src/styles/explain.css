@@ -1,0 +1,36 @@
+/* Explanations: per-option reasons, the "why" box with its slide source, lecture pills, lecture picker. */
+.opt .oreason { display: block; margin-top: 6px; font-size: 13.5px; line-height: 1.45; color: var(--muted); }
+.opt.hit .oreason, .opt.miss .oreason { color: color-mix(in srgb, var(--ok) 70%, var(--ink)); }
+.opt.bad .oreason { color: color-mix(in srgb, var(--bad) 70%, var(--ink)); }
+
+.explain { margin-top: 18px; padding: 16px 18px; border: 1px solid var(--line); border-left: 3px solid var(--focus); border-radius: 12px; background: var(--sunk); }
+.exhead { display: flex; align-items: center; gap: 10px; }
+.explain h3 { margin: 0; font: 700 15px var(--font-display); }
+.explain .why { margin: 8px 0 0; text-wrap: pretty; }
+.exnote { margin: 10px 0 0; padding: 8px 12px; border-radius: 8px; background: var(--chip-soft); color: var(--chip-ink); font-size: 13.5px; }
+.exsrc { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 13px; }
+.exsrc .lbl { font: 600 11px var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding-top: 2px; }
+ul.src { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
+ul.src .file { color: var(--muted); font-size: 12px; }
+
+.exopts { display: grid; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+.exopts li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 8px; font-size: 14px; }
+.exopts .ic { font: 700 14px var(--font-mono); }
+.exopts li.r .ic { color: var(--ok); }
+.exopts li.w .ic { color: var(--bad); }
+.exopts .otxt { display: block; font-weight: 500; }
+.exopts .oreason { display: block; color: var(--muted); font-size: 13.5px; }
+
+.pill.p-lec { background: var(--surface); border: 1px solid var(--line); color: var(--ink); }
+.pill.p-new { background: var(--ok-soft); color: var(--ok); }
+.pill.p-reason { background: var(--chip-soft); color: var(--chip-ink); }
+
+details.bexplain { margin-top: 10px; }
+details.bexplain > summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--focus); }
+
+.lecpick { display: grid; gap: 6px; margin-top: 12px; }
+.lecpick .lbl { font: 600 11px var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.lecpick select { width: 100%; max-width: 360px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font: inherit; font-size: 13.5px; }
+.btoolrow .lecpick { margin-top: 0; grid-template-columns: auto minmax(0, 1fr); align-items: center; }
+.field .lecpick { margin-top: 0; }
+.field .lecpick .lbl { display: none; }

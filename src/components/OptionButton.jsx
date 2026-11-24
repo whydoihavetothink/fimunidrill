@@ -4,7 +4,7 @@ const TAGS = { hit: "Correct", miss: "Missed", bad: "Wrong pick" };
 
 // One answer option. Before grading it shows its keyboard number; after grading,
 // `result` is "hit" (picked, right), "miss" (right, not picked), "bad" (picked, wrong) or "idle".
-export default function OptionButton({ number, text, pressed, result, disputed, onToggle }) {
+export default function OptionButton({ number, text, pressed, result, disputed, reason, onToggle }) {
   return (
     <button
       type="button"
@@ -16,6 +16,7 @@ export default function OptionButton({ number, text, pressed, result, disputed, 
       <span className="box" aria-hidden="true" />
       <span className="otext">
         <RichText text={text} />
+        {result && reason ? <span className="oreason">{reason}</span> : null}
       </span>
       {result ? (
         <span className="tag">
